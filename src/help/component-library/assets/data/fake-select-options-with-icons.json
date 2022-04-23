@@ -1,0 +1,17 @@
+[
+  {
+    "text": "Option 1",
+    "value": "1",
+    "iconClass": "icon-mail"
+  },
+  {
+    "text": "Option 2",
+    "value": "2",
+    "iconClass": "icon-globe"
+  },
+  {
+    "text": "Option 3",
+    "value": "3",
+    "iconClass": "icon-phone"
+  }
+]

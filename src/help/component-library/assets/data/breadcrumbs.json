@@ -1,0 +1,26 @@
+[
+  {
+    "path": "/",
+    "text": "Home",
+    "iconClass": "icon-home",
+    "type": "href"
+  },
+  {
+    "text": "Subpage",
+    "type": "router",
+    "route": {
+      "path": "/subpage"
+    }
+  },
+  {
+    "text": "Subsubpage",
+    "type": "router",
+    "route": {
+      "name": "subsubpage",
+      "params": {
+        "param1": "1",
+        "param2": "2"
+      }
+    }
+  }
+]

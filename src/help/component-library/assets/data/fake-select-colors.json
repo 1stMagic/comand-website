@@ -1,0 +1,26 @@
+[
+  {
+    "value": "",
+    "text": "Please select..."
+  },
+  {
+    "value": "#ffffff",
+    "text": "White"
+  },
+  {
+    "value": "#ff0000",
+    "text": "Red"
+  },
+  {
+    "value": "#00ff00",
+    "text": "Green"
+  },
+  {
+    "value": "#0000ff",
+    "text": "Blue"
+  },
+  {
+    "value": "#000000",
+    "text": "Black"
+  }
+]
