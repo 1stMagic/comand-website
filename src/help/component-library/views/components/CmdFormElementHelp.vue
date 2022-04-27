@@ -3,18 +3,19 @@
 import {ref} from "vue"
 import {tabProps, tabHandlers} from "../../tabs"
 import {isFrameMode} from "comand-component-library/src/utils/common"
-import {nextSequenceValue, currentSequenceValue} from "../../../utils/globalSequence"
+import {nextSequenceValue, currentSequenceValue} from "comand-component-library/src/utils/globalSequence"
 
 // import components
-import CmdFormElement from "../../../components/CmdFormElement"
-import ComponentProperties from "../../components/ComponentProperties.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
+import {CmdFormElement} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
-import CmdCustomHeadline from "../../../components/CmdCustomHeadline"
+import {CmdCustomHeadline} from "comand-component-library"
+import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
+import ViewCodeData from "../../components/ViewCodeData.vue"
+import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdFormElementHelp"
-import selectOptions from '../../../assets/data/select-options.json'
+import selectOptions from '../../assets/data/select-options.json'
 import propertyDescriptions from "../../generated/CmdFormElementPropertyDescriptions.json"
 
 const propertyStructures = {

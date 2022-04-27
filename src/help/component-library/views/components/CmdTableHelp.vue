@@ -4,16 +4,17 @@ import {tabProps, tabHandlers} from "../../tabs"
 import {isFrameMode} from "comand-component-library/src/utils/common"
 
 // import components
-import CmdTable from "../../../components/CmdTable"
-import ComponentProperties from "../../components/ComponentProperties.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
+import {CmdTable} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
-import CmdCustomHeadline from "../../../components/CmdCustomHeadline"
+import {CmdCustomHeadline} from "comand-component-library"
+import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
+import ViewCodeData from "../../components/ViewCodeData.vue"
+import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdTableHelp"
-import tableSmall from "../../../assets/data/table-small.json"
-import tableLarge from "../../../assets/data/table-large.json"
+import tableSmall from "../../assets/data/table-small.json"
+import tableLarge from "../../assets/data/table-large.json"
 import propertyDescriptions from "../../generated/CmdTablePropertyDescriptions.json"
 
 const propertyStructures = {

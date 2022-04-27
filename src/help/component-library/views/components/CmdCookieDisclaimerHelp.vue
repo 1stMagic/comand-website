@@ -4,14 +4,14 @@ import {tabProps, tabHandlers} from "../../tabs"
 import {isFrameMode} from "comand-component-library/src/utils/common"
 
 // import components
-import CmdCookieDisclaimer from "../../../components/CmdCookieDisclaimer"
-import ComponentProperties from "../../components/ComponentProperties.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
+import {CmdCookieDisclaimer} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
+import ViewCodeData from "../../components/ViewCodeData.vue"
+import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
-import cookieDisclaimer from '../../../assets/data/cookie-disclaimer.json'
+import cookieDisclaimer from '../../assets/data/cookie-disclaimer.json'
 import CmdCode from "../../data/CmdCookieDisclaimerHelp"
 import propertyDescriptions from "../../generated/CmdCookieDisclaimerPropertyDescriptions.json"
 

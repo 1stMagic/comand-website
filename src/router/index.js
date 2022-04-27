@@ -1,16 +1,30 @@
 import { createRouter, createWebHistory } from "vue-router"
 // import {routeHandler as tabsRouteHandler} from "../documentation/tabs"
+
+// import components/pages
 import Company from "../company/Company.vue"
 import CompanyHome from "../company/pages/Home.vue"
-
 import Help from "../help/Help.vue"
-import IconFont from "../help/iconfont/IconFont.vue"
-import componentsDescription from "../help/component-library/data/componentsDescription.json"
+
+// begin 'component-library'-pages
 import ComponentLibrary from "../help/component-library/ComponentLibrary.vue"
 import ComponentLibraryGettingStarted from "../help/component-library/views/GettingStarted.vue"
 import ComponentLibraryComponentDocumentation from "../help/component-library/ComponentDocumentation.vue"
+// end 'component-library'-pages
+
+// begin 'code'-pages
+import Code from "../help/code/Code.vue"
+import Html from "../help/code/Html.vue"
+import Css from "../help/code/Css.vue"
+import Vue from "../help/code/Vue.vue"
+// end 'code'-pages
+
+import IconFonts from "../help/iconfonts/IconFonts.vue"
 import FAQ from "../help/faq/Faq.vue"
 import ContainerPage from "../help/component-library/views/ContainerPage.vue"
+
+// import data
+import componentsDescription from "../help/component-library/data/componentsDescription.json"
 
 const routes = []
 
@@ -75,9 +89,31 @@ routes.push({
             ]
         },
         {
-            name: "iconfont",
-            path: "iconfont",
-            component: IconFont,
+            name: "code",
+            path: "code",
+            component: Code,
+            children:   [
+                {
+                    name: "html",
+                    path: "html",
+                    component: Html
+                },
+                {
+                    name: "css",
+                    path: "css",
+                    component: Css
+                },
+                {
+                    name: "vue",
+                    path: "vue",
+                    component: Vue
+                }
+            ]
+        },
+        {
+            name: "iconfonts",
+            path: "iconfonts",
+            component: IconFonts,
         },
         {
             name: "faq",

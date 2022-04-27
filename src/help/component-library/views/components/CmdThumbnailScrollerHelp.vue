@@ -4,14 +4,15 @@ import {tabProps, tabHandlers} from "../../tabs"
 import {isFrameMode} from "comand-component-library/src/utils/common"
 
 // import components
-import CmdThumbnailScroller from "../../../components/CmdThumbnailScroller"
-import ComponentProperties from "../../components/ComponentProperties.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
+import {CmdThumbnailScroller} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
-import CmdCode from "../../data/CmdThumbnailScrollerHelp"
+import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
+import ViewCodeData from "../../components/ViewCodeData.vue"
+import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
-import thumbnailScroller from "../../../assets/data/thumbnail-scroller.json"
+import CmdCode from "../../data/CmdThumbnailScrollerHelp"
+import thumbnailScroller from "../../assets/data/thumbnail-scroller.json"
 import propertyDescriptions from "../../generated/CmdThumbnailScrollerPropertyDescriptions.json"
 
 const propertyStructures = {

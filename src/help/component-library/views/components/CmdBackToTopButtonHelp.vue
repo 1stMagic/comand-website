@@ -6,10 +6,10 @@ import {isFrameMode} from "comand-component-library/src/utils/common"
 
 // import components
 import {CmdBackToTopButton} from "comand-component-library"
-import ComponentProperties from "../../components/ComponentProperties.vue"
 import {CmdTabs} from "comand-component-library"
-import ViewCodeData from "../../components/ViewCodeData.vue"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
+import ViewCodeData from "../../components/ViewCodeData.vue"
+import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdBackToTopButtonHelp"

@@ -4,14 +4,14 @@ import {tabProps, tabHandlers} from "../../tabs"
 import {isFrameMode} from "comand-component-library/src/utils/common"
 
 // import components
-import CmdBreadcrumbs from "../../../components/CmdBreadcrumbs"
-import ComponentProperties from "../../components/ComponentProperties.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
+import {CmdBreadcrumbs} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
+import ViewCodeData from "../../components/ViewCodeData.vue"
+import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
-import breadcrumbs from '../../../assets/data/breadcrumbs.json'
+import breadcrumbs from '../../assets/data/breadcrumbs.json'
 import CmdCode from "../../data/CmdBreadcrumbsHelp"
 import propertyDescriptions from "../../generated/CmdBreadcrumbsPropertyDescriptions.json"
 

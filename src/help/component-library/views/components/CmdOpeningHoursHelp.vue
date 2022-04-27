@@ -4,14 +4,15 @@ import {tabProps, tabHandlers} from "../../tabs"
 import {isFrameMode} from "comand-component-library/src/utils/common"
 // import components
 
-import CmdOpeningHours from "../../../components/CmdOpeningHours"
-import ComponentProperties from "../../components/ComponentProperties.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
+import {CmdOpeningHours} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
+import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
+import ViewCodeData from "../../components/ViewCodeData.vue"
+import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdOpeningHoursHelp"
-import openingHours from '../../../assets/data/opening-hours.json'
+import openingHours from '../../assets/data/opening-hours.json'
 import propertyDescriptions from "../../generated/CmdOpeningHoursPropertyDescriptions.json"
 
 const propertyStructures = {

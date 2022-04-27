@@ -4,14 +4,14 @@ import {tabProps, tabHandlers} from "../../tabs"
 import {isFrameMode} from "comand-component-library/src/utils/common"
 
 // import components
-import CmdCompanyLogo from "../../../components/CmdCompanyLogo"
-import ComponentProperties from "../../components/ComponentProperties.vue"
+import {CmdCompanyLogo} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
-import ViewCodeData from "../../components/ViewCodeData.vue"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
+import ViewCodeData from "../../components/ViewCodeData.vue"
+import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
-import companyLogo from '../../../assets/data/company-logo.json'
+import companyLogo from '../../assets/data/company-logo.json'
 import CmdCode from "../../data/CmdCompanyLogoHelp"
 import propertyDescriptions from "../../generated/CmdCompanyLogoPropertyDescriptions.json"
 
@@ -34,8 +34,8 @@ const propertyStructures = {
                         <CmdCompanyLogo
                             :link="companyLogo.link"
                             altText="CoManD Logo"
-                            :pathDefaultLogo="require('@/assets/images/logo.svg')"
-                            :pathDarkmodeLogo="require('@/assets/images/logo-darkmode.svg')"
+                            :pathDefaultLogo="require('../../assets/images/logo.svg')"
+                            :pathDarkmodeLogo="require('../../assets/images/logo-darkmode.svg')"
                         />
                     </teleport>
                 </ViewCodeData>

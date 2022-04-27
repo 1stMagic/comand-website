@@ -4,16 +4,16 @@ import {tabProps, tabHandlers} from "../../tabs"
 import {isFrameMode} from "comand-component-library/src/utils/common"
 
 // import components
-import CmdGoogleMaps from "../../../components/CmdGoogleMaps"
-import ComponentProperties from "../../components/ComponentProperties.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
+import {CmdGoogleMaps} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
+import ViewCodeData from "../../components/ViewCodeData.vue"
+import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdGoogleMapsHelp"
 import propertyDescriptions from "../../generated/CmdFormFiltersPropertyDescriptions.json"
-import addressData from '../../../assets/data/address-data.json'
+import addressData from '../../assets/data/address-data.json'
 
 const propertyStructures = {
     "address": {

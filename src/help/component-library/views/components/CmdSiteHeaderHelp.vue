@@ -5,18 +5,19 @@ import {tabProps, tabHandlers} from "../../tabs"
 import {isFrameMode} from "comand-component-library/src/utils/common"
 
 // import components
-import CmdSiteHeader from "../../../components/CmdSiteHeader"
-import CmdCompanyLogo from "../../../components/CmdCompanyLogo"
-import CmdListOfLinks from "../../../components/CmdListOfLinks"
-import ComponentProperties from "../../components/ComponentProperties.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
+import {CmdSiteHeader} from "comand-component-library"
+import {CmdCompanyLogo} from "comand-component-library"
+import {CmdListOfLinks} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
-import CmdCode from "../../data/CmdSiteHeaderHelp"
+import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
+import ViewCodeData from "../../components/ViewCodeData.vue"
+import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
-import mainNavigation from '../../../assets/data/main-navigation.json'
-import listOfLinks from '../../../assets/data/list-of-links-top-header-navigation.json'
-import companyLogo from '../../../assets/data/company-logo.json'
+import CmdCode from "../../data/CmdSiteHeaderHelp"
+import mainNavigation from '../../assets/data/main-navigation.json'
+import listOfLinks from '../../assets/data/list-of-links-top-header-navigation.json'
+import companyLogo from '../../assets/data/company-logo.json'
 import propertyDescriptions from "../../generated/CmdSiteHeaderPropertyDescriptions.json"
 
 const propertyStructures = {

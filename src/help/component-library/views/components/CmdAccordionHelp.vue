@@ -12,7 +12,7 @@ import {CmdTabs} from "comand-component-library"
 
 // import example-data
 import CmdCode from "../../data/CmdAccordionHelp"
-import accordion from '../../../assets/data/accordion.json'
+import accordion from '../../assets/data/accordion.json'
 import propertyDescriptions from "../../generated/CmdAccordionPropertyDescriptions.json"
 
 const propertyStructures = {

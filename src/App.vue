@@ -1,9 +1,10 @@
 <template>
-    <CmdSiteHeader :cmd-main-navigation="{navigationEntries: mainNavigation}" />
-  <router-view></router-view>
+    <CmdSiteHeader :cmd-main-navigation="{navigationEntries: mainNavigation}"/>
+    <router-view></router-view>
 </template>
 
 <script>
+// import components
 import {CmdSiteHeader} from "comand-component-library"
 
 export default {
@@ -41,10 +42,37 @@ export default {
                     ]
                 },
                 {
+                    "type": "href",
+                    "text": "Code",
+                    "subentries": [
+                        {
+                            "type": "router",
+                            "text": "HTML",
+                            "route": {
+                                name: "html"
+                            }
+                        },
+                        {
+                            "type": "router",
+                            "text": "CSS",
+                            "route": {
+                                name: "css"
+                            }
+                        },
+                        {
+                            "type": "router",
+                            "text": "VUE",
+                            "route": {
+                                name: "vue"
+                            }
+                        }
+                    ]
+                },
+                {
                     "type": "router",
-                    "text": "Iconfont",
+                    "text": "Iconfonts",
                     "route": {
-                        name: "iconfont"
+                        name: "iconfonts"
                     }
                 },
                 {

@@ -5,18 +5,18 @@ import {tabProps, tabHandlers} from "../../tabs"
 import {isFrameMode} from "comand-component-library/src/utils/common"
 
 // import components
-import CmdFakeSelect from "../../../components/CmdFakeSelect"
-import ComponentProperties from "../../components/ComponentProperties.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
+import {CmdFakeSelect} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
+import ViewCodeData from "../../components/ViewCodeData.vue"
+import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdFakeSelectHelp"
-import fakeSelectOptions from "../../../assets/data/fake-select-options.json"
-import fakeSelectColors from '../../../assets/data/fake-select-colors.json'
-import fakeSelectCountries from '../../../assets/data/fake-select-countries.json'
-import fakeSelectOptionsWithIcons from '../../../assets/data/fake-select-options-with-icons.json'
+import fakeSelectOptions from "../../assets/data/fake-select-options.json"
+import fakeSelectColors from '../../assets/data/fake-select-colors.json'
+import fakeSelectCountries from '../../assets/data/fake-select-countries.json'
+import fakeSelectOptionsWithIcons from '../../assets/data/fake-select-options-with-icons.json'
 import propertyDescriptions from "../../generated/CmdFakeSelectPropertyDescriptions.json"
 
 const propertyStructures = {

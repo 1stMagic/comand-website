@@ -4,17 +4,17 @@ import {tabProps, tabHandlers} from "../../tabs"
 import {isFrameMode} from "comand-component-library/src/utils/common"
 
 // import components
-import CmdBox from "../../../components/CmdBox"
-import CmdBoxWrapper from "../../../components/CmdBoxWrapper"
+import {CmdBox} from "comand-component-library"
+import {CmdBoxWrapper} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
-import ComponentProperties from "../../components/ComponentProperties.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
+import ViewCodeData from "../../components/ViewCodeData.vue"
+import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdAddressDataHelp"
-import boxProduct from '../../../assets/data/box-product.json'
-import boxUser from '../../../assets/data/box-user.json'
+import boxProduct from '../../assets/data/box-product.json'
+import boxUser from '../../assets/data/box-user.json'
 import propertyDescriptions from "../../generated/CmdAddressDataPropertyDescriptions.json"
 
 const propertyStructures = {

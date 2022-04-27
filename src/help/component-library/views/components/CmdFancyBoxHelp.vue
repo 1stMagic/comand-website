@@ -1,15 +1,15 @@
 <script setup>
 // import functions
 import {tabProps, tabHandlers} from "../../tabs"
-import {openFancyBox} from "@/components/CmdFancyBox"
 import {isFrameMode} from "comand-component-library/src/utils/common"
+import {openFancyBox} from "comand-component-library"
 
 // import components
-import CmdFancyBox from "../../../components/CmdFancyBox"
-import ComponentProperties from "../../components/ComponentProperties.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
+import {CmdFancyBox} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
+import ViewCodeData from "../../components/ViewCodeData.vue"
+import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdFancyBoxHelp"

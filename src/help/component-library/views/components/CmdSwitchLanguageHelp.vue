@@ -5,14 +5,15 @@ import {tabProps, tabHandlers} from "../../tabs"
 import {isFrameMode} from "comand-component-library/src/utils/common"
 
 // import components
-import CmdSwitchLanguage from "../../../components/CmdSwitchLanguage"
-import ComponentProperties from "../../components/ComponentProperties.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
+import {CmdSwitchLanguage} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
+import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
+import ViewCodeData from "../../components/ViewCodeData.vue"
+import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdSwitchLanguageHelp"
-import switchLanguage from '../../../assets/data/switch-language.json'
+import switchLanguage from '../../assets/data/switch-language.json'
 import propertyDescriptions from "../../generated/CmdSwitchLanguagePropertyDescriptions.json"
 
 const currentLanguage = ref("")

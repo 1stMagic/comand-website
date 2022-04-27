@@ -4,16 +4,17 @@ import {tabProps, tabHandlers} from "../../tabs"
 import {isFrameMode} from "comand-component-library/src/utils/common"
 
 // import components
-import CmdShareButtons from "../../../components/CmdShareButtons"
-import ComponentProperties from "../../components/ComponentProperties.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
+import {CmdShareButtons} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
-import CmdCustomHeadline from "../../../components/CmdCustomHeadline"
+import {CmdCustomHeadline} from "comand-component-library"
+import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
+import ViewCodeData from "../../components/ViewCodeData.vue"
+import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdShareButtonsHelp"
-import shareButtonsJson from '../../../assets/data/share-buttons-page-by-json.json'
-import shareButtonsPage from '../../../assets/data/share-buttons-page-by-property.json'
+import shareButtonsJson from '../../assets/data/share-buttons-page-by-json.json'
+import shareButtonsPage from '../../assets/data/share-buttons-page-by-property.json'
 import propertyDescriptions from "../../generated/CmdShareButtonsPropertyDescriptions.json"
 
 const propertyStructures = {

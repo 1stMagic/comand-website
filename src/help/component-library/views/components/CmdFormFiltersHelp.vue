@@ -5,16 +5,16 @@ import {tabProps, tabHandlers} from "../../tabs"
 import {isFrameMode} from "comand-component-library/src/utils/common"
 
 // import components
-import CmdFormFilters from "../../../components/CmdFormFilters"
-import CmdFakeSelect from "../../../components/CmdFakeSelect"
-import ComponentProperties from "../../components/ComponentProperties.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
+import {CmdFormFilters} from "comand-component-library"
+import {CmdFakeSelect} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
+import ViewCodeData from "../../components/ViewCodeData.vue"
+import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdFormFiltersHelp"
-import fakeSelectFilterOptions from '../../../assets/data/fake-select-filter-options.json'
+import fakeSelectFilterOptions from '../../assets/data/fake-select-filter-options.json'
 import propertyDescriptions from "../../generated/CmdFormFiltersPropertyDescriptions.json"
 
 function getOptionName(option) {

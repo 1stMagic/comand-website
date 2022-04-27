@@ -5,14 +5,15 @@ import {tabProps, tabHandlers} from "../../tabs"
 import {isFrameMode} from "comand-component-library/src/utils/common"
 
 // import components
-import CmdMainNavigation from "../../../components/CmdMainNavigation"
-import ComponentProperties from "../../components/ComponentProperties.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
+import {CmdMainNavigation} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
+import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
+import ViewCodeData from "../../components/ViewCodeData.vue"
+import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdMainNavigationHelp"
-import mainNavigation from '../../../assets/data/main-navigation.json'
+import mainNavigation from '../../assets/data/main-navigation.json'
 import propertyDescriptions from "../../generated/CmdMainNavigationPropertyDescriptions.json"
 
 const propertyStructures = {
@@ -80,7 +81,7 @@ const navigationEntries = ref(mainNavigation)
 </template>
 
 <style lang="scss">
-@import '../../../assets/styles/variables';
+@import '../../assets/styles/variables';
 
 main#cmd-main-navigation {
     padding: 0;
