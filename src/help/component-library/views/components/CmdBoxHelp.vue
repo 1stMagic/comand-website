@@ -2,6 +2,7 @@
 // import functions
 import {tabProps, tabHandlers} from "../../tabs"
 import {isFrameMode} from "comand-component-library/src/utils/common"
+import {currentSequenceValue} from "comand-component-library/src/utils/globalSequence"
 
 // import components
 import {CmdBox} from "comand-component-library"
@@ -15,6 +16,11 @@ import CmdCode from "../../data/CmdBoxHelp"
 import boxesProduct from "../../assets/data/box-product.json"
 import boxesUser from "../../assets/data/box-user.json"
 import propertyDescriptions from "../../generated/CmdBoxPropertyDescriptions.json"
+
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
 
 const propertyStructures = {
     product: {
@@ -58,8 +64,7 @@ function clickedOnProduct(event) {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ExampleSectionWrapper componentName="CmdBox" headlineText="Box 'content' (content given by property)">
-                <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]">
+            <ExampleSectionWrapper componentName="CmdBox" headlineText="Box 'content' (content given by property)" :sequence="sequence.nextSequenceValue()" :code="CmdCode" :isFirstComponent="true">
                     <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                         <CmdBox
                             :cmdCustomHeadline="{
@@ -69,65 +74,56 @@ function clickedOnProduct(event) {
                             textBody="Content given by property"
                         />
                     </teleport>
-                </ViewCodeData>
             </ExampleSectionWrapper>
             <hr/>
-                <ExampleSectionWrapper componentName="CmdBox" headlineText="Box 'content' (collapsible)">
-                <ViewCodeData :code="CmdCode[1]">
-                    <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                        <CmdBox
-                            :cmdCustomHeadline="{
-                            headlineText: 'Headline given by property',
-                            headlineLevel: 5
-                        }"
-                            textBody="Content given by property"
-                            :collapsible="true"
-                        />
-                    </teleport>
-                </ViewCodeData>
+                <ExampleSectionWrapper componentName="CmdBox" headlineText="Box 'content' (collapsible)" :code="CmdCode" :sequence="sequence.nextSequenceValue()">
+                        <teleport to="#frame-component-target" :disabled="!isFrameMode()">
+                            <CmdBox
+                                :cmdCustomHeadline="{
+                                headlineText: 'Headline given by property',
+                                headlineLevel: 5
+                            }"
+                                textBody="Content given by property"
+                                :collapsible="true"
+                            />
+                        </teleport>
                 </ExampleSectionWrapper>
             <hr/>
-            <ExampleSectionWrapper componentName="CmdBox" headlineText="Box 'content' (content given by slot)">
-                <ViewCodeData :code="CmdCode[2]">
-                    <CmdBox :useSlots="['header', 'body', 'footer']">
-                        <template v-slot:header>
-                            <h5>
-                                Headline given by slot
-                            </h5>
-                        </template>
-                        <template v-slot:body>
-                            <p class="padding">
-                                Content given by slot
-                            </p>
-                        </template>
-                        <template v-slot:footer>
-                            <p>
-                                Footer given by slot
-                            </p>
-                        </template>
-                    </CmdBox>
-                </ViewCodeData>
+            <ExampleSectionWrapper componentName="CmdBox" headlineText="Box 'content' (content given by slot)" :code="CmdCode" :sequence="sequence.nextSequenceValue()">
+                <CmdBox :useSlots="['header', 'body', 'footer']">
+                    <template v-slot:header>
+                        <h5>
+                            Headline given by slot
+                        </h5>
+                    </template>
+                    <template v-slot:body>
+                        <p class="padding">
+                            Content given by slot
+                        </p>
+                    </template>
+                    <template v-slot:footer>
+                        <p>
+                            Footer given by slot
+                        </p>
+                    </template>
+                </CmdBox>
             </ExampleSectionWrapper>
             <hr/>
-            <ExampleSectionWrapper componentName="CmdBox" headlineText="Box 'product'">
-                <ViewCodeData :code="CmdCode[3]" :data="boxesProduct[0]">
-                    <CmdBox
-                        boxType="product"
-                        :product="boxesProduct[0]"
-                        :cmdCustomHeadline="{ headlineLevel: 5}"
-                        @click="clickedOnProduct"
-                    />
-                </ViewCodeData>
+            <ExampleSectionWrapper componentName="CmdBox" headlineText="Box 'product'" :code="CmdCode" :data="boxesProduct[0]" :sequence="sequence.nextSequenceValue()">
+                <CmdBox
+                    boxType="product"
+                    :product="boxesProduct[0]"
+                    :cmdCustomHeadline="{ headlineLevel: 5}"
+                    @click="clickedOnProduct"
+                />
             </ExampleSectionWrapper>
             <hr/>
-            <ExampleSectionWrapper componentName="CmdBox" headlineText="Box 'user'">
-                <ViewCodeData :code="CmdCode[4]" :data="boxesUser[2]">
-                    <CmdBox
-                        boxType="user"
-                        :user="boxesUser[2]"
-                        :cmdCustomHeadline="{ headlineLevel: 5}"
-                    />
-                </ViewCodeData>
+            <ExampleSectionWrapper componentName="CmdBox" headlineText="Box 'user'" :code="CmdCode" :data="boxesUser[2]" :sequence="sequence.nextSequenceValue()">
+                <CmdBox
+                    boxType="user"
+                    :user="boxesUser[2]"
+                    :cmdCustomHeadline="{ headlineLevel: 5}"
+                />
             </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>

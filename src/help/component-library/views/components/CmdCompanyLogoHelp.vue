@@ -15,6 +15,9 @@ import companyLogo from '../../assets/data/company-logo.json'
 import CmdCode from "../../data/CmdCompanyLogoHelp"
 import propertyDescriptions from "../../generated/CmdCompanyLogoPropertyDescriptions.json"
 
+import defaultLogo from "../../../../company/assets/images/logo.svg"
+import darkmodeLogo from "../../../../company/assets/images/logo-darkmode.svg"
+
 const propertyStructures = {
     link: {
         "type": "<string>",
@@ -34,8 +37,8 @@ const propertyStructures = {
                         <CmdCompanyLogo
                             :link="companyLogo.link"
                             altText="CoManD Logo"
-                            :pathDefaultLogo="require('../../assets/images/logo.svg')"
-                            :pathDarkmodeLogo="require('../../assets/images/logo-darkmode.svg')"
+                            :pathDefaultLogo="defaultLogo"
+                            :pathDarkmodeLogo="darkmodeLogo"
                         />
                     </teleport>
                 </ViewCodeData>

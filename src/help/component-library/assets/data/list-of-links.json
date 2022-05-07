@@ -32,7 +32,7 @@
     "text": "Router-link with name",
     "tooltip": "Go to homepage",
     "route": {
-      "name": "home",
+      "name": "company-home",
       "params": {
         "param1": "value",
         "param2": "value"

@@ -81,7 +81,7 @@ const navigationEntries = ref(mainNavigation)
 </template>
 
 <style lang="scss">
-@import '../../assets/styles/variables';
+@import 'comand-component-library/src/assets/styles/variables';
 
 main#cmd-main-navigation {
     padding: 0;

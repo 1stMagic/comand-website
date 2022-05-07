@@ -78,7 +78,6 @@ function changeWidth(width) {
 </template>
 
 <style lang="scss">
-
 #responsive-view-wrapper {
     resize: vertical;
     overflow: hidden;
@@ -110,4 +109,12 @@ function changeWidth(width) {
         }
     }
 }
+
+.vmodel {
+    margin-top: var(--default-margin);
+    border-style: dashed;
+    background: var(--warning-color);
+    display: inline-flex;
+}
+
 </style>

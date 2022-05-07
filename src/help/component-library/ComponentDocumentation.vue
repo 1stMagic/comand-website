@@ -45,7 +45,7 @@ import {
 } from "comand-component-library"
 
 // import list of components
-import componentsDescription from "comand-component-library/src/documentation/data/componentsDescription.json"
+import componentsDescription from "./data/componentsDescription.json"
 
 export default {
     components: {
@@ -139,11 +139,14 @@ export default {
 
                 li {
                     border: 0;
-                    border-bottom: var(--default-border);
 
-                    a.router-link-active {
-                        background: var(--primary-color);
-                        color: var(--pure-white);
+                    a {
+                        padding-left: calc(var(--default-padding) * 2);
+
+                        &.router-link-active {
+                            background: var(--primary-color);
+                            color: var(--pure-white);
+                        }
                     }
                 }
             }
@@ -152,7 +155,17 @@ export default {
 
     main {
         width: 100%;
-        padding: calc(var(--default-padding) * 2);
+        padding: calc(var(--default-padding) * 10);
+    }
+
+    @media only screen and (max-width: 1023px) {
+        main {
+            padding: calc(var(--default-padding) * 2);
+
+            #page-anchors {
+                display: none;
+            }
+        }
     }
 }
 </style>

@@ -34,7 +34,7 @@ export default {
             if(typeof this.code !== "string") {
                 codeUnformatted = JSON.stringify(codeUnformatted, null, 2)
             }
-            return Prism.highlight(codeUnformatted, Prism.languages[this.language], this.language)
+            return Prism.highlight(codeUnformatted??"", Prism.languages[this.language], this.language)
         },
         classLanguage() {
             return "language-" + this.language
@@ -48,3 +48,9 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+pre[class*="language-"] {
+    margin: 0;
+}
+</style>

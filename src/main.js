@@ -28,7 +28,7 @@ import 'comand-component-library/dist/comand-component-library.css'
 import 'comand-component-library/src/assets/styles/template.css'
 
 /* import css for prism-library (for styling syntax) */
-import "prismjs/themes/prism.css"
+import "prismjs/themes/prism-twilight.css"
 
 /* import css for demopage only */
 import 'comand-frontend-framework/public/demopage-only.css'

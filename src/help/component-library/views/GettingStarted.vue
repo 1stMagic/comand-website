@@ -7,7 +7,7 @@
                 It is based on <a href="#">CoManD Frontend Framework</a>, which is a required dependency. The Component Library will not work without it.
                 Besides the HTML5 and CSS3 from the Frontend Framework, the Component Library itself uses SCSS and
                 <a href="https://vuejs.org/" target="vue"><span class="icon-export"></span><span>VUE3</span></a>.
-                It also provides an <router-link :to="{name: 'iconfont'}">additional iconfont</router-link>.
+                It also provides an <router-link :to="{name: 'iconfonts'}">additional iconfont</router-link>.
              </p>
             <hr/>
             <h2>Installation <small>(with <a href="https://www.npmjs.com/" target="npm" title="Open npmjs.com in new tab"><span class="icon-export"></span><span>npm</span></a>)</small></h2>

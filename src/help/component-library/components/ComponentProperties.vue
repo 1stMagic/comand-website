@@ -192,6 +192,7 @@ function createDetailLink(type) {
                     <ul v-if="hasAnnotation(props.propertyDescriptions, propertyName, 'allowedValues')">
                         <li v-for="value in getAnnotationValues(props.propertyDescriptions, propertyName, 'allowedValues')" :key="value">{{ value }}</li>
                     </ul>
+                    <template v-else-if="property.type === Boolean">true/false</template>
                     <em v-else>
                         (all)
                     </em>

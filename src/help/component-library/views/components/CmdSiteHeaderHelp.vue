@@ -20,6 +20,9 @@ import listOfLinks from '../../assets/data/list-of-links-top-header-navigation.j
 import companyLogo from '../../assets/data/company-logo.json'
 import propertyDescriptions from "../../generated/CmdSiteHeaderPropertyDescriptions.json"
 
+import defaultLogo from "../../../../company/assets/images/logo.svg"
+import darkmodeLogo from "../../../../company/assets/images/logo-darkmode.svg"
+
 const propertyStructures = {
     mainNavigationEntries: [
         {
@@ -58,8 +61,8 @@ const navigationEntries = ref(mainNavigation)
                             <CmdCompanyLogo
                                 :link="companyLogo.link"
                                 altText="CoManD Logo"
-                                :pathDefaultLogo="require('@/assets/images/logo.svg')"
-                                :pathDarkmodeLogo="require('@/assets/images/logo-darkmode.svg')"
+                                :pathDefaultLogo="defaultLogo"
+                                :pathDarkmodeLogo="darkmodeLogo"
                             />
                         </template>
                     </CmdSiteHeader>

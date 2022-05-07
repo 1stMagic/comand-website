@@ -8,21 +8,31 @@
             :headlineLevel="3"
         />
         <!-- end cmd-custom-headline -->
-        <slot></slot>
+        <!-- begin view-code-data -->
+        <ViewCodeData :code="code[codeExample()]" :isFirstComponent="codeExample() === 0" :data="data">
+            <slot></slot>
+        </ViewCodeData>
+        <!-- end view-code-data -->
+
+        <dl v-if="showVModel" class="vmodel box">
+            <dt>v-model:</dt>
+            <dd>
+                <output>{{ select }}</output>
+            </dd>
+        </dl>
     </section>
 </template>
 
 <script>
-// import functions
-import {currentSequenceValue, nextSequenceValue} from "comand-component-library/src/utils/globalSequence";
-
 // import components
 import {CmdCustomHeadline} from "comand-component-library"
+import ViewCodeData from "./ViewCodeData.vue"
 
 export default {
     name: "ExampleSectionWrapper",
     components: {
-        CmdCustomHeadline
+        CmdCustomHeadline,
+        ViewCodeData
     },
     props: {
         componentName: {
@@ -32,14 +42,33 @@ export default {
         headlineText: {
             type: String,
             required: true
+        },
+        showVModel: {
+            type: Boolean,
+            default: false
+        },
+        code: {
+            type: Array,
+            required: true
+        },
+        data: {
+            type: [Array, Object],
+            required: false
+        },
+        sequence: {
+            type: Number,
+            required: true
         }
     },
     methods: {
-         getExampleId() {
-            return "example" + nextSequenceValue(this.componentName)
+        getExampleId() {
+            return "example" + this.sequence
         },
-         getPreHeadlineText() {
-            return "Example #" + currentSequenceValue(this.componentName)
+        getPreHeadlineText() {
+            return "Example #" + this.sequence
+        },
+        codeExample() {
+            return this.sequence - 1
         }
     }
 }

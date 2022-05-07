@@ -79,8 +79,8 @@ function onViewResolve() {
 
 <template>
     <main :id="idMainContainer">
-        <aside v-if="listOfLinks.length > 1" class="flex-container no-gap" id="page-anchors">
-            <a href="#" @click.prevent="showPageAnchors = !showPageAnchors" title="Toggle Iterations-Sidebar">
+        <aside v-if="route.params.tab !== 'properties' && listOfLinks.length > 1" class="flex-container no-gap" id="page-anchors">
+            <a href="#" @click.prevent="showPageAnchors = !showPageAnchors" class="link-with-icon" title="Toggle Iterations-Sidebar">
                 <span :class="iconToggleSidebar"></span>
             </a>
             <transition v-show="showPageAnchors" name="slide-right">
@@ -109,13 +109,11 @@ function onViewResolve() {
            </section>
             <template v-if="!isFrameMode()">
                 <section class="flex-container" id="component-link-wrapper">
-                    <router-link :to="{name: previousComponentName, params: {tab: route.params.tab}}">
-                        <span class="icon-single-arrow-left"></span>
-                        <span>{{ previousComponentName }}</span>
+                    <router-link :to="{name: previousComponentName, params: {tab: route.params.tab}}" class="link-with-icon">
+                        <span class="icon-single-arrow-left"></span><span>{{ previousComponentName }}</span>
                     </router-link>
-                    <router-link :to="{name: nextComponentName, params: {tab: route.params.tab}}">
-                        <span>{{ nextComponentName }}</span>
-                        <span class="icon-single-arrow-right"></span>
+                    <router-link :to="{name: nextComponentName, params: {tab: route.params.tab}}" class="link-with-icon">
+                        <span>{{ nextComponentName }}</span><span class="icon-single-arrow-right"></span>
                     </router-link>
                 </section>
             </template>

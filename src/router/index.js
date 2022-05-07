@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router"
-// import {routeHandler as tabsRouteHandler} from "../documentation/tabs"
+import {routeHandler as tabsRouteHandler} from "../help/component-library/tabs"
 
 // import components/pages
 import Company from "../company/Company.vue"
@@ -123,9 +123,19 @@ routes.push({
     ]
 })
 
+routes.push({
+    path: "/subsubpage/:param1/:param2",
+    name: "subsubpage",
+    redirect: {
+        name: "company-home"
+    }
+})
+
 const router = createRouter({
     history: createWebHistory(),
     routes
 })
+
+router.beforeEach(tabsRouteHandler)
 
 export default router

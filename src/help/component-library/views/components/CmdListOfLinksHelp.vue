@@ -36,27 +36,31 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <CmdCustomHeadline headlineText="Vertical" :headlineLevel="3" preHeadlineText="Example #1" />
-            <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]" :data="listOfLinks">
-                <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                    <CmdListOfLinks :links="listOfLinks" :cmdCustomHeadline="{headlineText: 'Links', headlineLevel: 5}" />
-                </teleport>
-            </ViewCodeData>
-            <hr />
-            <CmdCustomHeadline headlineText="Horizontal" :headlineLevel="3" preHeadlineText="Example #2" />
-            <ViewCodeData :code="CmdCode[1]" :data="listOfLinks">
-                <CmdListOfLinks :links="listOfLinks" orientation="horizontal" :cmdCustomHeadline="{headlineText: 'Links', headlineLevel: 5}" />
-            </ViewCodeData>
-            <hr />
-            <CmdCustomHeadline headlineText="Styled as box" :headlineLevel="3" preHeadlineText="Example #3" />
-            <ViewCodeData :code="CmdCode[2]" :data="listOfLinks">
-                <CmdListOfLinks :links="listOfLinks" :styleAsBox="true" :cmdCustomHeadline="{headlineText: 'Links', headlineLevel: 5}" />
-            </ViewCodeData>
-            <hr />
-            <CmdCustomHeadline headlineText="Use as section anchors" :headlineLevel="3" preHeadlineText="Example #4" />
-            <ViewCodeData :code="CmdCode[2]" :data="listOfLinksSectionAnchors">
-                <CmdListOfLinks :links="listOfLinksSectionAnchors" :sectionAnchors="true" />
-            </ViewCodeData>
+            <ExampleSectionWrapper componentName="CmdListOfLinks" headlineText="Vertical">
+                <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]" :data="listOfLinks">
+                    <teleport to="#frame-component-target" :disabled="!isFrameMode()">
+                        <CmdListOfLinks :links="listOfLinks" :cmdCustomHeadline="{headlineText: 'Links', headlineLevel: 5}"/>
+                    </teleport>
+                </ViewCodeData>
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper componentName="CmdListOfLinks" headlineText="Horizontal">
+                <ViewCodeData :code="CmdCode[1]" :data="listOfLinks">
+                    <CmdListOfLinks :links="listOfLinks" orientation="horizontal" :cmdCustomHeadline="{headlineText: 'Links', headlineLevel: 5}"/>
+                </ViewCodeData>
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper componentName="CmdListOfLinks" headlineText="Styled as box">
+                <ViewCodeData :code="CmdCode[2]" :data="listOfLinks">
+                    <CmdListOfLinks :links="listOfLinks" :styleAsBox="true" :cmdCustomHeadline="{headlineText: 'Links', headlineLevel: 5}"/>
+                </ViewCodeData>
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper componentName="CmdListOfLinks" headlineText="Use as section anchors">
+                <ViewCodeData :code="CmdCode[2]" :data="listOfLinksSectionAnchors">
+                    <CmdListOfLinks :links="listOfLinksSectionAnchors" :sectionAnchors="true"/>
+                </ViewCodeData>
+            </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
             <ComponentProperties :properties="CmdListOfLinks.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>

@@ -22,8 +22,8 @@ import propertyDescriptions from "../../generated/CmdImageZoomPropertyDescriptio
             <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdImageZoom
-                        small-image-url="media/images/content-images/logo-business-edition-landscape.jpg"
-                        large-image-url="media/images/content-images/logo-business-edition-landscape-large.jpg"
+                        small-image-url="/media/images/content-images/logo-business-edition-landscape.jpg"
+                        large-image-url="/media/images/content-images/logo-business-edition-landscape-large.jpg"
                     />
                 </teleport>
             </ViewCodeData>

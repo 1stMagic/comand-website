@@ -35,7 +35,7 @@ const propertyStructures = {
 // set consts for v-models
 const fakeSelectDefault = ref("")
 const fakeSelectDefaultWithIcons = ref("2")
-const fakeSelectCheckbox = ref([])
+const fakeSelectCheckbox = ref([1])
 const formElementStatus = ref("")
 const fakeSelectCountry = ref("")
 const fakeSelectColor = ref("")
@@ -56,8 +56,9 @@ const fakeSelectColor = ref("")
                             required
                             defaultOptionName="Select an option:"
                         />
-                        <dl class="vmodel">
-                            <dt>v-model:</dt>
+                        <h4>v-model</h4>
+                        <dl class="vmodel box">
+                            <dt>Current value:</dt>
                             <dd>
                                 <output>{{ fakeSelectDefault }}</output>
                             </dd>
@@ -75,7 +76,7 @@ const fakeSelectColor = ref("")
                         v-model="fakeSelectDefaultWithIcons"
                         defaultOptionName="Select an option:"
                     />
-                    <dl class="vmodel">
+                    <dl class="vmodel box">
                         <dt>v-model:</dt>
                         <dd>
                             <output>{{ fakeSelectDefaultWithIcons }}</output>
@@ -100,7 +101,7 @@ const fakeSelectColor = ref("")
                     <p>
                         fakeSelectOptions: {{ fakeSelectOptions }}
                     </p>
-                    <dl class="vmodel">
+                    <dl class="vmodel box">
                         <dt>v-model:</dt>
                         <dd>
                             <output>{{ fakeSelectCheckbox }}</output>
@@ -140,7 +141,7 @@ const fakeSelectColor = ref("")
                         defaultOptionName="Select country:"
                         type="country"
                     />
-                    <dl class="vmodel">
+                    <dl class="vmodel box">
                         <dt>v-model:</dt>
                         <dd>
                             <output>{{ fakeSelectCountry }}</output>
@@ -159,7 +160,7 @@ const fakeSelectColor = ref("")
                         required="required"
                         type="color"
                     />
-                    <dl class="vmodel">
+                    <dl class="vmodel box">
                         <dt>v-model:</dt>
                         <dd>
                             <output>{{ fakeSelectColor }}</output>

@@ -1,13 +1,13 @@
-import {ref} from "vue"
+import {reactive} from "vue"
 import router from "../../router"
 
 const tabs = [{name: 'Component'}, {name: 'Properties'}]
-const tabProps = {
+const tabProps = reactive({
     tabs,
     stretchTabs: true,
     useSlot: true,
-    activeTab: ref(0)
-}
+    activeTab: 0
+})
 const tabHandlers = {
     activeTab: setActiveTab
 }

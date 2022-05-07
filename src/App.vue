@@ -1,9 +1,13 @@
 <template>
-    <CmdSiteHeader :cmd-main-navigation="{navigationEntries: mainNavigation}"/>
-    <router-view></router-view>
+    <div id="page-wrapper">
+        <CmdSiteHeader v-if="!isFrameMode()" :cmd-main-navigation="{navigationEntries: mainNavigation}"/>
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
+import {isFrameMode} from "comand-component-library/src/utils/common"
+
 // import components
 import {CmdSiteHeader} from "comand-component-library"
 
@@ -84,6 +88,17 @@ export default {
                 }
             ]
         }
+    },
+    methods: {
+        isFrameMode() {
+            return isFrameMode()
+        }
     }
 }
 </script>
+
+<style lang="scss">
+#page-wrapper {
+    min-height: 100%;
+}
+</style>
