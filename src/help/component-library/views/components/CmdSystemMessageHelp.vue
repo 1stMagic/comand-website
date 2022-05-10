@@ -15,6 +15,11 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 import CmdCode from "../../data/CmdSystemMessageHelp"
 import propertyDescriptions from "../../generated/CmdSystemMessagePropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     iconMessage: {
         show: "<boolean>",
@@ -32,8 +37,12 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <CmdCustomHeadline headlineText="Error message (message given by property)" :headlineLevel="3" preHeadlineText="Example #1" />
-            <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]">
+            <ExampleSectionWrapper
+                componentName="CmdSystemMessage"
+                headlineText="Error message (message given by property)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdSystemMessage
                         validationStatus="error"
@@ -41,10 +50,13 @@ const propertyStructures = {
                         systemMessage="This is an error message!">
                     </CmdSystemMessage>
                 </teleport>
-            </ViewCodeData>
-            <hr />
-            <CmdCustomHeadline headlineText="Warning message (message given by property and slot)" :headlineLevel="3" preHeadlineText="Example #2" />
-            <ViewCodeData :code="CmdCode[1]">
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdSystemMessage"
+                headlineText="Warning message (message given by property and slot)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode">
                 <CmdSystemMessage
                     validationStatus="warning"
                     :fullWidth="true"
@@ -53,10 +65,13 @@ const propertyStructures = {
                     <p>This is additional text!</p>
                     <!-- end slot-content -->
                 </CmdSystemMessage>
-            </ViewCodeData>
-            <hr />
-            <CmdCustomHeadline headlineText="Success message (message given by property and slot)" :headlineLevel="3" preHeadlineText="Example #3" />
-            <ViewCodeData :code="CmdCode[2]">
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdSystemMessage"
+                headlineText="Success message (message given by property and slot)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode">
                 <CmdSystemMessage
                     validationStatus="success"
                     :fullWidth="true"
@@ -69,16 +84,19 @@ const propertyStructures = {
                     </ul>
                     <!-- end slot-content -->
                 </CmdSystemMessage>
-            </ViewCodeData>
-            <hr />
-            <CmdCustomHeadline headlineText="Info message (message given by property)" :headlineLevel="3" preHeadlineText="Example #3" />
-            <ViewCodeData :code="CmdCode[3]">
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdSystemMessage"
+                headlineText="Info message (message given by property)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode">
                 <CmdSystemMessage
                     validationStatus="info"
                     :fullWidth="true"
                     systemMessage="This is an info message!">
                 </CmdSystemMessage>
-            </ViewCodeData>
+            </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
             <ComponentProperties :properties="CmdSystemMessage.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>

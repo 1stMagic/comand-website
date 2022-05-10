@@ -13,20 +13,30 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 // import example-data
 import CmdCode from "../../data/CmdImageZoomHelp"
 import propertyDescriptions from "../../generated/CmdImageZoomPropertyDescriptions.json"
+
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
 </script>
 
 <template>
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]">
+            <ExampleSectionWrapper
+                componentName="CmdImageZoom"
+                headlineText="Image Zoom"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdImageZoom
                         small-image-url="/media/images/content-images/logo-business-edition-landscape.jpg"
                         large-image-url="/media/images/content-images/logo-business-edition-landscape-large.jpg"
                     />
                 </teleport>
-            </ViewCodeData>
+            </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
             <ComponentProperties :properties="CmdImageZoom.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>

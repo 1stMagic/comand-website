@@ -15,6 +15,11 @@ import CmdCode from "../../data/CmdBoxSiteSearchHelp"
 import listOfFilters from '../../assets/data/fake-select-filter-options.json'
 import propertyDescriptions from "../../generated/CmdBoxSiteSearchPropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     cmdCustomHeadline: {
         "address": {
@@ -37,8 +42,7 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ExampleSectionWrapper componentName="CmdBoxSiteSearch" headlineText="Box Site Search">
-                <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]">
+            <ExampleSectionWrapper componentName="CmdBoxSiteSearch" headlineText="Box Site Search" :sequence="sequence.nextSequenceValue()" :code="CmdCode" :isFirstComponent="true">
                     <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                         <CmdBoxSiteSearch
                             text-legend="Legend"
@@ -50,7 +54,6 @@ const propertyStructures = {
                             }"
                         />
                     </teleport>
-                </ViewCodeData>
             </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>

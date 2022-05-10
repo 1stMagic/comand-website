@@ -17,6 +17,11 @@ import listOfLinks from "../../assets/data/list-of-links.json"
 import listOfLinksSectionAnchors from "../../assets/data/list-of-links-section-anchors.json"
 import propertyDescriptions from "../../generated/CmdListOfLinksPropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     listOfLinks: [
         {
@@ -36,30 +41,41 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ExampleSectionWrapper componentName="CmdListOfLinks" headlineText="Vertical">
-                <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]" :data="listOfLinks">
-                    <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                        <CmdListOfLinks :links="listOfLinks" :cmdCustomHeadline="{headlineText: 'Links', headlineLevel: 5}"/>
-                    </teleport>
-                </ViewCodeData>
+            <ExampleSectionWrapper
+                componentName="CmdListOfLinks"
+                headlineText="Vertical"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :data="listOfLinks"
+                :isFirstComponent="true">
+                <teleport to="#frame-component-target" :disabled="!isFrameMode()">
+                    <CmdListOfLinks :links="listOfLinks" :cmdCustomHeadline="{headlineText: 'Links', headlineLevel: 5}"/>
+                </teleport>
             </ExampleSectionWrapper>
             <hr/>
-            <ExampleSectionWrapper componentName="CmdListOfLinks" headlineText="Horizontal">
-                <ViewCodeData :code="CmdCode[1]" :data="listOfLinks">
-                    <CmdListOfLinks :links="listOfLinks" orientation="horizontal" :cmdCustomHeadline="{headlineText: 'Links', headlineLevel: 5}"/>
-                </ViewCodeData>
+            <ExampleSectionWrapper
+                componentName="CmdListOfLinks"
+                headlineText="Horizontal"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :data="listOfLinks">
+                <CmdListOfLinks :links="listOfLinks" orientation="horizontal" :cmdCustomHeadline="{headlineText: 'Links', headlineLevel: 5}"/>
             </ExampleSectionWrapper>
             <hr/>
-            <ExampleSectionWrapper componentName="CmdListOfLinks" headlineText="Styled as box">
-                <ViewCodeData :code="CmdCode[2]" :data="listOfLinks">
-                    <CmdListOfLinks :links="listOfLinks" :styleAsBox="true" :cmdCustomHeadline="{headlineText: 'Links', headlineLevel: 5}"/>
-                </ViewCodeData>
+            <ExampleSectionWrapper componentName="CmdListOfLinks"
+                                   headlineText="Styled as box"
+                                   :sequence="sequence.nextSequenceValue()"
+                                   :code="CmdCode"
+                                   :data="listOfLinks">
+                <CmdListOfLinks :links="listOfLinks" :styleAsBox="true" :cmdCustomHeadline="{headlineText: 'Links', headlineLevel: 5}"/>
             </ExampleSectionWrapper>
             <hr/>
-            <ExampleSectionWrapper componentName="CmdListOfLinks" headlineText="Use as section anchors">
-                <ViewCodeData :code="CmdCode[2]" :data="listOfLinksSectionAnchors">
-                    <CmdListOfLinks :links="listOfLinksSectionAnchors" :sectionAnchors="true"/>
-                </ViewCodeData>
+            <ExampleSectionWrapper componentName="CmdListOfLinks"
+                                   headlineText="Use as section anchors"
+                                   :sequence="sequence.nextSequenceValue()"
+                                   :code="CmdCode"
+                                   :data="listOfLinksSectionAnchors">
+                <CmdListOfLinks :links="listOfLinksSectionAnchors" :sectionAnchors="true"/>
             </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>

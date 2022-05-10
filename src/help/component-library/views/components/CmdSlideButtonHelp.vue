@@ -15,6 +15,11 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 import CmdCode from "../../data/CmdSlideButtonHelp"
 import propertyDescriptions from "../../generated/CmdSlideButtonPropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     slideButtons: {
         prev: {
@@ -32,7 +37,7 @@ const currentItem = ref(1)
 const totalItems = 4
 
 function showPrevItem() {
-    if(currentItem.value === 1) {
+    if (currentItem.value === 1) {
         currentItem.value = totalItems
     } else {
         currentItem.value--
@@ -40,7 +45,7 @@ function showPrevItem() {
 }
 
 function showNextItem() {
-    if(currentItem.value === totalItems) {
+    if (currentItem.value === totalItems) {
         currentItem.value = 1
     } else {
         currentItem.value++
@@ -52,7 +57,12 @@ function showNextItem() {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]">
+            <ExampleSectionWrapper
+                componentName="CmdSlideButton"
+                headlineText="Slide Button"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <div class="flex-container" id="slider">
                         <CmdSlideButton
@@ -68,7 +78,7 @@ function showNextItem() {
                         />
                     </div>
                 </teleport>
-            </ViewCodeData>
+            </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
             <ComponentProperties :properties="CmdSlideButton.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>

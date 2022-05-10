@@ -15,6 +15,11 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 import CmdCode from "../../data/CmdUploadFormHelp"
 import propertyDescriptions from "../../generated/CmdUploadFormPropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     uploadOptions: {
         url: "<string>",
@@ -28,21 +33,28 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <CmdCustomHeadline headlineText="Advanced mode" :headlineLevel="3" preHeadlineText="Example #1" />
-            <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]">
+            <ExampleSectionWrapper
+                componentName="CmdUploadForm"
+                headlineText="Upload Form (advanced mode)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                <CmdUploadForm
-                    :cmdCustomHeadline="{headlineText: 'Select files to upload', headlineLevel: 5}"
-                    :enableDragAndDrop="true"
-                    :allowedFileExtensions="['gif','png','jpg']"
-                    :allowMultipleFileUploads="true"
-                    :uploadOptions="{url: 'some url'}"
-                />
+                    <CmdUploadForm
+                        :cmdCustomHeadline="{headlineText: 'Select files to upload', headlineLevel: 5}"
+                        :enableDragAndDrop="true"
+                        :allowedFileExtensions="['gif','png','jpg']"
+                        :allowMultipleFileUploads="true"
+                        :uploadOptions="{url: 'some url'}"
+                    />
                 </teleport>
-            </ViewCodeData>
-            <hr />
-            <CmdCustomHeadline headlineText="Simple mode" :headlineLevel="3" preHeadlineText="Example #2" />
-            <ViewCodeData :code="CmdCode[1]">
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdUploadForm"
+                headlineText="Upload Form (simple mode)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode">
                 <CmdUploadForm
                     :advancedMode="false"
                     :maxFileUploadSize="5242880"
@@ -51,7 +63,7 @@ const propertyStructures = {
                     :allowMultipleFileUploads="false"
                     :uploadOptions="{url: 'some url'}"
                 />
-            </ViewCodeData>
+            </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
             <ComponentProperties :properties="CmdUploadForm.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>

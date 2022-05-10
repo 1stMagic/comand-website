@@ -18,6 +18,11 @@ import CmdCode from "../../data/CmdFormElementHelp"
 import selectOptions from '../../assets/data/select-options.json'
 import propertyDescriptions from "../../generated/CmdFormElementPropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     datalist: {
         "id": "<string>",
@@ -74,331 +79,368 @@ function getPreHeadlineText() {
         <template v-slot:tab-content-0>
             <h2>Component</h2>
             <section class="example-section">
-                <ExampleSectionWrapper componentName="CmdFormElement" headlineText="Input (type text)" :code="CmdCode[0]">
-                    <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]">
-                        <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                            <CmdFormElement
-                                labelText="Input (type text):"
-                                element="input"
-                                type="text"
-                                :status="formElementStatus"
-                                placeholder="Type in text"
-                                tooltipText="This is a tooltip"
-                                :useCustomTooltip="false"
-                            />
-                        </teleport>
-                    </ViewCodeData>
-                </ExampleSectionWrapper>
-            </section>
-            <hr/>
-            <section class="example-section">
-                <ExampleSectionWrapper componentName="CmdFormElement" headlineText="Input (type number)">
-                    <ViewCodeData :code="CmdCode[1]">
+                <ExampleSectionWrapper
+                    componentName="CmdFormElement"
+                    headlineText="Input (type text)"
+                    :sequence="sequence.nextSequenceValue()"
+                    :code="CmdCode"
+                    :isFirstComponent="true">
+                    <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                         <CmdFormElement
-                            labelText="Input (type number):"
-                            element="input"
-                            type="number"
-                            :status="formElementStatus"
-                            placeholder="Type in number"
-                            tooltipText="This is a tooltip"
-                            :useCustomTooltip="false"
-                        />
-                    </ViewCodeData>
-                </ExampleSectionWrapper>
-            </section>
-            <hr/>
-            <section class="example-section">
-                <ExampleSectionWrapper componentName="CmdFormElement" headlineText="Input (type color)">
-                    <ViewCodeData :code="CmdCode[2]">
-                        <CmdFormElement
-                            labelText="Input (type color):"
-                            element="input"
-                            type="color"
-                            :status="formElementStatus"
-                            tooltipText="This is a tooltip"
-                            :useCustomTooltip="false"
-                        />
-                    </ViewCodeData>
-                </ExampleSectionWrapper>
-            </section>
-            <hr/>
-            <section class="example-section">
-                <ExampleSectionWrapper componentName="CmdFormElement" headlineText="Input (type date)">
-                    <ViewCodeData :code="CmdCode[3]">
-                        <CmdFormElement
-                            labelText="Input (type date):"
-                            element="input"
-                            type="date"
-                            :status="formElementStatus"
-                            tooltipText="This is a tooltip"
-                            :useCustomTooltip="false"
-                        />
-                    </ViewCodeData>
-                </ExampleSectionWrapper>
-            </section>
-            <hr/>
-            <section class="example-section">
-                <ExampleSectionWrapper componentName="CmdFormElement" headlineText="Input (type datetime-local)">
-                    <ViewCodeData :code="CmdCode[4]">
-                        <CmdFormElement
-                            labelText="Input (type datetime-local):"
-                            element="input"
-                            type="datetime-local"
-                            :status="formElementStatus"
-                            tooltipText="This is a tooltip"
-                            :useCustomTooltip="false"
-                        />
-                    </ViewCodeData>
-                </ExampleSectionWrapper>
-            </section>
-            <hr/>
-            <section class="example-section">
-                <ExampleSectionWrapper componentName="CmdFormElement" headlineText="Input (type password)">
-                    <CmdCustomHeadline preHeadlineText="Example #6" headlineText="Input (type password)" :headlineLevel="2"/>
-                    <ViewCodeData :code="CmdCode[5]">
-                        <CmdFormElement
-                            labelText="Input (type password):"
-                            element="input"
-                            type="password"
-                            fieldIconClass="icon-security-settings"
-                            :status="formElementStatus"
-                            placeholder="Type in password"
-                            tooltipText="This is a tooltip"
-                            :useCustomTooltip="false"
-                        />
-                    </ViewCodeData>
-                </ExampleSectionWrapper>
-            </section>
-            <hr/>
-            <section class="example-section">
-                <ExampleSectionWrapper componentName="CmdFormElement" headlineText="Input (type file)">
-                    <ViewCodeData :code="CmdCode[6]">
-                        <CmdFormElement
-                            labelText="Input (type file):"
-                            element="input"
-                            type="file"
-                            :status="formElementStatus"
-                            tooltipText="This is a tooltip"
-                            :useCustomTooltip="false"
-                        />
-                    </ViewCodeData>
-                </ExampleSectionWrapper>
-            </section>
-            <hr/>
-            <section class="example-section">
-                <ExampleSectionWrapper componentName="CmdFormElement" headlineText="Input (type range)">
-                    <ViewCodeData :code="CmdCode[7]">
-                        <CmdFormElement
-                            labelText="Input (type range):"
-                            element="input"
-                            type="range"
-                            :status="formElementStatus"
-                            :useCustomTooltip="false"
-                            v-model="range"
-                        />
-                        <dl class="vmodel box">
-                            <dt>v-model:</dt>
-                            <dd>
-                                <output>{{ range }}</output>
-                            </dd>
-                        </dl>
-                    </ViewCodeData>
-                </ExampleSectionWrapper>
-            </section>
-            <hr/>
-                <ExampleSectionWrapper componentName="CmdFormElement" headlineText="Input (type search)">
-                    <ViewCodeData :code="CmdCode[8]">
-                        <CmdFormElement
-                            element="input"
-                            type="search"
-                            :status="formElementStatus"
-                            :useCustomTooltip="false"
-                        />
-                    </ViewCodeData>
-                </ExampleSectionWrapper>
-            <hr/>
-                <ExampleSectionWrapper componentName="CmdFormElement" headlineText="Input (type submit)">
-                    <ViewCodeData :code="CmdCode[8]">
-                        <CmdFormElement
-                            :nativeButton="{ text: 'Submit', icon: {iconClass: 'icon-edit', show: true}}"
-                            element="button"
-                            type="submit"
-                            :status="formElementStatus"
-                            :useCustomTooltip="false"
-                        />
-                    </ViewCodeData>
-                </ExampleSectionWrapper>
-            <hr/>
-                <ExampleSectionWrapper componentName="CmdFormElement" headlineText="Input (type button)">
-                    <ViewCodeData :code="CmdCode[9]">
-                        <CmdFormElement
-                            :nativeButton="{ icon: {iconClass: 'icon-edit', show: true, tooltip: 'I am a tooltip'}}"
-                            element="button"
-                            type="button"
-                            :status="formElementStatus"
-                            :useCustomTooltip="false"
-                        />
-                    </ViewCodeData>
-                </ExampleSectionWrapper>
-            <hr/>
-                <ExampleSectionWrapper componentName="CmdFormElement" headlineText="Input (type checkbox)">
-                    <ViewCodeData :code="CmdCode[10]">
-                        <CmdFormElement
-                            labelText="Input (type checkbox)"
-                            element="input"
-                            type="checkbox"
-                            :status="formElementStatus"
-                            tooltipText="This is a tooltip"
-                            :useCustomTooltip="false"
-                            v-model="checkbox"
-                        />
-                        <dl class="vmodel box">
-                            <dt>v-model:</dt>
-                            <dd>
-                                <output>{{ checkbox }}</output>
-                            </dd>
-                        </dl>
-                    </ViewCodeData>
-                </ExampleSectionWrapper>
-            <hr/>
-                <ExampleSectionWrapper componentName="CmdFormElement" headlineText="Input (type radio)">
-                    <ViewCodeData :code="CmdCode[11]">
-                        <CmdFormElement
-                            labelText="Input #1 (type radio)"
-                            element="input"
-                            type="radio"
-                            name="radio-group"
-                            id="example-radio1"
-                            :status="formElementStatus"
-                            tooltipText="This is a tooltip"
-                            :useCustomTooltip="false"
-                            v-model="radio"
-                            inputValue="radiobutton1"
-                        />
-                        <CmdFormElement
-                            labelText="Input #2 (type radio)"
-                            element="input"
-                            type="radio"
-                            name="radio-group"
-                            id="example-radio2"
-                            :status="formElementStatus"
-                            tooltipText="This is a tooltip"
-                            :useCustomTooltip="false"
-                            v-model="radio"
-                            inputValue="radiobutton2"
-                        />
-                        <dl class="vmodel box">
-                            <dt>v-model:</dt>
-                            <dd>
-                                <output>{{ radio }}</output>
-                            </dd>
-                        </dl>
-                    </ViewCodeData>
-                </ExampleSectionWrapper>
-            <hr/>
-                <ExampleSectionWrapper componentName="CmdFormElement" headlineText="Input (type checkbox, replaced)">
-                    <ViewCodeData :code="CmdCode[12]">
-                        <CmdFormElement
-                            labelText="Input (type checkbox)"
-                            element="input"
-                            type="checkbox"
-                            :replace-input-type="true"
-                            :status="formElementStatus"
-                            tooltipText="This is a tooltip"
-                            :useCustomTooltip="false"
-                            v-model="checkbox"
-                        />
-                        <dl class="vmodel box">
-                            <dt>v-model:</dt>
-                            <dd>
-                                <output>{{ checkbox }}</output>
-                            </dd>
-                        </dl>
-                    </ViewCodeData>
-                </ExampleSectionWrapper>
-            <hr/>
-                <ExampleSectionWrapper componentName="CmdFormElement" headlineText="Input (type radio, replaced)">
-                    <ViewCodeData :code="CmdCode[13]">
-                        <CmdFormElement
-                            labelText="Input #1 (type radio)"
-                            element="input"
-                            type="radio"
-                            :replace-input-type="true"
-                            name="replaced-radio-group"
-                            id="example-replaced-radio1"
-                            :status="formElementStatus"
-                            tooltipText="This is a tooltip"
-                            :useCustomTooltip="false"
-                            v-model="replacedRadio"
-                            inputValue="radiobutton1"
-                        />
-                        <CmdFormElement
-                            labelText="Input #2 (type radio)"
-                            element="input"
-                            type="radio"
-                            name="replaced-radio-group"
-                            :replace-input-type="true"
-                            id="example-replaced-radio2"
-                            :status="formElementStatus"
-                            tooltipText="This is a tooltip"
-                            :useCustomTooltip="false"
-                            v-model="replacedRadio"
-                            inputValue="radiobutton2"
-                        />
-                        <dl class="vmodel box">
-                            <dt>v-model:</dt>
-                            <dd>
-                                <output>{{ replacedRadio }}</output>
-                            </dd>
-                        </dl>
-                    </ViewCodeData>
-                </ExampleSectionWrapper>
-            <hr/>
-                <ExampleSectionWrapper componentName="CmdFormElement" headlineText="Select" :showVModel="true">
-                    <ViewCodeData :code="CmdCode[14]">
-                        <CmdFormElement
-                            labelText="Selectbox"
-                            element="select"
-                            required="required"
-                            :status="formElementStatus"
-                            v-model="select"
-                            :selectOptions="selectOptions"
-                        />
-                        <dl class="vmodel box">
-                            <dt>v-model:</dt>
-                            <dd>
-                                <output>{{ select }}</output>
-                            </dd>
-                        </dl>
-                    </ViewCodeData>
-                </ExampleSectionWrapper>
-            <hr/>
-                <ExampleSectionWrapper componentName="CmdFormElement" headlineText="Datalist">
-                    <ViewCodeData :code="CmdCode[15]">
-                        <CmdFormElement
-                            labelText="Datalist:"
+                            labelText="Input (type text):"
                             element="input"
                             type="text"
                             :status="formElementStatus"
-                            placeholder="Type in option"
-                            :datalist="datalist"
-                            tooltipText="This is a tooltip"
-                        />
-                    </ViewCodeData>
-                </ExampleSectionWrapper>
-            <hr/>
-                <ExampleSectionWrapper componentName="CmdFormElement" headlineText="Textarea">
-                    <ViewCodeData :code="CmdCode[16]">
-                        <CmdFormElement
-                            labelText="Textarea:"
-                            element="textarea"
-                            :status="formElementStatus"
                             placeholder="Type in text"
                             tooltipText="This is a tooltip"
-                            v-model="textarea"
+                            :useCustomTooltip="false"
                         />
-                    </ViewCodeData>
+                    </teleport>
                 </ExampleSectionWrapper>
+            </section>
+            <hr/>
+            <section class="example-section">
+                <ExampleSectionWrapper
+                    componentName="CmdFormElement"
+                    headlineText="Input (type number)"
+                    :sequence="sequence.nextSequenceValue()"
+                    :code="CmdCode">
+                    <CmdFormElement
+                        labelText="Input (type number):"
+                        element="input"
+                        type="number"
+                        :status="formElementStatus"
+                        placeholder="Type in number"
+                        tooltipText="This is a tooltip"
+                        :useCustomTooltip="false"
+                    />
+                </ExampleSectionWrapper>
+            </section>
+            <hr/>
+            <section class="example-section">
+                <ExampleSectionWrapper
+                    componentName="CmdFormElement"
+                    headlineText="Input (type color)"
+                    :sequence="sequence.nextSequenceValue()"
+                    :code="CmdCode">
+                    <CmdFormElement
+                        labelText="Input (type color):"
+                        element="input"
+                        type="color"
+                        :status="formElementStatus"
+                        tooltipText="This is a tooltip"
+                        :useCustomTooltip="false"
+                    />
+                </ExampleSectionWrapper>
+            </section>
+            <hr/>
+            <section class="example-section">
+                <ExampleSectionWrapper
+                    componentName="CmdFormElement"
+                    headlineText="Input (type date)"
+                    :sequence="sequence.nextSequenceValue()"
+                    :code="CmdCode">
+                    <CmdFormElement
+                        labelText="Input (type date):"
+                        element="input"
+                        type="date"
+                        :status="formElementStatus"
+                        tooltipText="This is a tooltip"
+                        :useCustomTooltip="false"
+                    />
+                </ExampleSectionWrapper>
+            </section>
+            <hr/>
+            <section class="example-section">
+                <ExampleSectionWrapper
+                    componentName="CmdFormElement"
+                    headlineText="Input (type datetime-local)"
+                    :sequence="sequence.nextSequenceValue()"
+                    :code="CmdCode">
+                    <CmdFormElement
+                        labelText="Input (type datetime-local):"
+                        element="input"
+                        type="datetime-local"
+                        :status="formElementStatus"
+                        tooltipText="This is a tooltip"
+                        :useCustomTooltip="false"
+                    />
+                </ExampleSectionWrapper>
+            </section>
+            <hr/>
+            <section class="example-section">
+                <ExampleSectionWrapper
+                    componentName="CmdFormElement"
+                    headlineText="Input (type password)"
+                    :sequence="sequence.nextSequenceValue()"
+                    :code="CmdCode">
+                    <CmdFormElement
+                        labelText="Input (type password):"
+                        element="input"
+                        type="password"
+                        fieldIconClass="icon-security-settings"
+                        :status="formElementStatus"
+                        placeholder="Type in password"
+                        tooltipText="This is a tooltip"
+                        :useCustomTooltip="false"
+                    />
+                </ExampleSectionWrapper>
+            </section>
+            <hr/>
+            <section class="example-section">
+                <ExampleSectionWrapper
+                    componentName="CmdFormElement"
+                    headlineText="Input (type file)"
+                    :sequence="sequence.nextSequenceValue()"
+                    :code="CmdCode">
+                    <CmdFormElement
+                        labelText="Input (type file):"
+                        element="input"
+                        type="file"
+                        :status="formElementStatus"
+                        tooltipText="This is a tooltip"
+                        :useCustomTooltip="false"
+                    />
+                </ExampleSectionWrapper>
+            </section>
+            <hr/>
+            <section class="example-section">
+                <ExampleSectionWrapper
+                    componentName="CmdFormElement"
+                    headlineText="Input (type range)"
+                    :sequence="sequence.nextSequenceValue()"
+                    :code="CmdCode">
+                    <CmdFormElement
+                        labelText="Input (type range):"
+                        element="input"
+                        type="range"
+                        :status="formElementStatus"
+                        :useCustomTooltip="false"
+                        v-model="range"
+                    />
+                    <dl class="vmodel box">
+                        <dt>v-model:</dt>
+                        <dd>
+                            <output>{{ range }}</output>
+                        </dd>
+                    </dl>
+                </ExampleSectionWrapper>
+            </section>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdFormElement"
+                headlineText="Input (type search)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode">
+                <CmdFormElement
+                    element="input"
+                    type="search"
+                    :status="formElementStatus"
+                    :useCustomTooltip="false"
+                />
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdFormElement"
+                headlineText="Input (type submit)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode">
+                <CmdFormElement
+                    :nativeButton="{ text: 'Submit', icon: {iconClass: 'icon-edit', show: true}}"
+                    element="button"
+                    type="submit"
+                    :status="formElementStatus"
+                    :useCustomTooltip="false"
+                />
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdFormElement"
+                headlineText="Input (type button)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode">
+                <CmdFormElement
+                    :nativeButton="{ icon: {iconClass: 'icon-edit', show: true, tooltip: 'I am a tooltip'}}"
+                    element="button"
+                    type="button"
+                    :status="formElementStatus"
+                    :useCustomTooltip="false"
+                />
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdFormElement"
+                headlineText="Input (type checkbox)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode">
+                <CmdFormElement
+                    labelText="Input (type checkbox)"
+                    element="input"
+                    type="checkbox"
+                    :status="formElementStatus"
+                    tooltipText="This is a tooltip"
+                    :useCustomTooltip="false"
+                    v-model="checkbox"
+                />
+                <dl class="vmodel box">
+                    <dt>v-model:</dt>
+                    <dd>
+                        <output>{{ checkbox }}</output>
+                    </dd>
+                </dl>
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdFormElement"
+                headlineText="Input (type radio)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode">
+                <CmdFormElement
+                    labelText="Input #1 (type radio)"
+                    element="input"
+                    type="radio"
+                    name="radio-group"
+                    id="example-radio1"
+                    :status="formElementStatus"
+                    tooltipText="This is a tooltip"
+                    :useCustomTooltip="false"
+                    v-model="radio"
+                    inputValue="radiobutton1"
+                />
+                <CmdFormElement
+                    labelText="Input #2 (type radio)"
+                    element="input"
+                    type="radio"
+                    name="radio-group"
+                    id="example-radio2"
+                    :status="formElementStatus"
+                    tooltipText="This is a tooltip"
+                    :useCustomTooltip="false"
+                    v-model="radio"
+                    inputValue="radiobutton2"
+                />
+                <dl class="vmodel box">
+                    <dt>v-model:</dt>
+                    <dd>
+                        <output>{{ radio }}</output>
+                    </dd>
+                </dl>
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdFormElement"
+                headlineText="Input (type checkbox (replaced))"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode">
+                <CmdFormElement
+                    labelText="Input (type checkbox)"
+                    element="input"
+                    type="checkbox"
+                    :replace-input-type="true"
+                    :status="formElementStatus"
+                    tooltipText="This is a tooltip"
+                    :useCustomTooltip="false"
+                    v-model="checkbox"
+                />
+                <dl class="vmodel box">
+                    <dt>v-model:</dt>
+                    <dd>
+                        <output>{{ checkbox }}</output>
+                    </dd>
+                </dl>
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdFormElement"
+                headlineText="Input (type radio (replaced))"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode">
+                <CmdFormElement
+                    labelText="Input #1 (type radio)"
+                    element="input"
+                    type="radio"
+                    :replace-input-type="true"
+                    name="replaced-radio-group"
+                    id="example-replaced-radio1"
+                    :status="formElementStatus"
+                    tooltipText="This is a tooltip"
+                    :useCustomTooltip="false"
+                    v-model="replacedRadio"
+                    inputValue="radiobutton1"
+                />
+                <CmdFormElement
+                    labelText="Input #2 (type radio)"
+                    element="input"
+                    type="radio"
+                    name="replaced-radio-group"
+                    :replace-input-type="true"
+                    id="example-replaced-radio2"
+                    :status="formElementStatus"
+                    tooltipText="This is a tooltip"
+                    :useCustomTooltip="false"
+                    v-model="replacedRadio"
+                    inputValue="radiobutton2"
+                />
+                <dl class="vmodel box">
+                    <dt>v-model:</dt>
+                    <dd>
+                        <output>{{ replacedRadio }}</output>
+                    </dd>
+                </dl>
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdFormElement"
+                headlineText="Select"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :showVModel="true">
+                <CmdFormElement
+                    labelText="Selectbox"
+                    element="select"
+                    required="required"
+                    :status="formElementStatus"
+                    v-model="select"
+                    :selectOptions="selectOptions"
+                />
+                <dl class="vmodel box">
+                    <dt>v-model:</dt>
+                    <dd>
+                        <output>{{ select }}</output>
+                    </dd>
+                </dl>
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdFormElement"
+                headlineText="Datalist"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode">
+                <CmdFormElement
+                    labelText="Datalist:"
+                    element="input"
+                    type="text"
+                    :status="formElementStatus"
+                    placeholder="Type in option"
+                    :datalist="datalist"
+                    tooltipText="This is a tooltip"
+                />
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdFormElement"
+                headlineText="Textarea"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode">
+                <CmdFormElement
+                    labelText="Textarea:"
+                    element="textarea"
+                    :status="formElementStatus"
+                    placeholder="Type in text"
+                    tooltipText="This is a tooltip"
+                    v-model="textarea"
+                />
+            </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
             <ComponentProperties :properties="CmdFormElement.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>

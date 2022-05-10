@@ -15,8 +15,14 @@ import companyLogo from '../../assets/data/company-logo.json'
 import CmdCode from "../../data/CmdCompanyLogoHelp"
 import propertyDescriptions from "../../generated/CmdCompanyLogoPropertyDescriptions.json"
 
+// import graphics
 import defaultLogo from "../../../../company/assets/images/logo.svg"
 import darkmodeLogo from "../../../../company/assets/images/logo-darkmode.svg"
+
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
 
 const propertyStructures = {
     link: {
@@ -31,8 +37,12 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ExampleSectionWrapper componentName="CmdCompanyLogo" headlineText="Company Logo">
-                <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]" :data="companyLogo">
+            <ExampleSectionWrapper componentName="CmdCompanyLogo"
+                                   headlineText="Company Logo"
+                                   :sequence="sequence.nextSequenceValue()"
+                                   :code="CmdCode"
+                                   :data="companyLogo"
+                                   :isFirstComponent="true">
                     <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                         <CmdCompanyLogo
                             :link="companyLogo.link"
@@ -41,7 +51,6 @@ const propertyStructures = {
                             :pathDarkmodeLogo="darkmodeLogo"
                         />
                     </teleport>
-                </ViewCodeData>
             </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>

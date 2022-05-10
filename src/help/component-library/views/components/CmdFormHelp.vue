@@ -13,25 +13,33 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 // import example-data
 import CmdCode from "../../data/CmdFormHelp"
 import propertyDescriptions from "../../generated/CmdFormPropertyDescriptions.json"
+
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
 </script>
 
 <template>
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ExampleSectionWrapper componentName="CmdForm" headlineText="Form">
-                <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]">
-                    <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                        <CmdForm
-                            :use-fieldset="true"
-                            novalidate="novalidate"
-                            text-legend="Legend">
-                            <!-- begin slot-content -->
-                            Form content (put form elements here)
-                            <!-- end slot-content -->
-                        </CmdForm>
-                    </teleport>
-                </ViewCodeData>
+            <ExampleSectionWrapper
+                componentName="CmdForm"
+                headlineText="Form"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :isFirstComponent="true">
+                <teleport to="#frame-component-target" :disabled="!isFrameMode()">
+                    <CmdForm
+                        :use-fieldset="true"
+                        novalidate="novalidate"
+                        text-legend="Legend">
+                        <!-- begin slot-content -->
+                        Form content (put form elements here)
+                        <!-- end slot-content -->
+                    </CmdForm>
+                </teleport>
             </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>

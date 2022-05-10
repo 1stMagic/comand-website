@@ -15,6 +15,11 @@ import CmdCode from "../../data/CmdTabsHelp"
 import tabs from "../../assets/data/tabs.json"
 import propertyDescriptions from "../../generated/CmdTabsPropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     tabs: [
         {
@@ -30,21 +35,30 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <CmdCustomHeadline headlineText="Tabs (not stretched)" :headlineLevel="3" preHeadlineText="Example #1" />
-            <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]" :data="tabs">
-                <CmdTabs
-                    :stretchTabs="false"
-                    :tabs="tabs"
-                />
-            </ViewCodeData>
-            <hr />
-            <CmdCustomHeadline headlineText="Tabs (stretched)" :headlineLevel="3" preHeadlineText="Example #2" />
-            <ViewCodeData :code="CmdCode[1]" :data="tabs">
-                <CmdTabs
-                    :stretchTabs="true"
-                    :tabs="tabs"
-                />
-            </ViewCodeData>
+            <ExampleSectionWrapper
+                componentName="CmdTabs"
+                headlineText="Tabs (not stretched)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :data="tabs"
+                :isFirstComponent="true">
+                    <CmdTabs
+                        :stretchTabs="false"
+                        :tabs="tabs"
+                    />
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdTabs"
+                headlineText="Tabs (stretched)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :data="tabs">
+                    <CmdTabs
+                        :stretchTabs="true"
+                        :tabs="tabs"
+                    />
+            </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
             <ComponentProperties :properties="CmdTabs.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>

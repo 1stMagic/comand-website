@@ -17,6 +17,7 @@
             <p>To be as flexible and responsive for many devices as possible, the code is based on the following aspects:</p>
             <ul>
                 <li>Taking advantage of VUE3 features</li>
+                <li>Not creating native html-tags again as components</li>
                 <li>Avoiding redundancies as far as possible</li>
                 <li>Making many features of components configurable</li>
                 <li>Making translations easy to replace and to add</li>

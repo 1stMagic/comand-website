@@ -15,6 +15,11 @@ import CmdCode from "../../data/CmdOpeningHoursHelp"
 import openingHours from '../../assets/data/opening-hours.json'
 import propertyDescriptions from "../../generated/CmdOpeningHoursPropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     openingHours: [
         {
@@ -30,7 +35,13 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]" :data="openingHours">
+            <ExampleSectionWrapper
+                componentName="CmdOpeningHours"
+                headlineText="Opening Hours"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :data="openingHours"
+                :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdOpeningHours
                         :openingHours="openingHours"
@@ -41,7 +52,7 @@ const propertyStructures = {
                         textMiscInfo="Miscellaneous information"
                     />
                 </teleport>
-            </ViewCodeData>
+            </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
             <ComponentProperties :properties="CmdOpeningHours.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>

@@ -15,6 +15,11 @@ import breadcrumbs from '../../assets/data/breadcrumbs.json'
 import CmdCode from "../../data/CmdBreadcrumbsHelp"
 import propertyDescriptions from "../../generated/CmdBreadcrumbsPropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     breadcrumbLinks: {
         "text": "<string>",
@@ -33,15 +38,19 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ExampleSectionWrapper componentName="CmdBreadcrumbs" headlineText="Breadcrumbs">
-                <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]" :data="breadcrumbs">
-                    <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                        <CmdBreadcrumbs
-                            :breadcrumbLinks="breadcrumbs"
-                            breadcrumbLabel="You are here:"
-                        />
-                    </teleport>
-                </ViewCodeData>
+            <ExampleSectionWrapper
+                componentName="CmdBreadcrumbs"
+                headlineText="Breadcrumbs"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :data="breadcrumbs"
+                :isFirstComponent="true">
+                <teleport to="#frame-component-target" :disabled="!isFrameMode()">
+                    <CmdBreadcrumbs
+                        :breadcrumbLinks="breadcrumbs"
+                        breadcrumbLabel="You are here:"
+                    />
+                </teleport>
             </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>

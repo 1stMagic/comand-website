@@ -15,6 +15,11 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 import CmdCode from "../../data/CmdFancyBoxHelp"
 import propertyDescriptions from "../../generated/CmdFancyBoxPropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     fancyboxOptions: {
         closeIcon: {
@@ -47,29 +52,34 @@ function showFancyBox(type, content, altText) {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ExampleSectionWrapper componentName="CmdFancyBox" headlineText="Fancybox with text">
-                <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]">
-                    <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                        <div>
-                            <a href="#" @click.prevent="showFancyBox('text','Some text')">Open Fancybox with text</a><br/>
-                            <CmdFancyBox
-                                :allowEscapeKey="false"
-                            >
-                                Content
-                            </CmdFancyBox>
-                        </div>
-                    </teleport>
-                </ViewCodeData>
+            <ExampleSectionWrapper
+                componentName="CmdFancyBox"
+                headlineText="Fancybox with text"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :isFirstComponent="true">
+                <teleport to="#frame-component-target" :disabled="!isFrameMode()">
+                    <div>
+                        <a href="#" @click.prevent="showFancyBox('text','Some text')">Open Fancybox with text</a><br/>
+                        <CmdFancyBox
+                            :allowEscapeKey="false"
+                        >
+                            Content
+                        </CmdFancyBox>
+                    </div>
+                </teleport>
             </ExampleSectionWrapper>
             <hr/>
-            <ExampleSectionWrapper componentName="CmdFancyBox" headlineText="Fancybox with image">
-                <ViewCodeData :code="CmdCode[0]">
-                    <a href="#"
-                       @click.prevent="showFancyBox('image', '/media/images/content-images/logo-business-edition-landscape.jpg', 'Alternative text')"
-                       title="Open Fancybox with large image">
-                        Open Fancybox with image
-                    </a>
-                </ViewCodeData>
+            <ExampleSectionWrapper
+                componentName="CmdFancyBox"
+                headlineText="Fancybox with image"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode">
+                <a href="#"
+                   @click.prevent="showFancyBox('image', '/media/images/content-images/logo-business-edition-landscape.jpg', 'Alternative text')"
+                   title="Open Fancybox with large image">
+                    Open Fancybox with image
+                </a>
             </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>

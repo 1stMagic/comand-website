@@ -19,6 +19,11 @@ import fakeSelectCountries from '../../assets/data/fake-select-countries.json'
 import fakeSelectOptionsWithIcons from '../../assets/data/fake-select-options-with-icons.json'
 import propertyDescriptions from "../../generated/CmdFakeSelectPropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     dropdownIcon: {
         "iconClass": "<string>",
@@ -45,128 +50,144 @@ const fakeSelectColor = ref("")
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ExampleSectionWrapper componentName="CmdFakeSelect" headlineText="Selectbox 'default'">
-                <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]" :data="fakeSelectOptions">
-                    <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                        <CmdFakeSelect
-                            labelText="Labeltext for default selectbox:"
-                            :status="formElementStatus"
-                            :selectData="fakeSelectOptions"
-                            v-model="fakeSelectDefault"
-                            required
-                            defaultOptionName="Select an option:"
-                        />
-                        <h4>v-model</h4>
-                        <dl class="vmodel box">
-                            <dt>Current value:</dt>
-                            <dd>
-                                <output>{{ fakeSelectDefault }}</output>
-                            </dd>
-                        </dl>
-                    </teleport>
-                </ViewCodeData>
-            </ExampleSectionWrapper>
-            <hr/>
-            <ExampleSectionWrapper componentName="CmdFakeSelect" headlineText="Selectbox 'default' (with icons)">
-                <ViewCodeData :code="CmdCode[1]">
+            <ExampleSectionWrapper
+                componentName="CmdFakeSelect"
+                headlineText="Selectbox 'default'"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :data="fakeSelectOptions"
+                :isFirstComponent="true">
+                <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdFakeSelect
-                        labelText="Selectbox with icons:"
-                        :status="formElementStatus"
-                        :selectData="fakeSelectOptionsWithIcons"
-                        v-model="fakeSelectDefaultWithIcons"
-                        defaultOptionName="Select an option:"
-                    />
-                    <dl class="vmodel box">
-                        <dt>v-model:</dt>
-                        <dd>
-                            <output>{{ fakeSelectDefaultWithIcons }}</output>
-                        </dd>
-                    </dl>
-                </ViewCodeData>
-            </ExampleSectionWrapper>
-            <hr/>
-            <ExampleSectionWrapper componentName="CmdFakeSelect" headlineText="Selectbox 'checkboxOptions' (shows checkboxes)">
-                <ViewCodeData :code="CmdCode[2]">
-                    <CmdFakeSelect
-                        labelText="Selectbox with checkboxes:"
+                        labelText="Labeltext for default selectbox:"
                         :status="formElementStatus"
                         :selectData="fakeSelectOptions"
-                        v-model="fakeSelectCheckbox"
-                        defaultOptionName="Options:"
-                        :required="true"
-                        id="selectbox-with-checkboxes"
-                        type="checkboxOptions"
-                        :useCustomTooltip="true"
+                        v-model="fakeSelectDefault"
+                        required
+                        defaultOptionName="Select an option:"
                     />
-                    <p>
-                        fakeSelectOptions: {{ fakeSelectOptions }}
-                    </p>
+                    <h4>v-model</h4>
                     <dl class="vmodel box">
-                        <dt>v-model:</dt>
+                        <dt>Current value:</dt>
                         <dd>
-                            <output>{{ fakeSelectCheckbox }}</output>
+                            <output>{{ fakeSelectDefault }}</output>
                         </dd>
                     </dl>
-                </ViewCodeData>
+                </teleport>
             </ExampleSectionWrapper>
             <hr/>
-            <ExampleSectionWrapper componentName="CmdFakeSelect" headlineText="Selectbox 'content' (content given by slot)">
-                <ViewCodeData :code="CmdCode[3]">
-                    <CmdFakeSelect
-                        labelText="Selectbox with slot-content:"
-                        :status="formElementStatus"
-                        type="content"
-                        defaultOptionName="HTML-Content:"
-                    >
-                        <ul class="custom-fake-select-content">
-                            <li>
-                                <div>
-                                    <h3>Headline</h3>
-                                    <p>Some content inside a paragraph</p>
-                                </div>
-                                <img src="media/images/thumbnail-scroller/thumbnail/logo-cmd-blue-landscape.jpg" alt="image"/>
-                            </li>
-                        </ul>
-                    </CmdFakeSelect>
-                </ViewCodeData>
+            <ExampleSectionWrapper
+                componentName="CmdFakeSelect"
+                headlineText="Selectbox 'default' (with icons)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :data="fakeSelectOptions"
+                :isFirstComponent="true">
+                <CmdFakeSelect
+                    labelText="Selectbox with icons:"
+                    :status="formElementStatus"
+                    :selectData="fakeSelectOptionsWithIcons"
+                    v-model="fakeSelectDefaultWithIcons"
+                    defaultOptionName="Select an option:"
+                />
+                <dl class="vmodel box">
+                    <dt>v-model:</dt>
+                    <dd>
+                        <output>{{ fakeSelectDefaultWithIcons }}</output>
+                    </dd>
+                </dl>
             </ExampleSectionWrapper>
             <hr/>
-            <ExampleSectionWrapper componentName="CmdFakeSelect" headlineText="Selectbox 'country' (shows country flags)">
-                <ViewCodeData :code="CmdCode[4]">
-                    <CmdFakeSelect
-                        labelText="Selectbox with country flags:"
-                        :status="formElementStatus"
-                        :selectData="fakeSelectCountries"
-                        v-model="fakeSelectCountry"
-                        defaultOptionName="Select country:"
-                        type="country"
-                    />
-                    <dl class="vmodel box">
-                        <dt>v-model:</dt>
-                        <dd>
-                            <output>{{ fakeSelectCountry }}</output>
-                        </dd>
-                    </dl>
-                </ViewCodeData>
+            <ExampleSectionWrapper
+                componentName="CmdFakeSelect"
+                headlineText="Selectbox 'checkboxOptions' (shows checkboxes)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode">
+                <CmdFakeSelect
+                    labelText="Selectbox with checkboxes:"
+                    :status="formElementStatus"
+                    :selectData="fakeSelectOptions"
+                    v-model="fakeSelectCheckbox"
+                    defaultOptionName="Options:"
+                    :required="true"
+                    id="selectbox-with-checkboxes"
+                    type="checkboxOptions"
+                    :useCustomTooltip="true"
+                />
+                <p>
+                    fakeSelectOptions: {{ fakeSelectOptions }}
+                </p>
+                <dl class="vmodel box">
+                    <dt>v-model:</dt>
+                    <dd>
+                        <output>{{ fakeSelectCheckbox }}</output>
+                    </dd>
+                </dl>
             </ExampleSectionWrapper>
             <hr/>
-            <ExampleSectionWrapper componentName="CmdFakeSelect" headlineText="Selectbox 'colors' (show squares with colors)">
-                <ViewCodeData :code="CmdCode[5]">
-                    <CmdFakeSelect
-                        labelText="Selectbox with colors:"
-                        :status="formElementStatus"
-                        :selectData="fakeSelectColors"
-                        v-model="fakeSelectColor"
-                        required="required"
-                        type="color"
-                    />
-                    <dl class="vmodel box">
-                        <dt>v-model:</dt>
-                        <dd>
-                            <output>{{ fakeSelectColor }}</output>
-                        </dd>
-                    </dl>
-                </ViewCodeData>
+            <ExampleSectionWrapper
+                componentName="CmdFakeSelect"
+                headlineText="Selectbox 'content' (content given by slot)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode">
+                <CmdFakeSelect
+                    labelText="Selectbox with slot-content:"
+                    :status="formElementStatus"
+                    type="content"
+                    defaultOptionName="HTML-Content:"
+                >
+                    <ul class="custom-fake-select-content">
+                        <li>
+                            <div>
+                                <h3>Headline</h3>
+                                <p>Some content inside a paragraph</p>
+                            </div>
+                            <img src="media/images/thumbnail-scroller/thumbnail/logo-cmd-blue-landscape.jpg" alt="image"/>
+                        </li>
+                    </ul>
+                </CmdFakeSelect>
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdFakeSelect"
+                headlineText="Selectbox 'country' (shows country flags)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode">
+                <CmdFakeSelect
+                    labelText="Selectbox with country flags:"
+                    :status="formElementStatus"
+                    :selectData="fakeSelectCountries"
+                    v-model="fakeSelectCountry"
+                    defaultOptionName="Select country:"
+                    type="country"
+                />
+                <dl class="vmodel box">
+                    <dt>v-model:</dt>
+                    <dd>
+                        <output>{{ fakeSelectCountry }}</output>
+                    </dd>
+                </dl>
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdFakeSelect"
+                headlineText="Selectbox 'colors' (show squares with colors)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode">
+                <CmdFakeSelect
+                    labelText="Selectbox with colors:"
+                    :status="formElementStatus"
+                    :selectData="fakeSelectColors"
+                    v-model="fakeSelectColor"
+                    required="required"
+                    type="color"
+                />
+                <dl class="vmodel box">
+                    <dt>v-model:</dt>
+                    <dd>
+                        <output>{{ fakeSelectColor }}</output>
+                    </dd>
+                </dl>
             </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>

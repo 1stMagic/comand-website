@@ -17,6 +17,11 @@ import tableSmall from "../../assets/data/table-small.json"
 import tableLarge from "../../assets/data/table-large.json"
 import propertyDescriptions from "../../generated/CmdTablePropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     tableData: {
         "caption": {
@@ -56,8 +61,13 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <CmdCustomHeadline headlineText="Table (with few data)" :headlineLevel="3" preHeadlineText="Example #1" />
-            <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]">
+            <ExampleSectionWrapper
+                componentName="CmdTable"
+                headlineText="Table (with few data)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :data="tableSmall"
+                :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdTable
                         :collapsible="true"
@@ -66,17 +76,21 @@ const propertyStructures = {
                         :table-data="tableSmall"
                     />
                 </teleport>
-            </ViewCodeData>
-            <hr />
-            <CmdCustomHeadline headlineText="Table (with lots of data and highlighted row and column)" :headlineLevel="3" preHeadlineText="Example 2" />
-            <ViewCodeData :code="CmdCode[1]">
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdTable"
+                headlineText="Table (with lots of data and highlighted row and column)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :data="tableLarge">
                 <CmdTable
                     :collapsible="false"
                     :fullWidthOnDefault="false"
                     :userCanToggleWidth="false"
                     :table-data="tableLarge"
                 />
-            </ViewCodeData>
+            </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
             <ComponentProperties :properties="CmdTable.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>

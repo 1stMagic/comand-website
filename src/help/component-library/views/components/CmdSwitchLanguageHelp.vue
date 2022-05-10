@@ -16,6 +16,11 @@ import CmdCode from "../../data/CmdSwitchLanguageHelp"
 import switchLanguage from '../../assets/data/switch-language.json'
 import propertyDescriptions from "../../generated/CmdSwitchLanguagePropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const currentLanguage = ref("")
 
 const propertyStructures = {
@@ -43,7 +48,13 @@ function selectLanguage(event) {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]" :data="switchLanguage">
+            <ExampleSectionWrapper
+                componentName="CmdSwitchLanguage"
+                headlineText="Switch Language"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :data="switchLanguage"
+                :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdSwitchLanguage
                         :languages="switchLanguage"
@@ -56,7 +67,7 @@ function selectLanguage(event) {
                         <output>{{ currentLanguage.name }}</output>
                     </dd>
                 </dl>
-            </ViewCodeData>
+            </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
             <ComponentProperties :properties="CmdSwitchLanguage.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>

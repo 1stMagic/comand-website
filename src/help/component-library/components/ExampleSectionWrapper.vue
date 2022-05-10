@@ -8,6 +8,7 @@
             :headlineLevel="3"
         />
         <!-- end cmd-custom-headline -->
+
         <!-- begin view-code-data -->
         <ViewCodeData :code="code[codeExample()]" :isFirstComponent="codeExample() === 0" :data="data">
             <slot></slot>

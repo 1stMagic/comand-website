@@ -20,8 +20,14 @@ import listOfLinks from '../../assets/data/list-of-links-top-header-navigation.j
 import companyLogo from '../../assets/data/company-logo.json'
 import propertyDescriptions from "../../generated/CmdSiteHeaderPropertyDescriptions.json"
 
+// import graphics
 import defaultLogo from "../../../../company/assets/images/logo.svg"
 import darkmodeLogo from "../../../../company/assets/images/logo-darkmode.svg"
+
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
 
 const propertyStructures = {
     mainNavigationEntries: [
@@ -47,7 +53,12 @@ const navigationEntries = ref(mainNavigation)
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]">
+            <ExampleSectionWrapper
+                componentName="CmdSiteHeader"
+                headlineText="Site Header"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdSiteHeader :cmdMainNavigation="{navigationEntries}" :sticky="true">
                         <template v-slot:top-header>
@@ -67,7 +78,7 @@ const navigationEntries = ref(mainNavigation)
                         </template>
                     </CmdSiteHeader>
                 </teleport>
-            </ViewCodeData>
+            </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
             <ComponentProperties :properties="CmdSiteHeader.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>

@@ -17,6 +17,11 @@ import shareButtonsJson from '../../assets/data/share-buttons-page-by-json.json'
 import shareButtonsPage from '../../assets/data/share-buttons-page-by-property.json'
 import propertyDescriptions from "../../generated/CmdShareButtonsPropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     shareButtons: [
         {
@@ -34,30 +39,43 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <CmdCustomHeadline headlineText="Data given by json-file" :headlineLevel="3" preHeadlineText="Example #1" />
-            <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]" :data="shareButtonsJson">
+            <ExampleSectionWrapper
+                componentName="CmdShareButton"
+                headlineText="Data given by json-file"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :data="shareButtonsJson"
+                :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdShareButtons
                         :append-page="false"
                         :share-buttons="shareButtonsJson"
                     />
                 </teleport>
-            </ViewCodeData>
-            <hr />
-            <CmdCustomHeadline headlineText="Page given by property" :headlineLevel="3" preHeadlineText="Example #2" />
-            <ViewCodeData :code="CmdCode[1]" :data="shareButtonsPage">
-                    <CmdShareButtons
-                        page="some url"
-                        :share-buttons="shareButtonsPage"
-                    />
-            </ViewCodeData>
-            <hr />
-            <CmdCustomHeadline headlineText="Page taken from browser" headlineLevel="3" preHeadlineText="Example #3" />
-            <ViewCodeData :code="CmdCode[2]" :data="shareButtonsPage">
-                    <CmdShareButtons
-                        :share-buttons="shareButtonsPage"
-                    />
-            </ViewCodeData>
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdShareButton"
+                headlineText="Page given by property"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :data="shareButtonsPage">
+                <CmdShareButtons
+                    page="some url"
+                    :share-buttons="shareButtonsPage"
+                />
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdShareButton"
+                headlineText="Page taken from browser"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :data="shareButtonsPage">
+                <CmdShareButtons
+                    :share-buttons="shareButtonsPage"
+                />
+            </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
             <ComponentProperties :properties="CmdShareButtons.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>

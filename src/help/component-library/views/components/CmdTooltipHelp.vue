@@ -15,6 +15,11 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 import CmdCode from "../../data/CmdTooltipHelp"
 import propertyDescriptions from "../../generated/CmdTooltipPropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     iconClose: {
         show: "<boolean>",
@@ -28,8 +33,12 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <CmdCustomHeadline headlineText="Tooltip opened by hover" :headlineLevel="3" preHeadlineText="Example #1" />
-            <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]">
+            <ExampleSectionWrapper
+                componentName="CmdTooltip"
+                headlineText="Tooltip (opened by hover)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <p>
                         <a href="#" @click.prevent id="hoverme">Hover me!</a><br/>
@@ -39,19 +48,22 @@ const propertyStructures = {
                         Tooltip for hover
                     </CmdTooltip>
                 </teleport>
-            </ViewCodeData>
-            <hr />
-            <CmdCustomHeadline headlineText="Tooltip opened (and closed) by click" :headlineLevel="3" preHeadlineText="Example #2" />
-            <ViewCodeData :code="CmdCode[1]">
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdTooltip"
+                headlineText="Tooltip (opened (and closed) by click)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode">
                 <p>
                     <a href="#" @click.prevent id="clickme" title="Native tooltip">Click me!</a>
                 </p>
-            <CmdTooltip
-                related-id="clickme"
-                :toggle-visibility-by-click="true">
-                Tooltip for click
-            </CmdTooltip>
-            </ViewCodeData>
+                <CmdTooltip
+                    related-id="clickme"
+                    :toggle-visibility-by-click="true">
+                    Tooltip for click
+                </CmdTooltip>
+            </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
             <ComponentProperties :properties="CmdTooltip.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>

@@ -15,6 +15,11 @@ import CmdCode from "../../data/CmdMultistepFormProgressBarHelp"
 import multistepFormProgressBar from '../../assets/data/multistep-form-progress-bar.json'
 import propertyDescriptions from "../../generated/CmdMultistepFormProgressBarPropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     multisteps: [
         {
@@ -34,14 +39,20 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]" :data="multistepFormProgressBar">
+            <ExampleSectionWrapper
+                componentName="CmdMultistepFormProgressBar"
+                headlineText="Multistep Form Progress Bar"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :data="multistepFormProgressBar"
+                :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdMultistepFormProgressBar
                         :multisteps="multistepFormProgressBar"
                         @click="showPageMultistep = $event.index + 1"
                     />
                 </teleport>
-            </ViewCodeData>
+            </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
             <ComponentProperties :properties="CmdMultistepFormProgressBar.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>

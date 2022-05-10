@@ -16,6 +16,11 @@ import CmdCode from "../../data/CmdMainNavigationHelp"
 import mainNavigation from '../../assets/data/main-navigation.json'
 import propertyDescriptions from "../../generated/CmdMainNavigationPropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     closeOffcanvas: {
         iconClass: "<string>",
@@ -64,7 +69,13 @@ const navigationEntries = ref(mainNavigation)
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]" :data="navigationEntries">
+            <ExampleSectionWrapper
+                componentName="CmdMainNavigation"
+                headlineText="Main Navigation"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :data="navigationEntries"
+                :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdMainNavigation
                         :stretchMainItems="false"
@@ -72,7 +83,7 @@ const navigationEntries = ref(mainNavigation)
                         :navigationEntries="navigationEntries"
                     />
                 </teleport>
-            </ViewCodeData>
+            </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
             <ComponentProperties :properties="CmdMainNavigation.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>

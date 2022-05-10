@@ -15,6 +15,11 @@ import CmdCode from "../../data/CmdImageGalleryHelp"
 import imageGallery from '../../assets/data/image-gallery.json'
 import propertyDescriptions from "../../generated/CmdImageGalleryPropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     images: [
         {
@@ -32,13 +37,19 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]" :data="imageGallery">
+            <ExampleSectionWrapper
+                componentName="CmdImageGallery"
+                headlineText="Image Gallery"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :data="imageGallery"
+                :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdImageGallery
                         :images="imageGallery"
                     />
                 </teleport>
-            </ViewCodeData>>
+            </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
             <ComponentProperties :properties="CmdImageGallery.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>

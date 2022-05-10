@@ -15,6 +15,11 @@ import CmdCode from "../../data/CmdGoogleMapsHelp"
 import propertyDescriptions from "../../generated/CmdFormFiltersPropertyDescriptions.json"
 import addressData from '../../assets/data/address-data.json'
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     "address": {
         "streetNo": "<string>",
@@ -38,14 +43,17 @@ function coordinates(address) {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ExampleSectionWrapper componentName="CmdGoogleMaps" headlineText="Google Maps&trade;">
-                <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]">
-                    <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                        <CmdGoogleMaps
-                            :address="coordinates(addressData.address)"
-                        />
-                    </teleport>
-                </ViewCodeData>
+            <ExampleSectionWrapper
+                componentName="CmdGoogleMaps"
+                headlineText="Google Maps&trade;"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :isFirstComponent="true">
+                <teleport to="#frame-component-target" :disabled="!isFrameMode()">
+                    <CmdGoogleMaps
+                        :address="coordinates(addressData.address)"
+                    />
+                </teleport>
             </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>

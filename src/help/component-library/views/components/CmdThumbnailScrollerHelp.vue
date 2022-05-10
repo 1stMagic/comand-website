@@ -15,6 +15,11 @@ import CmdCode from "../../data/CmdThumbnailScrollerHelp"
 import thumbnailScroller from "../../assets/data/thumbnail-scroller.json"
 import propertyDescriptions from "../../generated/CmdThumbnailScrollerPropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     thumbnailScrollerItems: [
         {
@@ -36,13 +41,19 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]" :data="thumbnailScroller">
+            <ExampleSectionWrapper
+                componentName="CmdThumbnailScroller"
+                headlineText="Thumbnail Scroller"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :data="thumbnailScroller"
+                :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdThumbnailScroller
                         :thumbnail-scroller-items="thumbnailScroller"
                     />
                 </teleport>
-            </ViewCodeData>
+            </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
             <ComponentProperties :properties="CmdThumbnailScroller.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>

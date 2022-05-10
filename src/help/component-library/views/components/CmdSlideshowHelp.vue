@@ -15,6 +15,11 @@ import CmdCode from "../../data/CmdSlideshowHelp"
 import slideshow from "../../assets/data/slideshow.json"
 import propertyDescriptions from "../../generated/CmdSlideshowPropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     slideshowItems: [{
         "images": [
@@ -44,15 +49,21 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]" :data="slideshow">
+            <ExampleSectionWrapper
+                componentName="CmdSlideshow"
+                headlineText="Slideshow"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :data="slideshow"
+                :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                <CmdSlideshow
-                    :slideshow-items="slideshow"
-                    :showCounter="true"
-                    :autoplay="true"
-                />
+                    <CmdSlideshow
+                        :slideshow-items="slideshow"
+                        :showCounter="true"
+                        :autoplay="true"
+                    />
                 </teleport>
-            </ViewCodeData>
+            </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
             <ComponentProperties :properties="CmdSlideshow.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>

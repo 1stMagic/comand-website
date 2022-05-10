@@ -15,6 +15,11 @@ import cookieDisclaimer from '../../assets/data/cookie-disclaimer.json'
 import CmdCode from "../../data/CmdCookieDisclaimerHelp"
 import propertyDescriptions from "../../generated/CmdCookieDisclaimerPropertyDescriptions.json"
 
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
+
 const propertyStructures = {
     cookieOptions: {
         "required": {
@@ -84,18 +89,21 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ExampleSectionWrapper componentName="CmdCookieDisclaimer" headlineText="Cookie Disclaimer">
-                <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]" :data="cookieDisclaimer">
-                    <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                        <CmdCookieDisclaimer
-                            :cmdCustomHeadline="{headlineText: 'Usage of cookies on this web site', headlineLevel: 3}"
-                            :cookieOptions="cookieDisclaimer"
-                            buttonLabelAcceptAllCookies="Accept all cookies"
-                            buttonLabelAcceptCurrentSettings="Accept current settings"
-                            @closeCookieDisclaimer="fancyBoxCookieDisclaimer = false"
-                        />
-                    </teleport>
-                </ViewCodeData>
+            <ExampleSectionWrapper componentName="CmdCookieDisclaimer"
+                                   headlineText="Cookie Disclaimer"
+                                   :sequence="sequence.nextSequenceValue()"
+                                   :code="CmdCode"
+                                   :data="cookieDisclaimer"
+                                   :isFirstComponent="true">
+                <teleport to="#frame-component-target" :disabled="!isFrameMode()">
+                    <CmdCookieDisclaimer
+                        :cmdCustomHeadline="{headlineText: 'Usage of cookies on this web site', headlineLevel: 3}"
+                        :cookieOptions="cookieDisclaimer"
+                        buttonLabelAcceptAllCookies="Accept all cookies"
+                        buttonLabelAcceptCurrentSettings="Accept current settings"
+                        @closeCookieDisclaimer="fancyBoxCookieDisclaimer = false"
+                    />
+                </teleport>
             </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
