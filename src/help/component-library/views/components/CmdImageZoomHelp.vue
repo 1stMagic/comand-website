@@ -39,7 +39,7 @@ const sequence = useSequence()
             </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
-            <ComponentProperties :properties="CmdImageZoom.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>
+            <ComponentProperties :properties="CmdImageZoom.props" :propertyDescriptions="propertyDescriptions" />
         </template>
     </CmdTabs>
 </template>

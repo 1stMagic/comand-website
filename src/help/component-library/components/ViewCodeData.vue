@@ -7,7 +7,7 @@ import {CmdBox} from "comand-component-library"
 defineProps({
     code: {
         type: String,
-        required: true
+        required: false
     },
     data: {
         type: [String, Object, Array],
@@ -59,7 +59,7 @@ function changeWidth(width) {
             <slot v-if="!showFrame"></slot>
         </div>
         <div v-if="!isFrameMode()" class="flex-container">
-            <div>
+            <div v-if="code">
                 <CmdBox :useSlots="['body']" :collapsible="true" :collapsingBoxesOpen="true" :cmdCustomHeadline="{headlineText: 'Code', headlineLevel: 4}">
                     <template v-slot:body>
                         <ComponentCode :code="code"/>

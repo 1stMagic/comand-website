@@ -10,7 +10,7 @@
                 It also provides an <router-link :to="{name: 'iconfonts'}">additional iconfont</router-link>.
              </p>
             <hr/>
-            <h2>Installation <small>(with <a href="https://www.npmjs.com/" target="npm" title="Open npmjs.com in new tab"><span class="icon-export"></span><span>npm</span></a>)</small></h2>
+            <h2>Installation <small>(with <a class="link-with-icon" href="https://www.npmjs.com/" target="npm" title="Open npmjs.com in new tab"><span class="icon-export"></span><span>npm</span></a>)</small></h2>
             <h3>Install CoManD-dependencies</h3>
             <pre class="language-bash"><code class="language-bash" v-html="installationComand"/></pre>
             <h3>Install additional dependencies</h3>
@@ -61,13 +61,16 @@ export default {
         cssSetup() {
             const cssImports = [
                 "/* begin imports css from comand-frontend-framework ---------------------------------------------------------------------------------------- */",
-                "/* import normalize to set same default styles for all browsers */",
+                "/* import normalize to set same default styles for all browsers - REQUIRED */",
                 "import 'comand-frontend-framework/src/assets/css/normalize.css'",
                 "",
-                "/* import framework-styles */",
+                "/* import framework-styles - REQUIRED */",
                 "import 'comand-frontend-framework/src/assets/css/framework.css'",
                 "",
-                "/* import framework-iconfont */",
+                "/* import breakpoints - OPTIONAL */",
+                "import 'comand-frontend-framework/src/assets/css/breakpoints.css'",
+                "",
+                "/* import framework-iconfont - OPTIONAL */",
                 "import 'comand-frontend-framework/src/assets/css/framework-iconfont.css'",
                 "/* end imports css from comand-frontend-framework ---------------------------------------------------------------------------------------- */",
                 "",

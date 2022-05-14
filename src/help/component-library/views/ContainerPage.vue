@@ -79,7 +79,7 @@ function onViewResolve() {
 
 <template>
     <main :id="idMainContainer">
-        <aside v-if="route.params.tab !== 'properties' && listOfLinks.length > 1" class="flex-container no-gap" id="page-anchors">
+        <aside v-if="route.params.tab !== 'properties' && listOfLinks.length > 1 && !isFrameMode()" class="flex-container no-gap" id="page-anchors">
             <a href="#" @click.prevent="showPageAnchors = !showPageAnchors" class="link-with-icon" title="Toggle Iterations-Sidebar">
                 <span :class="iconToggleSidebar"></span>
             </a>

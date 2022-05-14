@@ -73,8 +73,7 @@ function showFancyBox(type, content, altText) {
             <ExampleSectionWrapper
                 componentName="CmdFancyBox"
                 headlineText="Fancybox with image"
-                :sequence="sequence.nextSequenceValue()"
-                :code="CmdCode">
+                :sequence="sequence.nextSequenceValue()">
                 <a href="#"
                    @click.prevent="showFancyBox('image', '/media/images/content-images/logo-business-edition-landscape.jpg', 'Alternative text')"
                    title="Open Fancybox with large image">

@@ -40,7 +40,13 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ExampleSectionWrapper componentName="CmdAddressData" headlineText="List with labels" :code="CmdCode" :isFirstComponent="true" :data="addressData" :sequence="sequence.nextSequenceValue()">
+            <ExampleSectionWrapper
+                componentName="CmdAddressData"
+                headlineText="List with labels"
+                :code="CmdCode"
+                :isFirstComponent="true"
+                :data="addressData"
+                :sequence="sequence.nextSequenceValue()">
                     <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                         <CmdAddressData
                             :addressData="addressData"
@@ -50,7 +56,12 @@ const propertyStructures = {
                     </teleport>
             </ExampleSectionWrapper>
             <hr />
-            <ExampleSectionWrapper componentName="CmdAddressData" headlineText="List without labels" :code="CmdCode" :data="addressData" :sequence="sequence.nextSequenceValue()">
+            <ExampleSectionWrapper
+                componentName="CmdAddressData"
+                headlineText="List without labels"
+                :code="CmdCode"
+                :data="addressData"
+                :sequence="sequence.nextSequenceValue()">
                     <CmdAddressData
                         :addressData="addressData"
                         :showLabels="false"

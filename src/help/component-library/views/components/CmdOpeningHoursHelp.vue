@@ -46,7 +46,7 @@ const propertyStructures = {
                     <CmdOpeningHours
                         :openingHours="openingHours"
                         :closed="true"
-                        :cmdCustomHeadline="{text: 'Opening hours', level: 4}"
+                        :cmdCustomHeadline="{headlineText: 'Opening hours', headlineLevel: 5}"
                         textOpenClosed="Closed right now!"
                         textHolidaysClosed="Closed on holidays"
                         textMiscInfo="Miscellaneous information"

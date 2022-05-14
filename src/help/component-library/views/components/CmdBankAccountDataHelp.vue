@@ -7,7 +7,6 @@ import {isFrameMode} from "comand-component-library/src/utils/common"
 import {CmdBankAccountData} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
 
 import * as componentPropertiesFunctions from "../../components/ComponentProperties.vue"
@@ -16,6 +15,11 @@ import * as componentPropertiesFunctions from "../../components/ComponentPropert
 import CmdCode from "../../data/CmdBankAccountDataHelp"
 import bankAccountData from "../../assets/data/bank-account-data.json"
 import propertyDescriptions from "../../generated/CmdBankAccountDataPropertyDescriptions.json"
+
+// import composables
+import {useSequence} from "comand-component-library"
+
+const sequence = useSequence()
 
 const propertyStructures = {
     accountData: [
@@ -37,8 +41,13 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ExampleSectionWrapper componentName="CmdBankAccountData" headlineText="Band Account Data">
-                <ViewCodeData :isFirstComponent="true" :code="CmdCode[0]" :data="bankAccountData[0]">
+            <ExampleSectionWrapper
+                componentName="CmdBankAccountData"
+                headlineText="Band Account Data"
+                :isFirstComponent="true"
+                :code="CmdCode"
+                :sequence="sequence.nextSequenceValue()"
+                :data="bankAccountData">
                     <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                         <CmdBankAccountData
                             :account-data="bankAccountData"
@@ -46,7 +55,6 @@ const propertyStructures = {
                             :cmd-custom-headline="{ headlineText: 'Bank Account', headlineLevel: 5}"
                         />
                     </teleport>
-                </ViewCodeData>
             </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>

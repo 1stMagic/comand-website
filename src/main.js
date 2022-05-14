@@ -1,7 +1,16 @@
-/* import css from comand-frontend-framework */
+/* begin imports css from comand-frontend-framework ---------------------------------------------------------------------------------------- */
+/* import normalize to set same default styles for all browsers */
 import 'comand-frontend-framework/src/assets/css/normalize.css'
+
+/* import framework-styles */
 import 'comand-frontend-framework/src/assets/css/framework.css'
+
+/* import breakpoints */
+import 'comand-frontend-framework/src/assets/css/breakpoints.css'
+
+/* import framework-iconfont */
 import 'comand-frontend-framework/src/assets/css/framework-iconfont.css'
+/* end imports css from comand-frontend-framework ---------------------------------------------------------------------------------------- */
 
 import { createApp } from 'vue'
 import App from './App.vue'

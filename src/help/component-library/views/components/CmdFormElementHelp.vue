@@ -3,7 +3,6 @@
 import {ref} from "vue"
 import {tabProps, tabHandlers} from "../../tabs"
 import {isFrameMode} from "comand-component-library/src/utils/common"
-import {nextSequenceValue, currentSequenceValue} from "comand-component-library/src/utils/globalSequence"
 
 // import components
 import {CmdFormElement} from "comand-component-library"
@@ -24,7 +23,7 @@ import {useSequence} from "comand-component-library"
 const sequence = useSequence()
 
 const propertyStructures = {
-    datalist: {
+    datalistOptions: {
         "id": "<string>",
         "options": "<array>"
     },
@@ -45,7 +44,7 @@ const propertyStructures = {
     ]
 }
 
-const datalist = {
+const datalistOptions = {
     id: "datalist-id",
     options: [
         "Option 1",
@@ -55,23 +54,18 @@ const datalist = {
 }
 
 // set consts for v-models
+const inputTypeText = ref("")
 const checkbox = ref(false)
+const replacedCheckbox = ref(false)
 const radio = ref("radiobutton1")
 const replacedRadio = ref("radiobutton2")
 const range = ref(50)
 const select = ref("2")
+const datalist = ref("Option 2")
 const textarea = ref("")
 const formElementStatus = ref("")
 
 // TODO: formElementStatus
-
-function getExampleId() {
-    return "example" + nextSequenceValue("CmdFormElementHelp")
-}
-
-function getPreHeadlineText() {
-    return "Example #" + currentSequenceValue("CmdFormElementHelp")
-}
 </script>
 
 <template>
@@ -84,6 +78,7 @@ function getPreHeadlineText() {
                     headlineText="Input (type text)"
                     :sequence="sequence.nextSequenceValue()"
                     :code="CmdCode"
+                    :output="inputTypeText"
                     :isFirstComponent="true">
                     <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                         <CmdFormElement
@@ -94,6 +89,7 @@ function getPreHeadlineText() {
                             placeholder="Type in text"
                             tooltipText="This is a tooltip"
                             :useCustomTooltip="false"
+                            v-model="inputTypeText"
                         />
                     </teleport>
                 </ExampleSectionWrapper>
@@ -209,7 +205,8 @@ function getPreHeadlineText() {
                     componentName="CmdFormElement"
                     headlineText="Input (type range)"
                     :sequence="sequence.nextSequenceValue()"
-                    :code="CmdCode">
+                    :code="CmdCode"
+                    :output="range">
                     <CmdFormElement
                         labelText="Input (type range):"
                         element="input"
@@ -218,12 +215,6 @@ function getPreHeadlineText() {
                         :useCustomTooltip="false"
                         v-model="range"
                     />
-                    <dl class="vmodel box">
-                        <dt>v-model:</dt>
-                        <dd>
-                            <output>{{ range }}</output>
-                        </dd>
-                    </dl>
                 </ExampleSectionWrapper>
             </section>
             <hr/>
@@ -272,7 +263,8 @@ function getPreHeadlineText() {
                 componentName="CmdFormElement"
                 headlineText="Input (type checkbox)"
                 :sequence="sequence.nextSequenceValue()"
-                :code="CmdCode">
+                :code="CmdCode"
+                :output="checkbox">
                 <CmdFormElement
                     labelText="Input (type checkbox)"
                     element="input"
@@ -282,19 +274,14 @@ function getPreHeadlineText() {
                     :useCustomTooltip="false"
                     v-model="checkbox"
                 />
-                <dl class="vmodel box">
-                    <dt>v-model:</dt>
-                    <dd>
-                        <output>{{ checkbox }}</output>
-                    </dd>
-                </dl>
             </ExampleSectionWrapper>
             <hr/>
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type radio)"
                 :sequence="sequence.nextSequenceValue()"
-                :code="CmdCode">
+                :code="CmdCode"
+                :output="radio">
                 <CmdFormElement
                     labelText="Input #1 (type radio)"
                     element="input"
@@ -319,19 +306,14 @@ function getPreHeadlineText() {
                     v-model="radio"
                     inputValue="radiobutton2"
                 />
-                <dl class="vmodel box">
-                    <dt>v-model:</dt>
-                    <dd>
-                        <output>{{ radio }}</output>
-                    </dd>
-                </dl>
             </ExampleSectionWrapper>
             <hr/>
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type checkbox (replaced))"
                 :sequence="sequence.nextSequenceValue()"
-                :code="CmdCode">
+                :code="CmdCode"
+                :output="replacedCheckbox">
                 <CmdFormElement
                     labelText="Input (type checkbox)"
                     element="input"
@@ -340,21 +322,16 @@ function getPreHeadlineText() {
                     :status="formElementStatus"
                     tooltipText="This is a tooltip"
                     :useCustomTooltip="false"
-                    v-model="checkbox"
+                    v-model="replacedCheckbox"
                 />
-                <dl class="vmodel box">
-                    <dt>v-model:</dt>
-                    <dd>
-                        <output>{{ checkbox }}</output>
-                    </dd>
-                </dl>
             </ExampleSectionWrapper>
             <hr/>
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type radio (replaced))"
                 :sequence="sequence.nextSequenceValue()"
-                :code="CmdCode">
+                :code="CmdCode"
+                :output="replacedRadio">
                 <CmdFormElement
                     labelText="Input #1 (type radio)"
                     element="input"
@@ -381,12 +358,6 @@ function getPreHeadlineText() {
                     v-model="replacedRadio"
                     inputValue="radiobutton2"
                 />
-                <dl class="vmodel box">
-                    <dt>v-model:</dt>
-                    <dd>
-                        <output>{{ replacedRadio }}</output>
-                    </dd>
-                </dl>
             </ExampleSectionWrapper>
             <hr/>
             <ExampleSectionWrapper
@@ -394,7 +365,7 @@ function getPreHeadlineText() {
                 headlineText="Select"
                 :sequence="sequence.nextSequenceValue()"
                 :code="CmdCode"
-                :showVModel="true">
+                :output="select">
                 <CmdFormElement
                     labelText="Selectbox"
                     element="select"
@@ -403,26 +374,22 @@ function getPreHeadlineText() {
                     v-model="select"
                     :selectOptions="selectOptions"
                 />
-                <dl class="vmodel box">
-                    <dt>v-model:</dt>
-                    <dd>
-                        <output>{{ select }}</output>
-                    </dd>
-                </dl>
             </ExampleSectionWrapper>
             <hr/>
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Datalist"
                 :sequence="sequence.nextSequenceValue()"
-                :code="CmdCode">
+                :code="CmdCode"
+                :output="datalist">
                 <CmdFormElement
                     labelText="Datalist:"
                     element="input"
                     type="text"
                     :status="formElementStatus"
                     placeholder="Type in option"
-                    :datalist="datalist"
+                    :datalist="datalistOptions"
+                    v-model="datalist"
                     tooltipText="This is a tooltip"
                 />
             </ExampleSectionWrapper>
@@ -431,7 +398,8 @@ function getPreHeadlineText() {
                 componentName="CmdFormElement"
                 headlineText="Textarea"
                 :sequence="sequence.nextSequenceValue()"
-                :code="CmdCode">
+                :code="CmdCode"
+                :output="textarea">
                 <CmdFormElement
                     labelText="Textarea:"
                     element="textarea"

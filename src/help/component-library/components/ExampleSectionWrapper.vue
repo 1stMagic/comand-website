@@ -10,15 +10,15 @@
         <!-- end cmd-custom-headline -->
 
         <!-- begin view-code-data -->
-        <ViewCodeData :code="code[codeExample()]" :isFirstComponent="codeExample() === 0" :data="data">
+        <ViewCodeData :code="code?.[codeExample()]" :isFirstComponent="codeExample() === 0" :data="data">
             <slot></slot>
         </ViewCodeData>
         <!-- end view-code-data -->
 
-        <dl v-if="showVModel" class="vmodel box">
+        <dl v-if="output !== undefined" class="vmodel box">
             <dt>v-model:</dt>
             <dd>
-                <output>{{ select }}</output>
+                <output>{{ output === "" ? "(empty string)" : output }}</output>
             </dd>
         </dl>
     </section>
@@ -44,13 +44,9 @@ export default {
             type: String,
             required: true
         },
-        showVModel: {
-            type: Boolean,
-            default: false
-        },
         code: {
             type: Array,
-            required: true
+            required: false
         },
         data: {
             type: [Array, Object],
@@ -59,6 +55,10 @@ export default {
         sequence: {
             type: Number,
             required: true
+        },
+        output: {
+            // do not define type to avoid trouble with bool-interpretation of undefined (in template)
+            required: false
         }
     },
     methods: {

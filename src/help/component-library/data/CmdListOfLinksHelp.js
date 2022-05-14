@@ -20,5 +20,12 @@ export default [
     :cmdCustomHeadline="{
       headlineText: 'Links', 
       headlineLevel: 5
+    }" />`,
+    `<CmdListOfLinks 
+    :links="listOfLinks" 
+    :styleAsBox="true" 
+    :cmdCustomHeadline="{
+      headlineText: 'Links', 
+      headlineLevel: 5
     }" />`
 ]

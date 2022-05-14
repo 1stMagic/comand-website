@@ -114,9 +114,6 @@ const fakeSelectColor = ref("")
                     type="checkboxOptions"
                     :useCustomTooltip="true"
                 />
-                <p>
-                    fakeSelectOptions: {{ fakeSelectOptions }}
-                </p>
                 <dl class="vmodel box">
                     <dt>v-model:</dt>
                     <dd>

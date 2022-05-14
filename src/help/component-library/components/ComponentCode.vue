@@ -7,7 +7,7 @@
             <span>Copy code</span>
         </a>
         <transition name="fade">
-            <p v-show="codeCopied">Code was copied to clipboard!</p>
+            <p v-if="codeCopied">Code was copied to clipboard!</p>
         </transition>
     </div>
 </template>
@@ -50,7 +50,7 @@ export default {
             navigator.clipboard.writeText(this.code)
             this.codeCopied = true
              window.setTimeout(
-                () => this.hide(),
+                () => this.codeCopied = false,
                 3000
             )
         }

@@ -43,7 +43,7 @@ const sequence = useSequence()
             </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
-            <ComponentProperties :properties="CmdForm.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>
+            <ComponentProperties :properties="CmdForm.props" :propertyDescriptions="propertyDescriptions"/>
         </template>
     </CmdTabs>
 </template>

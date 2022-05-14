@@ -40,7 +40,7 @@ const sequence = useSequence()
             </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
-            <ComponentProperties :properties="CmdWidthLimitationWrapper.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>
+            <ComponentProperties :properties="CmdWidthLimitationWrapper.props" :propertyDescriptions="propertyDescriptions" />
         </template>
     </CmdTabs>
 </template>

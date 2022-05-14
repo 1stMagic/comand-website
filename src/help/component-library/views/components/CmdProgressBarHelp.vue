@@ -54,7 +54,7 @@ const sequence = useSequence()
             </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
-            <ComponentProperties :properties="CmdProgressBar.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>
+            <ComponentProperties :properties="CmdProgressBar.props" :propertyDescriptions="propertyDescriptions"/>
         </template>
     </CmdTabs>
 </template>

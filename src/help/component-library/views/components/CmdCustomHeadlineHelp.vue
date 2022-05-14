@@ -32,12 +32,6 @@ const sequence = useSequence()
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdCustomHeadline headlineText="Headline level 1" :headlineLevel="1" preHeadlineText="Pre-headline text" iconClass="icon-user-profile"/>
-                    <CmdCustomHeadline headlineText="Headline level 1" :headlineLevel="1"/>
-                    <CmdCustomHeadline headlineText="Headline level 2" :headlineLevel="2"/>
-                    <CmdCustomHeadline headlineText="Headline level 3" :headlineLevel="3"/>
-                    <CmdCustomHeadline headlineText="Headline level 4" :headlineLevel="4"/>
-                    <CmdCustomHeadline headlineText="Headline level 5" :headlineLevel="5"/>
-                    <CmdCustomHeadline headlineText="Headline level 6" :headlineLevel="6"/>
                 </teleport>
             </ExampleSectionWrapper>
             <hr/>
@@ -58,7 +52,7 @@ const sequence = useSequence()
             </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
-            <ComponentProperties :properties="CmdCustomHeadline.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures"/>
+            <ComponentProperties :properties="CmdCustomHeadline.props" :propertyDescriptions="propertyDescriptions" />
         </template>
     </CmdTabs>
 </template>

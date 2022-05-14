@@ -101,7 +101,7 @@ const propertyStructures = {
     }
 }
 
-const loginData = ""
+const loginData = {}
 </script>
 
 <template>
@@ -115,6 +115,7 @@ const loginData = ""
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdLoginForm
+                        :cmdCustomHeadline="{headlineText: 'Login', headlineLevel: 5}"
                         v-model="loginData"
                         v-focus
                     />

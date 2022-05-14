@@ -12,7 +12,7 @@ import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
-import CmdCode from "../../data/CmdAddressDataHelp"
+import CmdCode from "../../data/CmdBoxWrapperHelp"
 import boxProduct from '../../assets/data/box-product.json'
 import boxUser from '../../assets/data/box-user.json'
 import propertyDescriptions from "../../generated/CmdAddressDataPropertyDescriptions.json"
@@ -42,7 +42,12 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ExampleSectionWrapper componentName="CmdBoxWrapper" headlineText="Box Wrapper with Box 'content' using Flexbox" :sequence="sequence.nextSequenceValue()" :code="CmdCode" :isFirstComponent="true">
+            <ExampleSectionWrapper
+                componentName="CmdBoxWrapper"
+                headlineText="Box Wrapper with Box 'content' using Flexbox"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :isFirstComponent="true">
                     <CmdBoxWrapper :useFlexbox="true">
                         <CmdBox v-for="index in 14" :key="index" textBody="Content" :cmd-custom-headline="{headlineText: 'Headline ' + index, headlineLevel: 3}" />
                     </CmdBoxWrapper>
