@@ -31,23 +31,26 @@ const sequence = useSequence()
                 :code="CmdCode"
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                    <CmdCustomHeadline headlineText="Headline level 1" :headlineLevel="1" preHeadlineText="Pre-headline text" iconClass="icon-user-profile"/>
+                    <CmdCustomHeadline
+                        headlineText="Headline text"
+                        :headlineLevel="1"
+                        preHeadlineText="Pre-headline text"
+                        iconClass="icon-user-profile"
+                    />
                 </teleport>
             </ExampleSectionWrapper>
             <hr/>
             <ExampleSectionWrapper
                 componentName="CmdCustomHeadline"
-                headlineText="Headline level 1-6 (without icons and pre-headline)"
+                headlineText="Headline level 1 (without icon and pre-headline)"
                 :sequence="sequence.nextSequenceValue()"
                 :code="CmdCode"
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                    <CmdCustomHeadline headlineText="Headline level 1" :headlineLevel="1"/>
-                    <CmdCustomHeadline headlineText="Headline level 2" :headlineLevel="2"/>
-                    <CmdCustomHeadline headlineText="Headline level 3" :headlineLevel="3"/>
-                    <CmdCustomHeadline headlineText="Headline level 4" :headlineLevel="4"/>
-                    <CmdCustomHeadline headlineText="Headline level 5" :headlineLevel="5"/>
-                    <CmdCustomHeadline headlineText="Headline level 6" :headlineLevel="6"/>
+                    <CmdCustomHeadline
+                        headlineText="Headline text"
+                        :headlineLevel="1"
+                    />
                 </teleport>
             </ExampleSectionWrapper>
         </template>

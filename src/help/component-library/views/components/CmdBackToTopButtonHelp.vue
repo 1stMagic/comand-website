@@ -30,11 +30,13 @@ const propertyStructures = {
 
 const backToTop = ref(null)
 onMounted(() => {
-    backToTop.value.windowScrollY = 1
-    backToTop.value.windowInnerHeight = 0
-    backToTop.value.bodyScrollHeight = 1
-    window.removeEventListener('resize', backToTop.value.onViewportChange);
-    window.removeEventListener('scroll', backToTop.value.onViewportChange);
+    if (backToTop.value !== null) {
+        backToTop.value.windowScrollY = 1
+        backToTop.value.windowInnerHeight = 0
+        backToTop.value.bodyScrollHeight = 1
+        window.removeEventListener('resize', backToTop.value.onViewportChange);
+        window.removeEventListener('scroll', backToTop.value.onViewportChange);
+    }
 })
 </script>
 

@@ -85,7 +85,7 @@ function onViewResolve() {
             </a>
             <transition v-show="showPageAnchors" name="slide-right">
                 <CmdListOfLinks
-                    :cmdCustomHeadline="{headlineText: 'Iterations', headlineLevel: 6}"
+                    :cmdCustomHeadline="{headlineText: 'Examples', headlineLevel: 6}"
                     :sectionAnchors="true"
                     :activeSection="scrollSpy.activeItem"
                     :links="listOfLinks"

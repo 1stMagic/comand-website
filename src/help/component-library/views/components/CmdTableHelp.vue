@@ -7,6 +7,7 @@ import {isFrameMode} from "comand-component-library/src/utils/common"
 import {CmdTable} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import {CmdCustomHeadline} from "comand-component-library"
+import {CmdWidthLimitationWrapper} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
 import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
@@ -84,12 +85,14 @@ const propertyStructures = {
                 :sequence="sequence.nextSequenceValue()"
                 :code="CmdCode"
                 :data="tableLarge">
-                <CmdTable
-                    :collapsible="false"
-                    :fullWidthOnDefault="false"
-                    :userCanToggleWidth="false"
-                    :table-data="tableLarge"
-                />
+                <div id="width-limitation-wrapper">
+                    <CmdTable
+                        :collapsible="false"
+                        :fullWidthOnDefault="false"
+                        :userCanToggleWidth="true"
+                        :table-data="tableLarge"
+                    />
+                </div>
             </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
@@ -97,3 +100,10 @@ const propertyStructures = {
         </template>
     </CmdTabs>
 </template>
+
+<style lang="scss">
+#width-limitation-wrapper {
+    max-width: var(--max-width);
+    overflow: auto;
+}
+</style>

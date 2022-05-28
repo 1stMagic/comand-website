@@ -50,7 +50,7 @@ function coordinates(address) {
                 :code="CmdCode"
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                    <CmdGoogleMaps
+                    <CmdGoogleMaps class="ratio-16-9"
                         :address="coordinates(addressData.address)"
                     />
                 </teleport>
