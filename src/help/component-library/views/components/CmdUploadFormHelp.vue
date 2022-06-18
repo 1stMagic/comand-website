@@ -41,6 +41,7 @@ const propertyStructures = {
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdUploadForm
+                        textLegend="Advanced upload form"
                         :cmdCustomHeadline="{headlineText: 'Select files to upload', headlineLevel: 5}"
                         :enableDragAndDrop="true"
                         :allowedFileExtensions="['gif','png','jpg']"
