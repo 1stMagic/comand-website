@@ -9,6 +9,9 @@
                     :pathDarkmodeLogo="darkmodeLogo"
                 />
             </template>
+            <template v-slot:header>
+                <input type="checkbox" v-model="styledTemplate" />
+            </template>
         </CmdSiteHeader>
         <router-view></router-view>
     </div>
@@ -35,6 +38,7 @@ export default {
         return {
             defaultLogo,
             darkmodeLogo,
+            styledTemplate: false,
             mainNavigation: [
                 {
                     "type": "router",
@@ -110,6 +114,22 @@ export default {
     methods: {
         isFrameMode() {
             return isFrameMode()
+        },
+        loadStyledTemplate() {
+            const linkTag = document.createElement("link")
+            linkTag.setAttribute("rel", "stylesheet")
+            linkTag.setAttribute("href", "/css/template.css")
+            linkTag.setAttribute("id", "link-tag")
+            document.querySelector("head").append(linkTag)
+        }
+    },
+    watch: {
+        styledTemplate() {
+            if(this.styledTemplate) {
+                this.loadStyledTemplate()
+            } else {
+                document.getElementById("link-tag").remove()
+            }
         }
     }
 }
