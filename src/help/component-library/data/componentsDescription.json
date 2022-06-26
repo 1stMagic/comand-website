@@ -75,6 +75,10 @@
     "headline": "Image Zoom",
     "shorttext": "Shows a movable section of a hovered image in a very large version."
   },
+  "CmdInputGroup": {
+    "headline": "Input Group",
+    "shorttext": "A wrapper for a group of input elements (i.e. checkboxes or radiobuttons)"
+  },
   "CmdListOfLinks": {
     "headline": "List Of Links",
     "shorttext": "Contains a list of links, mostly used for secondary content (above the header, inside the footer, for pdf-downloads)."

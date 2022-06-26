@@ -70,7 +70,6 @@ const formElementStatus = ref("")
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type text)"
