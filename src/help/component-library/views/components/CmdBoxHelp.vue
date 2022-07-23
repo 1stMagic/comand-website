@@ -15,7 +15,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 import CmdCode from "../../data/CmdBoxHelp"
 import boxesProduct from "../../assets/data/box-product.json"
 import boxesUser from "../../assets/data/box-user.json"
-import propertyDescriptions from "../../generated/CmdBoxPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdBoxPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"
@@ -67,7 +67,7 @@ function clickedOnProduct(event) {
             <ExampleSectionWrapper componentName="CmdBox" headlineText="Box 'content' (content given by property)" :sequence="sequence.nextSequenceValue()" :code="CmdCode" :isFirstComponent="true">
                     <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                         <CmdBox
-                            :cmdCustomHeadline="{
+                            :cmdHeadline="{
                             headlineText: 'Headline given by property',
                             headlineLevel: 5
                         }"
@@ -79,7 +79,7 @@ function clickedOnProduct(event) {
                 <ExampleSectionWrapper componentName="CmdBox" headlineText="Box 'content' (collapsible)" :code="CmdCode" :sequence="sequence.nextSequenceValue()">
                         <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                             <CmdBox
-                                :cmdCustomHeadline="{
+                                :cmdHeadline="{
                                 headlineText: 'Headline given by property',
                                 headlineLevel: 5
                             }"
@@ -113,7 +113,7 @@ function clickedOnProduct(event) {
                 <CmdBox
                     boxType="product"
                     :product="boxesProduct[0]"
-                    :cmdCustomHeadline="{ headlineLevel: 5}"
+                    :cmdHeadline="{ headlineLevel: 5}"
                     @click="clickedOnProduct"
                 />
             </ExampleSectionWrapper>
@@ -122,7 +122,7 @@ function clickedOnProduct(event) {
                 <CmdBox
                     boxType="user"
                     :user="boxesUser[2]"
-                    :cmdCustomHeadline="{ headlineLevel: 5}"
+                    :cmdHeadline="{ headlineLevel: 5}"
                 />
             </ExampleSectionWrapper>
         </template>

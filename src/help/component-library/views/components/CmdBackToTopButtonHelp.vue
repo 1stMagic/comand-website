@@ -12,7 +12,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdBackToTopButtonHelp"
-import propertyDescriptions from "../../generated/CmdBackToTopButtonPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdBackToTopButtonPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"

@@ -1,13 +1,13 @@
 <template>
     <section class="example-section">
         <a :id="getExampleId()"></a>
-        <!-- begin cmd-custom-headline -->
-        <CmdCustomHeadline
+        <!-- begin cmd-headline -->
+        <CmdHeadline
             :preHeadlineText="getPreHeadlineText()"
             :headlineText="headlineText"
             :headlineLevel="3"
         />
-        <!-- end cmd-custom-headline -->
+        <!-- end cmd-headline -->
 
         <!-- begin view-code-data -->
         <ViewCodeData :code="code?.[codeExample()]" :isFirstComponent="codeExample() === 0" :data="data">
@@ -26,13 +26,13 @@
 
 <script>
 // import components
-import {CmdCustomHeadline} from "comand-component-library"
+import {CmdHeadline} from "comand-component-library"
 import ViewCodeData from "./ViewCodeData.vue"
 
 export default {
     name: "ExampleSectionWrapper",
     components: {
-        CmdCustomHeadline,
+        CmdHeadline,
         ViewCodeData
     },
     props: {

@@ -1,12 +1,12 @@
 export default [`<CmdBox
-:cmdCustomHeadline="{
+:cmdHeadline="{
     headlineText: 'Headline given by property',
     headlineLevel: 5
 }"
 textBody="Content given by property"
 />`,
 `<CmdBox
-:cmdCustomHeadline="{
+:cmdHeadline="{
   headlineText: 'Headline given by property',
   headlineLevel: 5
 }"
@@ -33,13 +33,13 @@ textBody="Content given by property"
 `<CmdBox 
   boxType="product" 
   :product="boxesProduct[0]" 
-  :cmdCustomHeadline="{ headlineLevel: 4}" 
+  :cmdHeadline="{ headlineLevel: 4}" 
   @click.prevent="clickedOnProduct"
 />`,
 `<CmdBox 
 boxType="user" 
 :user="boxesUser[2]" 
-:cmdCustomHeadline="{ 
+:cmdHeadline="{ 
   headlineLevel: 4
 }"/>`
 ]

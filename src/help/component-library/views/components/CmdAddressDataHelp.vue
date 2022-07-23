@@ -13,7 +13,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 // import example-data
 import CmdCode from "../../data/CmdAddressDataHelp"
 import addressData from '../../assets/data/address-data.json'
-import propertyDescriptions from "../../generated/CmdAddressDataPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdAddressDataPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"
@@ -51,7 +51,7 @@ const propertyStructures = {
                         <CmdAddressData
                             :addressData="addressData"
                             :linkGoogleMaps="true"
-                            :cmdCustomHeadline="{ headlineText: 'Address', headlineLevel: 5}"
+                            :cmdHeadline="{ headlineText: 'Address', headlineLevel: 5}"
                         />
                     </teleport>
             </ExampleSectionWrapper>
@@ -66,7 +66,7 @@ const propertyStructures = {
                         :addressData="addressData"
                         :showLabels="false"
                         :linkGoogleMaps="false"
-                        :cmdCustomHeadline="{ headlineText: 'Address', headlineLevel: 5}"
+                        :cmdHeadline="{ headlineText: 'Address', headlineLevel: 5}"
                     />
             </ExampleSectionWrapper>
         </template>

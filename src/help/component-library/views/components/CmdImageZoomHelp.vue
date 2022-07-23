@@ -12,7 +12,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdImageZoomHelp"
-import propertyDescriptions from "../../generated/CmdImageZoomPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdImageZoomPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"

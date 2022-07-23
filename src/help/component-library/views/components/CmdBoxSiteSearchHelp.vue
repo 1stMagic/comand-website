@@ -13,7 +13,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 // import example-data
 import CmdCode from "../../data/CmdBoxSiteSearchHelp"
 import listOfFilters from '../../assets/data/fake-select-filter-options.json'
-import propertyDescriptions from "../../generated/CmdBoxSiteSearchPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdBoxSiteSearchPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"
@@ -21,7 +21,7 @@ import {useSequence} from "comand-component-library"
 const sequence = useSequence()
 
 const propertyStructures = {
-    cmdCustomHeadline: {
+    cmdHeadline: {
         "address": {
             "streetNo": "<string>",
             "zip": "<number>",
@@ -48,7 +48,7 @@ const propertyStructures = {
                             text-legend="Legend"
                             :results="420"
                             :listOfFilters="listOfFilters"
-                            :cmdCustomHeadline="{
+                            :cmdHeadline="{
                                 headlineText: 'Search site',
                                 headlineLevel: 5
                             }"

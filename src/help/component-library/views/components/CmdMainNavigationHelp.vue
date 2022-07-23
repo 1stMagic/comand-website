@@ -14,7 +14,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 // import example-data
 import CmdCode from "../../data/CmdMainNavigationHelp"
 import mainNavigation from '../../assets/data/main-navigation.json'
-import propertyDescriptions from "../../generated/CmdMainNavigationPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdMainNavigationPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"

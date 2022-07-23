@@ -17,7 +17,7 @@ import fakeSelectOptions from "../../assets/data/fake-select-options.json"
 import fakeSelectColors from '../../assets/data/fake-select-colors.json'
 import fakeSelectCountries from '../../assets/data/fake-select-countries.json'
 import fakeSelectOptionsWithIcons from '../../assets/data/fake-select-options-with-icons.json'
-import propertyDescriptions from "../../generated/CmdFakeSelectPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdFakeSelectPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"

@@ -3,7 +3,7 @@
         <CmdWidthLimitationWrapper id="faq">
             <h1>FAQ</h1>
             <CmdBox
-                :cmdCustomHeadline="{
+                :cmdHeadline="{
                                 headlineText: 'Why is CoManD written with one m only?',
                                 headlineLevel: 2
                             }"
@@ -16,7 +16,7 @@
                 </template>
             </CmdBox>
             <CmdBox
-                :cmdCustomHeadline="{
+                :cmdHeadline="{
                                 headlineText: 'Why is the Frontend Framework plain HTML and CSS?',
                                 headlineLevel: 2
                             }"
@@ -25,7 +25,7 @@
                    It should work as a foundation of every project you build independent from further technologies you use."
             />
             <CmdBox
-                :cmdCustomHeadline="{
+                :cmdHeadline="{
                                 headlineText: 'Why is CoManD-Software desktop first?',
                                 headlineLevel: 2
                             }"
@@ -37,7 +37,7 @@
                 on each device. But we recommend to go desktop first if you want to avoid style collisions in your project."
             />
             <CmdBox
-                :cmdCustomHeadline="{
+                :cmdHeadline="{
                                 headlineText: 'How do I change the CSS-breakpoints for the Frontend Framework?',
                                 headlineLevel: 2
                             }"
@@ -49,7 +49,7 @@
                 and create your own styles for any screen resolution you want in a custom css-file."
             />
             <CmdBox
-                :cmdCustomHeadline="{
+                :cmdHeadline="{
                                 headlineText: 'How do I change the CSS-breakpoints for the Component Library?',
                                 headlineLevel: 2
                             }"
@@ -59,7 +59,7 @@ to define your own custom breakpoints for the Frontend Framework as explained in
                 The breakpoints for the Component Library itself can be changed in variables.scss and should fit to those you defined for the Frontend Framework."
             />
             <CmdBox
-                :cmdCustomHeadline="{
+                :cmdHeadline="{
                                 headlineText: 'Why does the Component Library use SCSS instead off native CSS?',
                                 headlineLevel: 2
                             }"
@@ -70,7 +70,7 @@ to define your own custom breakpoints for the Frontend Framework as explained in
                 to use variables in media queries i.e. to define breakpoints."
             />
             <CmdBox
-                :cmdCustomHeadline="{
+                :cmdHeadline="{
                                 headlineText: 'Why does the Component Library use SCSS but not SCSS-variables or -functions',
                                 headlineLevel: 2
                             }"
@@ -80,7 +80,7 @@ variables can be uses in native CSS for a ong time already. Additionally we want
  - no need to define everything again in SCSS-variables."
             />
             <CmdBox
-                :cmdCustomHeadline="{
+                :cmdHeadline="{
                                 headlineText: 'Can I uses SCSS-variables if I use the Component Library?',
                                 headlineLevel: 2
                             }"
@@ -91,7 +91,7 @@ variables can be uses in native CSS for a ong time already. Additionally we want
                 behavior of SCSS- and CSS-variables relating to their scope."
             />
             <CmdBox
-                :cmdCustomHeadline="{
+                :cmdHeadline="{
                                 headlineText: 'Will the SCSS be removed if nesting and media query-variables will be implemented in pure CSS?',
                                 headlineLevel: 2
                             }"
@@ -100,7 +100,7 @@ variables can be uses in native CSS for a ong time already. Additionally we want
 which requires SCSS now into native CSS as far as all major browsers will support it."
             />
             <CmdBox
-                :cmdCustomHeadline="{
+                :cmdHeadline="{
                                 headlineText: 'Can I use other units like Pixel or Em in my CSS?',
                                 headlineLevel: 2
                             }"
@@ -108,7 +108,7 @@ which requires SCSS now into native CSS as far as all major browsers will suppor
                 textBody="Of course you can, but to avoid confusion we recommend just to use Rem, Percentage or Fractions to stay consistent."
             />
             <CmdBox
-                :cmdCustomHeadline="{
+                :cmdHeadline="{
                                 headlineText: 'Why is 1 Rem defined as 10px and not as 16px?',
                                 headlineLevel: 2
                             }"
@@ -118,7 +118,7 @@ I.e. if you want to set a size of 29px with the default 16px you have to calcula
 If you use 10px as default, 29px equals 2.9rem which is far easier to calculate for most people."
             />
             <CmdBox
-                :cmdCustomHeadline="{
+                :cmdHeadline="{
                                 headlineText: 'Why does CoManD-software use HSL(A) instead of Hex or RGB to define colors?',
                                 headlineLevel: 2
                             }"
@@ -129,7 +129,7 @@ you can just reduce the value for S(aturation). In Hex and RGB you have to get c
 You want to raise the lightness of your color by exactly by 10%? Just raise the value for L(ightness) by 10. You cannot do those changes that easily with Hex or RGB."
             />
             <CmdBox
-                :cmdCustomHeadline="{
+                :cmdHeadline="{
                                 headlineText: 'Can I still use Hex- or RGB-colors even tho CoManD-software uses HSL?',
                                 headlineLevel: 2
                             }"
@@ -138,7 +138,7 @@ You want to raise the lightness of your color by exactly by 10%? Just raise the 
 in your custom css-file, but there is no advantage in doing it (compared to using HSL instead)."
             />
             <CmdBox
-                :cmdCustomHeadline="{
+                :cmdHeadline="{
                                 headlineText: 'How could I overwrite existing CSS-variables?',
                                 headlineLevel: 2
                             }"
@@ -147,7 +147,7 @@ in your custom css-file, but there is no advantage in doing it (compared to usin
 If you want to overwrite them, just copy their names and put the in a custom.css (which should be imported last in your project) and define them new."
             />
             <CmdBox
-                :cmdCustomHeadline="{
+                :cmdHeadline="{
                                 headlineText: 'Do I also have to use VUE3 if I want to use the Component Library?',
                                 headlineLevel: 2
                             }"

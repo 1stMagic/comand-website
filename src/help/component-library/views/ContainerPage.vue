@@ -67,7 +67,7 @@ function getHeadlineText(sectionSelector) {
 function onViewResolve() {
     scrollSpy.reset()
     listOfLinks.value = []
-    const sectionSelector = examples.value.querySelectorAll(".example-section > .cmd-custom-headline")
+    const sectionSelector = examples.value.querySelectorAll(".example-section > .cmd-headline")
     for (let i = 0 ; i < sectionSelector.length; i++) {
         listOfLinks.value.push({
             text: getHeadlineText(sectionSelector.item(i)),
@@ -85,7 +85,7 @@ function onViewResolve() {
             </a>
             <transition v-show="showPageAnchors" name="slide-right">
                 <CmdListOfLinks
-                    :cmdCustomHeadline="{headlineText: 'Examples', headlineLevel: 6}"
+                    :cmdHeadline="{headlineText: 'Examples', headlineLevel: 6}"
                     :sectionAnchors="true"
                     :activeSection="scrollSpy.activeItem"
                     :links="listOfLinks"
@@ -155,7 +155,7 @@ main {
             }
         }
 
-        .cmd-custom-headline {
+        .cmd-headline {
             margin: 0;
             padding: var(--default-padding);
         }

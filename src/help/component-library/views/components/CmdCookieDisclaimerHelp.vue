@@ -13,7 +13,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 // import example-data
 import cookieDisclaimer from '../../assets/data/cookie-disclaimer.json'
 import CmdCode from "../../data/CmdCookieDisclaimerHelp"
-import propertyDescriptions from "../../generated/CmdCookieDisclaimerPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdCookieDisclaimerPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"
@@ -97,7 +97,7 @@ const propertyStructures = {
                                    :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdCookieDisclaimer
-                        :cmdCustomHeadline="{headlineText: 'Usage of cookies on this web site', headlineLevel: 3}"
+                        :cmdHeadline="{headlineText: 'Usage of cookies on this web site', headlineLevel: 3}"
                         :cookieOptions="cookieDisclaimer"
                         buttonLabelAcceptAllCookies="Accept all cookies"
                         buttonLabelAcceptCurrentSettings="Accept current settings"

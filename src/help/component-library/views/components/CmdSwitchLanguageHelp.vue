@@ -14,7 +14,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 // import example-data
 import CmdCode from "../../data/CmdSwitchLanguageHelp"
 import switchLanguage from '../../assets/data/switch-language.json'
-import propertyDescriptions from "../../generated/CmdSwitchLanguagePropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdSwitchLanguagePropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"

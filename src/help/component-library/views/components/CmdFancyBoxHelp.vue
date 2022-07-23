@@ -13,7 +13,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdFancyBoxHelp"
-import propertyDescriptions from "../../generated/CmdFancyBoxPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdFancyBoxPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"

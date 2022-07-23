@@ -6,7 +6,7 @@ import {isFrameMode} from "comand-component-library/src/utils/common"
 // import components
 import {CmdListOfLinks} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
-import {CmdCustomHeadline} from "comand-component-library"
+import {CmdHeadline} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
 import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
@@ -15,7 +15,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 import CmdCode from "../../data/CmdListOfLinksHelp"
 import listOfLinks from "../../assets/data/list-of-links.json"
 import listOfLinksSectionAnchors from "../../assets/data/list-of-links-section-anchors.json"
-import propertyDescriptions from "../../generated/CmdListOfLinksPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdListOfLinksPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"
@@ -49,7 +49,7 @@ const propertyStructures = {
                 :data="listOfLinks"
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                    <CmdListOfLinks :links="listOfLinks" :cmdCustomHeadline="{headlineText: 'Links', headlineLevel: 5}"/>
+                    <CmdListOfLinks :links="listOfLinks" :cmdHeadline="{headlineText: 'Links', headlineLevel: 5}"/>
                 </teleport>
             </ExampleSectionWrapper>
             <hr/>
@@ -59,7 +59,7 @@ const propertyStructures = {
                 :sequence="sequence.nextSequenceValue()"
                 :code="CmdCode"
                 :data="listOfLinks">
-                <CmdListOfLinks :links="listOfLinks" orientation="horizontal" :cmdCustomHeadline="{headlineText: 'Links', headlineLevel: 5}"/>
+                <CmdListOfLinks :links="listOfLinks" orientation="horizontal" :cmdHeadline="{headlineText: 'Links', headlineLevel: 5}"/>
             </ExampleSectionWrapper>
             <hr/>
             <ExampleSectionWrapper componentName="CmdListOfLinks"
@@ -67,7 +67,7 @@ const propertyStructures = {
                                    :sequence="sequence.nextSequenceValue()"
                                    :code="CmdCode"
                                    :data="listOfLinks">
-                <CmdListOfLinks :links="listOfLinks" :styleAsBox="true" :cmdCustomHeadline="{headlineText: 'Links', headlineLevel: 5}"/>
+                <CmdListOfLinks :links="listOfLinks" :styleAsBox="true" :cmdHeadline="{headlineText: 'Links', headlineLevel: 5}"/>
             </ExampleSectionWrapper>
             <hr/>
             <ExampleSectionWrapper componentName="CmdListOfLinks"

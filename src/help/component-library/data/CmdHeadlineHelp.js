@@ -1,5 +1,5 @@
 export default [
-`<CmdCustomHeadline 
+`<CmdHeadline 
     headlineText="Headline level 1"  
     :headlineLevel="1" 
     preHeadlineText="Pre-headline text" 

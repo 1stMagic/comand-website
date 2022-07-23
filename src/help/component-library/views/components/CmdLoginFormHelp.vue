@@ -12,7 +12,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdLoginFormHelp"
-import propertyDescriptions from "../../generated/CmdLoginFormPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdLoginFormPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"
@@ -20,12 +20,12 @@ import {useSequence} from "comand-component-library"
 const sequence = useSequence()
 
 const propertyStructures = {
-    cmdCustomHeadlineLoginForm: {
+    cmdHeadlineLoginForm: {
         show: "<boolean>",
         text: "<string>",
         level: "<number>"
     },
-    cmdCustomHeadlineSendLoginForm: {
+    cmdHeadlineSendLoginForm: {
         show: "<boolean>",
         text: "<string>",
         level: "<number>"
@@ -115,7 +115,7 @@ const loginData = {}
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdLoginForm
-                        :cmdCustomHeadline="{headlineText: 'Login', headlineLevel: 5}"
+                        :cmdHeadline="{headlineText: 'Login', headlineLevel: 5}"
                         v-model="loginData"
                         v-focus
                     />

@@ -1,7 +1,7 @@
 export default [`<CmdAddressData
     :addressData="addressData"
     :linkGoogleMaps="true"
-    :cmdCustomHeadline="{ 
+    :cmdHeadline="{ 
         headlineText: 'Address', 
         headlineLevel: 5
     }"
@@ -9,7 +9,7 @@ export default [`<CmdAddressData
 `<CmdAddressData
     :addressData="addressData"
     :linkGoogleMaps="false"
-    :cmdCustomHeadline="{ 
+    :cmdHeadline="{ 
         headlineText: 'Address', 
         headlineLevel: 5
     }"

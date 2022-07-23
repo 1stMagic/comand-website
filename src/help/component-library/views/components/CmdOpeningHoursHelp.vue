@@ -13,7 +13,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 // import example-data
 import CmdCode from "../../data/CmdOpeningHoursHelp"
 import openingHours from '../../assets/data/opening-hours.json'
-import propertyDescriptions from "../../generated/CmdOpeningHoursPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdOpeningHoursPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"
@@ -46,7 +46,7 @@ const propertyStructures = {
                     <CmdOpeningHours
                         :openingHours="openingHours"
                         :closed="true"
-                        :cmdCustomHeadline="{headlineText: 'Opening hours', headlineLevel: 5}"
+                        :cmdHeadline="{headlineText: 'Opening hours', headlineLevel: 5}"
                         textOpenClosed="Closed right now!"
                         textHolidaysClosed="Closed on holidays"
                         textMiscInfo="Miscellaneous information"

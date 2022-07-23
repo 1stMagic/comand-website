@@ -15,7 +15,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 import CmdCode from "../../data/CmdBoxWrapperHelp"
 import boxProduct from '../../assets/data/box-product.json'
 import boxUser from '../../assets/data/box-user.json'
-import propertyDescriptions from "../../generated/CmdAddressDataPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdAddressDataPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"
@@ -49,7 +49,7 @@ const propertyStructures = {
                 :code="CmdCode"
                 :isFirstComponent="true">
                     <CmdBoxWrapper :useFlexbox="true">
-                        <CmdBox v-for="index in 14" :key="index" textBody="Content" :cmd-custom-headline="{headlineText: 'Headline ' + index, headlineLevel: 3}" />
+                        <CmdBox v-for="index in 14" :key="index" textBody="Content" :cmd-headline="{headlineText: 'Headline ' + index, headlineLevel: 3}" />
                     </CmdBoxWrapper>
             </ExampleSectionWrapper>
             <hr />
@@ -60,7 +60,7 @@ const propertyStructures = {
                                 textBody="Content"
                                 :collapsible="true"
                                 :collapsingBoxesOpen="slotprops.collapsingBoxesOpen"
-                                :cmd-custom-headline="{
+                                :cmd-headline="{
                                     headlineText: 'Headline ' + index,
                                     headlineLevel: 3
                                 }"
@@ -75,7 +75,7 @@ const propertyStructures = {
                                 textBody="Content"
                                 :collapsible="true"
                                 :collapsingBoxesOpen="slotprops.currentOpenBox === index || (slotprops.currentOpenBox === 0 && index === 1)"
-                                :cmd-custom-headline="{
+                                :cmd-headline="{
                                     headlineText: 'Headline ' + index,
                                     headlineLevel: 3
                                 }"
@@ -86,7 +86,7 @@ const propertyStructures = {
             <hr />
             <ExampleSectionWrapper componentName="CmdBoxWrapper" headlineText="Box Wrapper with Box 'content' using a custom grid" :sequence="sequence.nextSequenceValue()" :code="CmdCode">
                     <CmdBoxWrapper :boxesPerRow="[5, 2, 1]">
-                        <CmdBox v-for="index in 7" :key="index" textBody="Content" :cmd-custom-headline="{headlineText: 'Headline ' + index, headlineLevel: 3}" />
+                        <CmdBox v-for="index in 7" :key="index" textBody="Content" :cmd-headline="{headlineText: 'Headline ' + index, headlineLevel: 3}" />
                     </CmdBoxWrapper>
             </ExampleSectionWrapper>
             <hr />
@@ -96,7 +96,7 @@ const propertyStructures = {
                                    :code="CmdCode"
                                    :data="boxProduct">
                     <CmdBoxWrapper :boxesPerRow="[5, 2, 1]">
-                        <CmdBox v-for="index in boxProduct.length" :key="index" boxType="product" :product="boxProduct[index - 1]" :cmdCustomHeadline="{headlineLevel: 5}" />
+                        <CmdBox v-for="index in boxProduct.length" :key="index" boxType="product" :product="boxProduct[index - 1]" :cmdHeadline="{headlineLevel: 5}" />
                     </CmdBoxWrapper>
             </ExampleSectionWrapper>
             <hr />
@@ -106,7 +106,7 @@ const propertyStructures = {
                                    :code="CmdCode"
                                    :data="boxUser">
                     <CmdBoxWrapper :boxesPerRow="[5, 2, 1]">
-                        <CmdBox v-for="index in boxUser.length" :key="index" boxType="user" :user="boxUser[index - 1]" :cmdCustomHeadline="{headlineLevel: 5}" />
+                        <CmdBox v-for="index in boxUser.length" :key="index" boxType="user" :user="boxUser[index - 1]" :cmdHeadline="{headlineLevel: 5}" />
                     </CmdBoxWrapper>
             </ExampleSectionWrapper>
         </template>

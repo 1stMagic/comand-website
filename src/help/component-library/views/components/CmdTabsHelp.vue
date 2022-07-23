@@ -5,7 +5,7 @@ import {isFrameMode} from "comand-component-library/src/utils/common"
 
 // import components
 import {CmdTabs} from "comand-component-library"
-import {CmdCustomHeadline} from "comand-component-library"
+import {CmdHeadline} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
 import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
@@ -13,7 +13,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 // import example-data
 import CmdCode from "../../data/CmdTabsHelp"
 import tabs from "../../assets/data/tabs.json"
-import propertyDescriptions from "../../generated/CmdTabsPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdTabsPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"

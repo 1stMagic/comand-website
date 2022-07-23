@@ -1,0 +1,130 @@
+[
+    {
+        "name": "amazon",
+        "iconClass": "icon-amazon"
+    },
+    {
+        "name": "android",
+        "iconClass": "icon-android"
+    },
+    {
+        "name": "apple",
+        "iconClass": "icon-apple"
+    },
+    {
+        "name": "chrome",
+        "iconClass": "icon-chrome"
+    },
+    {
+        "name": "css3",
+        "iconClass": "icon-css3"
+    },
+    {
+        "name": "edge",
+        "iconClass": "icon-edge"
+    },
+    {
+        "name": "facebook",
+        "iconClass": "icon-facebook"
+    },
+    {
+        "name": "facebook-square",
+        "iconClass": "icon-facebook-square"
+    },
+    {
+        "name": "firefox",
+        "iconClass": "icon-firefox"
+    },
+    {
+        "name": "flickr",
+        "iconClass": "icon-flickr"
+    },
+    {
+        "name": "git",
+        "iconClass": "icon-git"
+    },
+    {
+        "name": "google-analytics",
+        "iconClass": "icon-google-analytics"
+    },
+    {
+        "name": "html5",
+        "iconClass": "icon-html5"
+    },
+    {
+        "name": "instagram",
+        "iconClass": "icon-instagram"
+    },
+    {
+        "name": "linkedin",
+        "iconClass": "icon-linkedin"
+    },
+    {
+        "name": "linkedin-square",
+        "iconClass": "icon-linkedin-square"
+    },
+    {
+        "name": "linux",
+        "iconClass": "icon-linux"
+    },
+    {
+        "name": "meta",
+        "iconClass": "icon-meta"
+    },
+    {
+        "name": "opera",
+        "iconClass": "icon-opera"
+    },
+    {
+        "name": "paypal",
+        "iconClass": "icon-paypal"
+    },
+    {
+        "name": "safari",
+        "iconClass": "icon-safari"
+    },
+    {
+        "name": "skype",
+        "iconClass": "icon-skype"
+    },
+    {
+        "name": "tumblr",
+        "iconClass": "icon-tumblr"
+    },
+    {
+        "name": "tumblr-square",
+        "iconClass": "icon-tumblr-square"
+    },
+    {
+        "name": "twitch",
+        "iconClass": "icon-twitch"
+    },
+    {
+        "name": "twitter",
+        "iconClass": "icon-twitter"
+    },
+    {
+        "name": "twitter-square",
+        "iconClass": "icon-twitter-square"
+    },
+    {
+        "name": "whatsapp",
+        "iconClass": "icon-whatsapp"
+    },
+    {
+        "name": "windows8",
+        "iconClass": "icon-windows8"
+    },
+    {
+        "name": "xing",
+        "iconClass": "icon-xing"
+    },
+    {
+        "name": "xing-square",
+        "iconClass": "icon-xing-square"
+    },
+    {
+        "name": "youtube",
+        "iconClass": "icon-youtube"
+    }
+]

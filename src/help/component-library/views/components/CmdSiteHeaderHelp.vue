@@ -18,7 +18,7 @@ import CmdCode from "../../data/CmdSiteHeaderHelp"
 import mainNavigation from '../../assets/data/main-navigation.json'
 import listOfLinks from '../../assets/data/list-of-links-top-header-navigation.json'
 import companyLogo from '../../assets/data/company-logo.json'
-import propertyDescriptions from "../../generated/CmdSiteHeaderPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdSiteHeaderPropertyDescriptions.json"
 
 // import graphics
 import defaultLogo from "../../../../company/assets/images/logo.svg"

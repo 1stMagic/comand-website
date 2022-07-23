@@ -13,7 +13,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 // import example-data
 import CmdCode from "../../data/CmdMultistepFormProgressBarHelp"
 import multistepFormProgressBar from '../../assets/data/multistep-form-progress-bar.json'
-import propertyDescriptions from "../../generated/CmdMultistepFormProgressBarPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdMultistepFormProgressBarPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"

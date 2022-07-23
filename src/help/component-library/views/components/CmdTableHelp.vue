@@ -6,7 +6,7 @@ import {isFrameMode} from "comand-component-library/src/utils/common"
 // import components
 import {CmdTable} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
-import {CmdCustomHeadline} from "comand-component-library"
+import {CmdHeadline} from "comand-component-library"
 import {CmdWidthLimitationWrapper} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
 import ViewCodeData from "../../components/ViewCodeData.vue"
@@ -16,7 +16,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 import CmdCode from "../../data/CmdTableHelp"
 import tableSmall from "../../assets/data/table-small.json"
 import tableLarge from "../../assets/data/table-large.json"
-import propertyDescriptions from "../../generated/CmdTablePropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdTablePropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"

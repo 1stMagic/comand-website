@@ -1,0 +1,718 @@
+[
+    {
+        "name": "add-attachment",
+        "iconClass": "icon-add-attachment"
+    },
+    {
+        "name": "address",
+        "iconClass": "icon-address"
+    },
+    {
+        "name": "all-messages",
+        "iconClass": "icon-all-messages"
+    },
+    {
+        "name": "answer-message",
+        "iconClass": "icon-answer-message"
+    },
+    {
+        "name": "arrow-down",
+        "iconClass": "icon-arrow-down"
+    },
+    {
+        "name": "arrow-left",
+        "iconClass": "icon-arrow-left"
+    },
+    {
+        "name": "arrow-right",
+        "iconClass": "icon-arrow-right"
+    },
+    {
+        "name": "arrow-up",
+        "iconClass": "icon-arrow-up"
+    },
+    {
+        "name": "attachment",
+        "iconClass": "icon-attachment"
+    },
+    {
+        "name": "bars",
+        "iconClass": "icon-bars"
+    },
+    {
+        "name": "blocked",
+        "iconClass": "icon-blocked"
+    },
+    {
+        "name": "blocks-large",
+        "iconClass": "icon-blocks-large"
+    },
+    {
+        "name": "blocks-small",
+        "iconClass": "icon-blocks-small"
+    },
+    {
+        "name": "box",
+        "iconClass": "icon-box"
+    },
+    {
+        "name": "bug",
+        "iconClass": "icon-bug"
+    },
+    {
+        "name": "callback",
+        "iconClass": "icon-callback"
+    },
+    {
+        "name": "cancel",
+        "iconClass": "icon-cancel"
+    },
+    {
+        "name": "cancel-bold",
+        "iconClass": "icon-cancel-bold"
+    },
+    {
+        "name": "cancel-circle",
+        "iconClass": "icon-cancel-circle"
+    },
+    {
+        "name": "caps-lock",
+        "iconClass": "icon-caps-lock"
+    },
+    {
+        "name": "caps-lock-circle",
+        "iconClass": "icon-caps-lock-circle"
+    },
+    {
+        "name": "cart",
+        "iconClass": "icon-cart"
+    },
+    {
+        "name": "check",
+        "iconClass": "icon-check"
+    },
+    {
+        "name": "check-bold",
+        "iconClass": "icon-check-bold"
+    },
+    {
+        "name": "check-circle",
+        "iconClass": "icon-check-circle"
+    },
+    {
+        "name": "check-outline",
+        "iconClass": "icon-check-outline"
+    },
+    {
+        "name": "circle",
+        "iconClass": "icon-circle"
+    },
+    {
+        "name": "circle-outline",
+        "iconClass": "icon-circle-outline"
+    },
+    {
+        "name": "clock",
+        "iconClass": "icon-clock"
+    },
+    {
+        "name": "cloud-download",
+        "iconClass": "icon-cloud-download"
+    },
+    {
+        "name": "cloud-upload",
+        "iconClass": "icon-cloud-upload"
+    },
+    {
+        "name": "cog",
+        "iconClass": "icon-cog"
+    },
+    {
+        "name": "cog-outline",
+        "iconClass": "icon-cog-outline"
+    },
+    {
+        "name": "cogs",
+        "iconClass": "icon-cogs"
+    },
+    {
+        "name": "config-download",
+        "iconClass": "icon-config-download"
+    },
+    {
+        "name": "configuration",
+        "iconClass": "icon-configuration"
+    },
+    {
+        "name": "content",
+        "iconClass": "icon-content"
+    },
+    {
+        "name": "cooperations",
+        "iconClass": "icon-cooperations"
+    },
+    {
+        "name": "database",
+        "iconClass": "icon-database"
+    },
+    {
+        "name": "delete",
+        "iconClass": "icon-delete"
+    },
+    {
+        "name": "dependencies",
+        "iconClass": "icon-dependencies"
+    },
+    {
+        "name": "device-desktop",
+        "iconClass": "icon-device-desktop"
+    },
+    {
+        "name": "device-laptop",
+        "iconClass": "icon-device-laptop"
+    },
+    {
+        "name": "device-smartphone",
+        "iconClass": "icon-device-smartphone"
+    },
+    {
+        "name": "device-tablet",
+        "iconClass": "icon-device-tablet"
+    },
+    {
+        "name": "dollar",
+        "iconClass": "icon-dollar"
+    },
+    {
+        "name": "double-arrow-down",
+        "iconClass": "icon-double-arrow-down"
+    },
+    {
+        "name": "double-arrow-left",
+        "iconClass": "icon-double-arrow-left"
+    },
+    {
+        "name": "double-arrow-right",
+        "iconClass": "icon-double-arrow-right"
+    },
+    {
+        "name": "double-arrow-up",
+        "iconClass": "icon-double-arrow-up"
+    },
+    {
+        "name": "download",
+        "iconClass": "icon-download"
+    },
+    {
+        "name": "drag-and-drop",
+        "iconClass": "icon-drag-and-drop"
+    },
+    {
+        "name": "duplicate-content",
+        "iconClass": "icon-duplicate-content"
+    },
+    {
+        "name": "earth",
+        "iconClass": "icon-earth"
+    },
+    {
+        "name": "edit",
+        "iconClass": "icon-edit"
+    },
+    {
+        "name": "ellipsis",
+        "iconClass": "icon-ellipsis"
+    },
+    {
+        "name": "enlarge",
+        "iconClass": "icon-enlarge"
+    },
+    {
+        "name": "enter",
+        "iconClass": "icon-enter"
+    },
+    {
+        "name": "error-circle",
+        "iconClass": "icon-error-circle"
+    },
+    {
+        "name": "euro",
+        "iconClass": "icon-euro"
+    },
+    {
+        "name": "exclamation-circle",
+        "iconClass": "icon-exclamation-circle"
+    },
+    {
+        "name": "export",
+        "iconClass": "icon-export"
+    },
+    {
+        "name": "fax",
+        "iconClass": "icon-fax"
+    },
+    {
+        "name": "file",
+        "iconClass": "icon-file"
+    },
+    {
+        "name": "file-config",
+        "iconClass": "icon-file-config"
+    },
+    {
+        "name": "file-content-download",
+        "iconClass": "icon-file-content-download"
+    },
+    {
+        "name": "file-copy",
+        "iconClass": "icon-file-copy"
+    },
+    {
+        "name": "file-cut",
+        "iconClass": "icon-file-cut"
+    },
+    {
+        "name": "file-delete",
+        "iconClass": "icon-file-delete"
+    },
+    {
+        "name": "file-download",
+        "iconClass": "icon-file-download"
+    },
+    {
+        "name": "file-excel",
+        "iconClass": "icon-file-excel"
+    },
+    {
+        "name": "file-excel-download",
+        "iconClass": "icon-file-excel-download"
+    },
+    {
+        "name": "file-image",
+        "iconClass": "icon-file-image"
+    },
+    {
+        "name": "file-other",
+        "iconClass": "icon-file-other"
+    },
+    {
+        "name": "file-paste",
+        "iconClass": "icon-file-paste"
+    },
+    {
+        "name": "file-pdf",
+        "iconClass": "icon-file-pdf"
+    },
+    {
+        "name": "file-rename",
+        "iconClass": "icon-file-rename"
+    },
+    {
+        "name": "files",
+        "iconClass": "icon-files"
+    },
+    {
+        "name": "file-settings",
+        "iconClass": "icon-file-settings"
+    },
+    {
+        "name": "file-text",
+        "iconClass": "icon-file-text"
+    },
+    {
+        "name": "file-upload",
+        "iconClass": "icon-file-upload"
+    },
+    {
+        "name": "file-video",
+        "iconClass": "icon-file-video"
+    },
+    {
+        "name": "file-windows",
+        "iconClass": "icon-file-windows"
+    },
+    {
+        "name": "file-word",
+        "iconClass": "icon-file-word"
+    },
+    {
+        "name": "film",
+        "iconClass": "icon-film"
+    },
+    {
+        "name": "filter",
+        "iconClass": "icon-filter"
+    },
+    {
+        "name": "floppy-disk",
+        "iconClass": "icon-floppy-disk"
+    },
+    {
+        "name": "folder",
+        "iconClass": "icon-folder"
+    },
+    {
+        "name": "globe",
+        "iconClass": "icon-globe"
+    },
+    {
+        "name": "hexagon",
+        "iconClass": "icon-hexagon"
+    },
+    {
+        "name": "hexagon-outline",
+        "iconClass": "icon-hexagon-outline"
+    },
+    {
+        "name": "home",
+        "iconClass": "icon-home"
+    },
+    {
+        "name": "image",
+        "iconClass": "icon-image"
+    },
+    {
+        "name": "inbox",
+        "iconClass": "icon-inbox"
+    },
+    {
+        "name": "info",
+        "iconClass": "icon-info"
+    },
+    {
+        "name": "info-circle",
+        "iconClass": "icon-info-circle"
+    },
+    {
+        "name": "insert-template",
+        "iconClass": "icon-insert-template"
+    },
+    {
+        "name": "interfaces",
+        "iconClass": "icon-interfaces"
+    },
+    {
+        "name": "key",
+        "iconClass": "icon-key"
+    },
+    {
+        "name": "link",
+        "iconClass": "icon-link"
+    },
+    {
+        "name": "list",
+        "iconClass": "icon-list"
+    },
+    {
+        "name": "location-set",
+        "iconClass": "icon-location-set"
+    },
+    {
+        "name": "location-unset",
+        "iconClass": "icon-location-unset"
+    },
+    {
+        "name": "logon",
+        "iconClass": "icon-logon"
+    },
+    {
+        "name": "logout",
+        "iconClass": "icon-logout"
+    },
+    {
+        "name": "loop-full-circle",
+        "iconClass": "icon-loop-full-circle"
+    },
+    {
+        "name": "loop-left",
+        "iconClass": "icon-loop-left"
+    },
+    {
+        "name": "loop-right",
+        "iconClass": "icon-loop-right"
+    },
+    {
+        "name": "mail",
+        "iconClass": "icon-mail"
+    },
+    {
+        "name": "message-check",
+        "iconClass": "icon-message-check"
+    },
+    {
+        "name": "message-incoming",
+        "iconClass": "icon-message-incoming"
+    },
+    {
+        "name": "message-new",
+        "iconClass": "icon-message-new"
+    },
+    {
+        "name": "message-outgoing",
+        "iconClass": "icon-message-outgoing"
+    },
+    {
+        "name": "message-read",
+        "iconClass": "icon-message-read"
+    },
+    {
+        "name": "message-send",
+        "iconClass": "icon-message-send"
+    },
+    {
+        "name": "message-write",
+        "iconClass": "icon-message-write"
+    },
+    {
+        "name": "messaging-in-and-out",
+        "iconClass": "icon-messaging-in-and-out"
+    },
+    {
+        "name": "minus",
+        "iconClass": "icon-minus"
+    },
+    {
+        "name": "minus-outline",
+        "iconClass": "icon-minus-outline"
+    },
+    {
+        "name": "music",
+        "iconClass": "icon-music"
+    },
+    {
+        "name": "notification",
+        "iconClass": "icon-notification"
+    },
+    {
+        "name": "not-visible",
+        "iconClass": "icon-not-visible"
+    },
+    {
+        "name": "outbox",
+        "iconClass": "icon-outbox"
+    },
+    {
+        "name": "phone",
+        "iconClass": "icon-phone"
+    },
+    {
+        "name": "plus",
+        "iconClass": "icon-plus"
+    },
+    {
+        "name": "plus-outline",
+        "iconClass": "icon-plus-outline"
+    },
+    {
+        "name": "pointer",
+        "iconClass": "icon-pointer"
+    },
+    {
+        "name": "print",
+        "iconClass": "icon-print"
+    },
+    {
+        "name": "print-preview",
+        "iconClass": "icon-print-preview"
+    },
+    {
+        "name": "questionmark",
+        "iconClass": "icon-questionmark"
+    },
+    {
+        "name": "questionmark-circle",
+        "iconClass": "icon-questionmark-circle"
+    },
+    {
+        "name": "register",
+        "iconClass": "icon-register"
+    },
+    {
+        "name": "remove-user",
+        "iconClass": "icon-remove-user"
+    },
+    {
+        "name": "responsive-devices",
+        "iconClass": "icon-responsive-devices"
+    },
+    {
+        "name": "rows",
+        "iconClass": "icon-rows"
+    },
+    {
+        "name": "save-config",
+        "iconClass": "icon-save-config"
+    },
+    {
+        "name": "save-file",
+        "iconClass": "icon-save-file"
+    },
+    {
+        "name": "save-template",
+        "iconClass": "icon-save-template"
+    },
+    {
+        "name": "search",
+        "iconClass": "icon-search"
+    },
+    {
+        "name": "section-sign",
+        "iconClass": "icon-section-sign"
+    },
+    {
+        "name": "security-settings",
+        "iconClass": "icon-security-settings"
+    },
+    {
+        "name": "shrink",
+        "iconClass": "icon-shrink"
+    },
+    {
+        "name": "single-arrow-down",
+        "iconClass": "icon-single-arrow-down"
+    },
+    {
+        "name": "single-arrow-left",
+        "iconClass": "icon-single-arrow-left"
+    },
+    {
+        "name": "single-arrow-right",
+        "iconClass": "icon-single-arrow-right"
+    },
+    {
+        "name": "single-arrow-up",
+        "iconClass": "icon-single-arrow-up"
+    },
+    {
+        "name": "sort-arrows",
+        "iconClass": "icon-sort-arrows"
+    },
+    {
+        "name": "sort-asc",
+        "iconClass": "icon-sort-asc"
+    },
+    {
+        "name": "sort-asc-arrows",
+        "iconClass": "icon-sort-asc-arrows"
+    },
+    {
+        "name": "sort-desc",
+        "iconClass": "icon-sort-desc"
+    },
+    {
+        "name": "sort-desc-arrows",
+        "iconClass": "icon-sort-desc-arrows"
+    },
+    {
+        "name": "square",
+        "iconClass": "icon-square"
+    },
+    {
+        "name": "square-outline",
+        "iconClass": "icon-square-outline"
+    },
+    {
+        "name": "star",
+        "iconClass": "icon-star"
+    },
+    {
+        "name": "star-outline",
+        "iconClass": "icon-star-outline"
+    },
+    {
+        "name": "table",
+        "iconClass": "icon-table"
+    },
+    {
+        "name": "table-columns",
+        "iconClass": "icon-table-columns"
+    },
+    {
+        "name": "team",
+        "iconClass": "icon-team"
+    },
+    {
+        "name": "toggle-table-width",
+        "iconClass": "icon-toggle-table-width"
+    },
+    {
+        "name": "tooltip",
+        "iconClass": "icon-tooltip"
+    },
+    {
+        "name": "trash",
+        "iconClass": "icon-trash"
+    },
+    {
+        "name": "triangle",
+        "iconClass": "icon-triangle"
+    },
+    {
+        "name": "triangle-down",
+        "iconClass": "icon-triangle-down"
+    },
+    {
+        "name": "triangle-left",
+        "iconClass": "icon-triangle-left"
+    },
+    {
+        "name": "triangle-outline",
+        "iconClass": "icon-triangle-outline"
+    },
+    {
+        "name": "triangle-right",
+        "iconClass": "icon-triangle-right"
+    },
+    {
+        "name": "triangle-up",
+        "iconClass": "icon-triangle-up"
+    },
+    {
+        "name": "undo",
+        "iconClass": "icon-undo"
+    },
+    {
+        "name": "upload",
+        "iconClass": "icon-upload"
+    },
+    {
+        "name": "user-group",
+        "iconClass": "icon-user-group"
+    },
+    {
+        "name": "user-message",
+        "iconClass": "icon-user-message"
+    },
+    {
+        "name": "user-profile",
+        "iconClass": "icon-user-profile"
+    },
+    {
+        "name": "users",
+        "iconClass": "icon-users"
+    },
+    {
+        "name": "visible",
+        "iconClass": "icon-visible"
+    },
+    {
+        "name": "warning",
+        "iconClass": "icon-warning"
+    },
+    {
+        "name": "window-mode",
+        "iconClass": "icon-window-mode"
+    },
+    {
+        "name": "wishlist",
+        "iconClass": "icon-wishlist"
+    },
+    {
+        "name": "wrench",
+        "iconClass": "icon-wrench"
+    },
+    {
+        "name": "office",
+        "iconClass": "icon-office"
+    }
+]

@@ -8,8 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "comand-component-library": "^3.1.70",
-    "comand-frontend-framework": "^3.2.59",
+    "comand-component-library": "^3.1.74",
+    "comand-frontend-framework": "^3.2.61",
     "prismjs": "^1.28.0",
     "vue": "^3.2.25",
     "vue-router": "^4.0.14"

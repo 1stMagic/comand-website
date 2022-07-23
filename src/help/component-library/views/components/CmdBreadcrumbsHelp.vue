@@ -13,7 +13,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 // import example-data
 import breadcrumbs from '../../assets/data/breadcrumbs.json'
 import CmdCode from "../../data/CmdBreadcrumbsHelp"
-import propertyDescriptions from "../../generated/CmdBreadcrumbsPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdBreadcrumbsPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"

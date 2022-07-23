@@ -7,7 +7,7 @@ import {isFrameMode} from "comand-component-library/src/utils/common"
 // import components
 import {CmdFormElement} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
-import {CmdCustomHeadline} from "comand-component-library"
+import {CmdHeadline} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
 import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
@@ -16,7 +16,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 import CmdCode from "../../data/CmdFormElementHelp"
 import selectOptions from '../../assets/data/select-options.json'
 import datalistOptions from '../../assets/data/datalist-options.json'
-import propertyDescriptions from "../../generated/CmdFormElementPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdFormElementPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"
@@ -58,18 +58,40 @@ const checkbox = ref(false)
 const replacedCheckbox = ref(false)
 const radio = ref("radiobutton1")
 const replacedRadio = ref("radiobutton2")
+const toggleSwitchCheckbox = ref(true)
+const toggleSwitchWithLabelsCheckbox = ref(true)
+const toggleSwitchWithColoredLabelsCheckbox = ref(true)
+const toggleSwitchRadio = ref("1")
 const select = ref("2")
 const datalist = ref("Option 2")
 const textarea = ref("")
-const formElementStatus = ref("")
+const validationStatus = ref("")
+const disabledStatus = ref(false)
 
-// TODO: formElementStatus
+function setStatus(validationStatus, disabledStatus) {
+    this.validationStatus = validationStatus
+    this.disabledStatus = disabledStatus
+}
 </script>
 
 <template>
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
+            <ul class="list-status">
+                <li><a href="#" @click.prevent="setStatus('', false)" :class="{'active' : validationStatus === '' && disabledStatus === false}"
+                       id="status-default">Default</a></li>
+                <li class="error"><a href="#" @click.prevent="setStatus('error', false)"
+                                     :class="{'active' : validationStatus === 'error'}" id="status-error">Error</a></li>
+                <li><a href="#" @click.prevent="setStatus('warning', false)"
+                       :class="{'active' : validationStatus === 'warning'}" id="status-warning">Warning</a></li>
+                <li><a href="#" @click.prevent="setStatus('success', false)"
+                       :class="{'active' : validationStatus === 'success'}" id="status-success">Success</a></li>
+                <li><a href="#" @click.prevent="setStatus('info', false)"
+                       :class="{'active' : validationStatus === 'info'}" id="status-info">Info</a></li>
+                <li><a href="#" @click.prevent="setStatus('', true)"
+                       :class="{'active' : disabledStatus === true}" id="status-disabled">Disabled</a></li>
+            </ul>
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type text)"
@@ -82,7 +104,8 @@ const formElementStatus = ref("")
                         labelText="Input (type text):"
                         element="input"
                         type="text"
-                        :status="formElementStatus"
+                        :status="validationStatus"
+                        :disabled="disabledStatus"
                         placeholder="Type in text"
                         tooltipText="This is a tooltip"
                         :useCustomTooltip="false"
@@ -103,7 +126,8 @@ const formElementStatus = ref("")
                     labelText="Input (type number):"
                     element="input"
                     type="number"
-                    :status="formElementStatus"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                     placeholder="Type in number"
                     tooltipText="This is a tooltip"
                     :useCustomTooltip="false"
@@ -123,7 +147,8 @@ const formElementStatus = ref("")
                     labelText="Input (type color):"
                     element="input"
                     type="color"
-                    :status="formElementStatus"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                     tooltipText="This is a tooltip"
                     :useCustomTooltip="false"
                     v-model="inputTypeColor"
@@ -142,7 +167,8 @@ const formElementStatus = ref("")
                     labelText="Input (type date):"
                     element="input"
                     type="date"
-                    :status="formElementStatus"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                     tooltipText="This is a tooltip"
                     :useCustomTooltip="false"
                     v-model="inputTypeDate"
@@ -161,7 +187,8 @@ const formElementStatus = ref("")
                     labelText="Input (type datetime-local):"
                     element="input"
                     type="datetime-local"
-                    :status="formElementStatus"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                     tooltipText="This is a tooltip"
                     :useCustomTooltip="false"
                     v-model="inputTypeDatetimeLocal"
@@ -181,7 +208,8 @@ const formElementStatus = ref("")
                     element="input"
                     type="password"
                     fieldIconClass="icon-security-settings"
-                    :status="formElementStatus"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                     placeholder="Type in password"
                     tooltipText="This is a tooltip"
                     :useCustomTooltip="false"
@@ -201,7 +229,8 @@ const formElementStatus = ref("")
                     labelText="Input (type file):"
                     element="input"
                     type="file"
-                    :status="formElementStatus"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                     tooltipText="This is a tooltip"
                     :useCustomTooltip="false"
                     v-model="inputTypeFile"
@@ -220,7 +249,8 @@ const formElementStatus = ref("")
                     labelText="Input (type range):"
                     element="input"
                     type="range"
-                    :status="formElementStatus"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                     :useCustomTooltip="false"
                     v-model="inputTypeRange"
                 />
@@ -236,7 +266,8 @@ const formElementStatus = ref("")
                 <CmdFormElement
                     element="input"
                     type="search"
-                    :status="formElementStatus"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                     :useCustomTooltip="false"
                     v-model="inputTypeSearch"
                 />
@@ -251,7 +282,7 @@ const formElementStatus = ref("")
                     :nativeButton="{ text: 'Submit', icon: {iconClass: 'icon-edit', show: true}}"
                     element="button"
                     type="submit"
-                    :status="formElementStatus"
+                    :status="validationStatus"
                     :useCustomTooltip="false"
                 />
             </ExampleSectionWrapper>
@@ -265,7 +296,8 @@ const formElementStatus = ref("")
                     :nativeButton="{ icon: {iconClass: 'icon-edit', show: true, tooltip: 'I am a tooltip'}}"
                     element="button"
                     type="button"
-                    :status="formElementStatus"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                     :useCustomTooltip="false"
                 />
             </ExampleSectionWrapper>
@@ -280,7 +312,8 @@ const formElementStatus = ref("")
                     labelText="Input (type checkbox)"
                     element="input"
                     type="checkbox"
-                    :status="formElementStatus"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                     tooltipText="This is a tooltip"
                     :useCustomTooltip="false"
                     v-model="checkbox"
@@ -299,7 +332,8 @@ const formElementStatus = ref("")
                     type="radio"
                     name="radio-group"
                     id="example-radio1"
-                    :status="formElementStatus"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                     tooltipText="This is a tooltip"
                     :useCustomTooltip="false"
                     v-model="radio"
@@ -311,7 +345,8 @@ const formElementStatus = ref("")
                     type="radio"
                     name="radio-group"
                     id="example-radio2"
-                    :status="formElementStatus"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                     tooltipText="This is a tooltip"
                     :useCustomTooltip="false"
                     v-model="radio"
@@ -330,7 +365,8 @@ const formElementStatus = ref("")
                     element="input"
                     type="checkbox"
                     :replace-input-type="true"
-                    :status="formElementStatus"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                     tooltipText="This is a tooltip"
                     :useCustomTooltip="false"
                     v-model="replacedCheckbox"
@@ -343,32 +379,142 @@ const formElementStatus = ref("")
                 :sequence="sequence.nextSequenceValue()"
                 :code="CmdCode"
                 :output="replacedRadio">
+                <div class="flex-container no-flex">
+                    <CmdFormElement
+                        labelText="Input #1 (type radio)"
+                        element="input"
+                        type="radio"
+                        :replace-input-type="true"
+                        name="replaced-radio-group"
+                        id="example-replaced-radio1"
+                        :status="validationStatus"
+                        :disabled="disabledStatus"
+                        tooltipText="This is a tooltip"
+                        :useCustomTooltip="false"
+                        v-model="replacedRadio"
+                        inputValue="radiobutton1"
+                    />
+                    <CmdFormElement
+                        labelText="Input #2 (type radio)"
+                        element="input"
+                        type="radio"
+                        name="replaced-radio-group"
+                        :replace-input-type="true"
+                        id="example-replaced-radio2"
+                        :status="validationStatus"
+                        :disabled="disabledStatus"
+                        tooltipText="This is a tooltip"
+                        :useCustomTooltip="false"
+                        v-model="replacedRadio"
+                        inputValue="radiobutton2"
+                    />
+                </div>
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdFormElement"
+                headlineText="Input (type checkbox (toggle-switch))"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :output="toggleSwitchCheckbox">
                 <CmdFormElement
-                    labelText="Input #1 (type radio)"
+                    labelText="Input (type checkbox, toggle-switch)"
                     element="input"
-                    type="radio"
-                    :replace-input-type="true"
-                    name="replaced-radio-group"
-                    id="example-replaced-radio1"
-                    :status="formElementStatus"
+                    type="checkbox"
+                    :toggleSwitch="true"
+                    name="toggle-switch-checkbox-group"
+                    id="example-toggle-switch-checkbox"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                     tooltipText="This is a tooltip"
                     :useCustomTooltip="false"
-                    v-model="replacedRadio"
-                    inputValue="radiobutton1"
+                    v-model="toggleSwitchCheckbox"
                 />
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdFormElement"
+                headlineText="Input (type checkbox (toggle-switch with labels))"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :output="toggleSwitchWithLabelsCheckbox">
                 <CmdFormElement
-                    labelText="Input #2 (type radio)"
+                    labelText="Input (type checkbox, toggle-switch with labels)"
                     element="input"
-                    type="radio"
-                    name="replaced-radio-group"
-                    :replace-input-type="true"
-                    id="example-replaced-radio2"
-                    :status="formElementStatus"
+                    type="checkbox"
+                    :toggleSwitch="true"
+                    onLabel="Active"
+                    offLabel="Inactive"
+                    name="toggle-switch-with-labels-checkbox-group"
+                    id="example-toggle-switch-with-labels-checkbox"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                     tooltipText="This is a tooltip"
                     :useCustomTooltip="false"
-                    v-model="replacedRadio"
-                    inputValue="radiobutton2"
+                    v-model="toggleSwitchWithLabelsCheckbox"
                 />
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdFormElement"
+                headlineText="Input (type checkbox (toggle-switch with colored labels))"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :output="toggleSwitchWithColoredLabelsCheckbox">
+                <CmdFormElement
+                    labelText="Input (type checkbox, toggle-switch with colored labels)"
+                    element="input"
+                    type="checkbox"
+                    :toggleSwitch="true"
+                    onLabel="Yes"
+                    offLabel="No"
+                    :colored="true"
+                    name="toggle-switch-with-colored-labels-checkbox-group"
+                    id="example-toggle-switch-with-colored-labels-checkbox"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
+                    tooltipText="This is a tooltip"
+                    :useCustomTooltip="false"
+                    v-model="toggleSwitchWithColoredLabelsCheckbox"
+                />
+            </ExampleSectionWrapper>
+            <hr/>
+            <ExampleSectionWrapper
+                componentName="CmdFormElement"
+                headlineText="Input (type radio (toggle-switch))"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode"
+                :output="toggleSwitchRadio">
+                <div class="flex-container no-flex">
+                    <CmdFormElement
+                        labelText="Input #1 (type radio, toggle-switch)"
+                        element="input"
+                        type="radio"
+                        :toggleSwitch="true"
+                        name="toggle-switch-radio-group"
+                        id="example-toggle-switch-radio1"
+                        :status="validationStatus"
+                        :disabled="disabledStatus"
+                        tooltipText="This is a tooltip"
+                        :useCustomTooltip="false"
+                        v-model="toggleSwitchRadio"
+                        inputValue="1"
+                    />
+                    <CmdFormElement
+                        labelText="Input #2 (type radio, toggle-switch)"
+                        element="input"
+                        type="radio"
+                        :toggleSwitch="true"
+                        name="toggle-switch-radio-group"
+                        id="example-toggle-switch-radio2"
+                        :status="validationStatus"
+                        :disabled="disabledStatus"
+                        tooltipText="This is a tooltip"
+                        :useCustomTooltip="false"
+                        v-model="toggleSwitchRadio"
+                        inputValue="2"
+                    />
+                </div>
             </ExampleSectionWrapper>
             <hr/>
             <ExampleSectionWrapper
@@ -381,7 +527,8 @@ const formElementStatus = ref("")
                     labelText="Selectbox"
                     element="select"
                     required="required"
-                    :status="formElementStatus"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                     v-model="select"
                     :selectOptions="selectOptions"
                 />
@@ -397,7 +544,8 @@ const formElementStatus = ref("")
                     labelText="Datalist:"
                     element="input"
                     type="text"
-                    :status="formElementStatus"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                     placeholder="Type in option"
                     :datalist="datalistOptions"
                     v-model="datalist"
@@ -414,7 +562,8 @@ const formElementStatus = ref("")
                 <CmdFormElement
                     labelText="Textarea:"
                     element="textarea"
-                    :status="formElementStatus"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                     placeholder="Type in text"
                     tooltipText="This is a tooltip"
                     v-model="textarea"

@@ -15,7 +15,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 // import example-data
 import CmdCode from "../../data/CmdFormFiltersHelp"
 import fakeSelectFilterOptions from '../../assets/data/fake-select-filter-options.json'
-import propertyDescriptions from "../../generated/CmdFormFiltersPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdFormFiltersPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"

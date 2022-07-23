@@ -16,37 +16,61 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 import inputGroupRadiobuttons from '../../assets/data/input-group-radiobuttons.json'
 import inputGroupCheckboxes from '../../assets/data/input-group-checkboxes.json'
 import CmdCode from "../../data/CmdInputGroupHelp"
-import propertyDescriptions from "../../generated/CmdInputGroupPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdInputGroupPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"
 
 // set consts for v-models
-const inputGroupWithSlotValue = ref("")
-const inputGroupRadioValue = ref("")
-const inputGroupRadioReplacedValue = ref("")
-const inputGroupCheckbox = ref("")
-const inputGroupCheckboxReplacedValue = ref("")
-const inputGroupRadioMultipleSwitch = ref("")
-const inputGroupCheckboxesMultipleSwitch = ref("")
+const inputGroupWithSlotValue = ref("radiobuttonValue1")
+const inputGroupRadioValue = ref("website")
+const inputGroupRadioReplacedValue = ref("email")
+const inputGroupCheckboxValue = ref(["email"])
+const inputGroupCheckboxReplacedValue = ref([])
+const inputGroupRadioMultipleSwitch = ref("website")
+const inputGroupCheckboxesMultipleSwitch = ref(["phone"])
+const validationStatus = ref("")
+const disabledStatus = ref(false)
 
 const sequence = useSequence()
+
+function setStatus(validationStatus, disabledStatus) {
+    this.validationStatus = validationStatus
+    this.disabledStatus = disabledStatus
+}
 </script>
 
 <template>
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
+            <ul class="list-status">
+                <li><a href="#" @click.prevent="setStatus('', false)" :class="{'active' : validationStatus === '' && disabledStatus === false}"
+                       id="status-default">Default</a></li>
+                <li class="error"><a href="#" @click.prevent="setStatus('error', false)"
+                                     :class="{'active' : validationStatus === 'error'}" id="status-error">Error</a></li>
+                <li><a href="#" @click.prevent="setStatus('warning', false)"
+                       :class="{'active' : validationStatus === 'warning'}" id="status-warning">Warning</a></li>
+                <li><a href="#" @click.prevent="setStatus('success', false)"
+                       :class="{'active' : validationStatus === 'success'}" id="status-success">Success</a></li>
+                <li><a href="#" @click.prevent="setStatus('info', false)"
+                       :class="{'active' : validationStatus === 'info'}" id="status-info">Info</a></li>
+                <li><a href="#" @click.prevent="setStatus('', true)"
+                       :class="{'active' : disabledStatus === true}" id="status-disabled">Disabled</a></li>
+            </ul>
             <ExampleSectionWrapper
                 componentName="CmdInputGroup"
                 headlineText="Input Group (radio, given by slot)"
                 :sequence="sequence.nextSequenceValue()"
                 :code="CmdCode"
+                :output="inputGroupWithSlotValue"
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdInputGroup
                         labelText="Group label for radio-group given by slot"
                         :useSlot="true"
+                        :status="validationStatus"
+                        :disabled="disabledStatus"
                     >
                         <CmdFormElement element="input"
                                         labelText="Label for radiobutton"
@@ -70,12 +94,15 @@ const sequence = useSequence()
                 componentName="CmdInputGroup"
                 headlineText="Input Group (radio, given by property)"
                 :sequence="sequence.nextSequenceValue()"
-                :code="CmdCode">
+                :code="CmdCode"
+                :output="inputGroupRadioValue">
                     <CmdInputGroup
                         labelText="Grouplabel for radio-group given by property"
                         :inputElements="inputGroupRadiobuttons"
                         inputTypes="radio"
                         v-model="inputGroupRadioValue"
+                        :status="validationStatus"
+                        :disabled="disabledStatus"
                     />
             </ExampleSectionWrapper>
             <hr />
@@ -83,14 +110,16 @@ const sequence = useSequence()
                 componentName="CmdInputGroup"
                 headlineText="Input Group (radio, replaced-input-type)"
                 :sequence="sequence.nextSequenceValue()"
-                :code="CmdCode">
+                :code="CmdCode"
+                :output="inputGroupRadioReplacedValue">
                     <CmdInputGroup
                         labelText="Grouplabel for radio-group styled as replaced-input-type"
                         :inputElements="inputGroupRadiobuttons"
                         inputTypes="radio"
                         :replaceInputType="true"
                         v-model="inputGroupRadioReplacedValue"
-
+                        :status="validationStatus"
+                        :disabled="disabledStatus"
                     />
             </ExampleSectionWrapper>
             <hr />
@@ -98,26 +127,32 @@ const sequence = useSequence()
                 componentName="CmdInputGroup"
                 headlineText="Input Group (checkbox)"
                 :sequence="sequence.nextSequenceValue()"
-                :code="CmdCode">
+                :code="CmdCode"
+                :output="inputGroupCheckboxValue">
                 <CmdInputGroup
                     labelText="Grouplabel for checkbox-group"
                     :inputElements="inputGroupCheckboxes"
                     inputTypes="checkbox"
                     v-model="inputGroupCheckboxValue"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                 />
             </ExampleSectionWrapper>
             <hr />
             <ExampleSectionWrapper
                 componentName="CmdInputGroup"
-                headlineText="Input Group (checkbox, replaced)"
+                headlineText="Input Group (checkbox, replaced-input-type)"
                 :sequence="sequence.nextSequenceValue()"
-                :code="CmdCode">
+                :code="CmdCode"
+                :output="inputGroupCheckboxReplacedValue">
                 <CmdInputGroup
                     labelText="Grouplabel for checkbox-group styled as replaced-input-type"
-                    :inputElements="inputGroupCheckbox"
+                    :inputElements="inputGroupCheckboxes"
                     inputTypes="checkbox"
                     :replaceInputType="true"
                     v-model="inputGroupCheckboxReplacedValue"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                 />
             </ExampleSectionWrapper>
             <hr />
@@ -125,13 +160,16 @@ const sequence = useSequence()
                 componentName="CmdInputGroup"
                 headlineText="Input Group (radio, multiple-switch)"
                 :sequence="sequence.nextSequenceValue()"
-                :code="CmdCode">
+                :code="CmdCode"
+                :output="inputGroupRadioMultipleSwitch">
                 <CmdInputGroup
                     labelText="Grouplabel for radio-group given by property styled as multiple-switch"
                     :inputElements="inputGroupRadiobuttons.map(item => ({...item, id: item.id + '-multi', name: item.name + '-multi'}))"
                     inputTypes="radio"
                     :multipleSwitch="true"
                     v-model="inputGroupRadioMultipleSwitch"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                 />
             </ExampleSectionWrapper>
             <hr />
@@ -139,7 +177,8 @@ const sequence = useSequence()
                 componentName="CmdInputGroup"
                 headlineText="Input Group (radio, multiple-switch, stretched)"
                 :sequence="sequence.nextSequenceValue()"
-                :code="CmdCode">
+                :code="CmdCode"
+                :output="inputGroupCheckboxesMultipleSwitch">
                 <CmdInputGroup
                     labelText="Grouplabel for checkbox-group styled as multiple-switch (stretched horizontally)"
                     :inputElements="inputGroupCheckboxes"
@@ -147,6 +186,8 @@ const sequence = useSequence()
                     :multipleSwitch="true"
                     v-model="inputGroupCheckboxesMultipleSwitch"
                     :stretchHorizontally="true"
+                    :status="validationStatus"
+                    :disabled="disabledStatus"
                 />
             </ExampleSectionWrapper>
         </template>

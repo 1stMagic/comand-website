@@ -1,7 +1,7 @@
 export default [
 `<CmdListOfLinks 
     :links="listOfLinks" 
-    :cmdCustomHeadline="{
+    :cmdHeadline="{
       text: 'Links', 
       level: 5
     }" 
@@ -9,7 +9,7 @@ export default [
 `<CmdListOfLinks 
     :links="listOfLinks" 
     orientation="horizontal" 
-    :cmdCustomHeadline="{
+    :cmdHeadline="{
         headlineText: 'Links', 
         headlineLevel: 5
     }" 
@@ -17,14 +17,14 @@ export default [
 `<CmdListOfLinks 
     :links="listOfLinks" 
     :styleAsBox="true" 
-    :cmdCustomHeadline="{
+    :cmdHeadline="{
       headlineText: 'Links', 
       headlineLevel: 5
     }" />`,
     `<CmdListOfLinks 
     :links="listOfLinks" 
     :styleAsBox="true" 
-    :cmdCustomHeadline="{
+    :cmdHeadline="{
       headlineText: 'Links', 
       headlineLevel: 5
     }" />`

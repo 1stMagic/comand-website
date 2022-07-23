@@ -12,7 +12,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdWidthLimitationWrapperHelp"
-import propertyDescriptions from "../../generated/CmdWidthLimitationWrapperPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdWidthLimitationWrapperPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"

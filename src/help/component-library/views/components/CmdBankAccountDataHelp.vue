@@ -14,7 +14,7 @@ import * as componentPropertiesFunctions from "../../components/ComponentPropert
 // import example-data
 import CmdCode from "../../data/CmdBankAccountDataHelp"
 import bankAccountData from "../../assets/data/bank-account-data.json"
-import propertyDescriptions from "../../generated/CmdBankAccountDataPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdBankAccountDataPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"
@@ -29,7 +29,7 @@ const propertyStructures = {
             "allowCopy": "<boolean>"
         }
     ],
-    cmdCustomHeadline: "Description for cmdCustomHeadline",
+    cmdHeadline: "Description for CmdHeadline",
     iconCopy: {
         "iconClass": "<string>",
         "tooltip": "<string>"
@@ -52,7 +52,7 @@ const propertyStructures = {
                         <CmdBankAccountData
                             :account-data="bankAccountData"
                             :allow-copy-by-click="true"
-                            :cmd-custom-headline="{ headlineText: 'Bank Account', headlineLevel: 5}"
+                            :cmd-headline="{ headlineText: 'Bank Account', headlineLevel: 5}"
                         />
                     </teleport>
             </ExampleSectionWrapper>

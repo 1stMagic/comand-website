@@ -13,7 +13,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 // import example-data
 import CmdCode from "../../data/CmdImageGalleryHelp"
 import imageGallery from '../../assets/data/image-gallery.json'
-import propertyDescriptions from "../../generated/CmdImageGalleryPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdImageGalleryPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"

@@ -12,7 +12,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdGoogleMapsHelp"
-import propertyDescriptions from "../../generated/CmdFormFiltersPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdFormFiltersPropertyDescriptions.json"
 import addressData from '../../assets/data/address-data.json'
 
 // import composables

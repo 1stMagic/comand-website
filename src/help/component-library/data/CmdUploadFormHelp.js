@@ -1,6 +1,6 @@
 export default [
 `<CmdUploadForm
-    :cmdCustomHeadline="{headlineText: 'Select files to upload', headlineLevel: 5}"
+    :cmdHeadline="{headlineText: 'Select files to upload', headlineLevel: 5}"
     :enableDragAndDrop="true"
     :allowedFileExtensions="['gif','png','jpg']"
     :allowMultipleFileUploads="true"

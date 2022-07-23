@@ -4,15 +4,15 @@ import {tabProps, tabHandlers} from "../../tabs"
 import {isFrameMode} from "comand-component-library/src/utils/common"
 
 // import components
-import {CmdCustomHeadline} from "comand-component-library"
+import {CmdHeadline} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
 import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
-import CmdCode from "../../data/CmdCustomHeadlineHelp"
-import propertyDescriptions from "../../generated/CmdCustomHeadlinePropertyDescriptions.json"
+import CmdCode from "../../data/CmdHeadlineHelp"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdHeadlinePropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"
@@ -25,13 +25,13 @@ const sequence = useSequence()
         <template v-slot:tab-content-0>
             <h2>Component</h2>
             <ExampleSectionWrapper
-                componentName="CmdCustomHeadline"
+                componentName="CmdHeadline"
                 headlineText="Headline level 1 (with icon and pre-headline)"
                 :sequence="sequence.nextSequenceValue()"
                 :code="CmdCode"
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                    <CmdCustomHeadline
+                    <CmdHeadline
                         headlineText="Headline text"
                         :headlineLevel="1"
                         preHeadlineText="Pre-headline text"
@@ -41,13 +41,13 @@ const sequence = useSequence()
             </ExampleSectionWrapper>
             <hr/>
             <ExampleSectionWrapper
-                componentName="CmdCustomHeadline"
+                componentName="CmdHeadline"
                 headlineText="Headline level 1 (without icon and pre-headline)"
                 :sequence="sequence.nextSequenceValue()"
                 :code="CmdCode"
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                    <CmdCustomHeadline
+                    <CmdHeadline
                         headlineText="Headline text"
                         :headlineLevel="1"
                     />
@@ -55,7 +55,7 @@ const sequence = useSequence()
             </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
-            <ComponentProperties :properties="CmdCustomHeadline.props" :propertyDescriptions="propertyDescriptions" />
+            <ComponentProperties :properties="CmdHeadline.props" :propertyDescriptions="propertyDescriptions" />
         </template>
     </CmdTabs>
 </template>

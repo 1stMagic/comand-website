@@ -13,7 +13,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 // import example-data
 import CmdCode from "../../data/CmdSlideshowHelp"
 import slideshow from "../../assets/data/slideshow.json"
-import propertyDescriptions from "../../generated/CmdSlideshowPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdSlideshowPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"

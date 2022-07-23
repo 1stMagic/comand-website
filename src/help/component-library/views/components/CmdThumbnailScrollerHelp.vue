@@ -13,7 +13,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 // import example-data
 import CmdCode from "../../data/CmdThumbnailScrollerHelp"
 import thumbnailScroller from "../../assets/data/thumbnail-scroller.json"
-import propertyDescriptions from "../../generated/CmdThumbnailScrollerPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdThumbnailScrollerPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"

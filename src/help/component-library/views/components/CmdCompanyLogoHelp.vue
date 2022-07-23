@@ -13,7 +13,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 // import example-data
 import companyLogo from '../../assets/data/company-logo.json'
 import CmdCode from "../../data/CmdCompanyLogoHelp"
-import propertyDescriptions from "../../generated/CmdCompanyLogoPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdCompanyLogoPropertyDescriptions.json"
 
 // import graphics
 import defaultLogo from "../../../../company/assets/images/logo.svg"

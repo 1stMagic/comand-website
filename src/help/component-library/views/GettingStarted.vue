@@ -95,13 +95,13 @@ export default {
         usage() {
             const usage = [
                 "<template>",
-                "    <CmdCustomHeadline headlineText=\"My Headline\" headlineLevel=\"1\" />",
+                "    <CmdHeadline headlineText=\"My Headline\" headlineLevel=\"1\" />",
                 "</template>",
                 "",
                 "<script>",
-                "import {CmdCustomHeadline} from \"comand-component-library\"",
+                "import {CmdHeadline} from \"comand-component-library\"",
                 "export default {",
-                "    components: {CmdCustomHeadline}",
+                "    components: {CmdHeadline}",
                 "}",
                 "<\/script>"
             ]
