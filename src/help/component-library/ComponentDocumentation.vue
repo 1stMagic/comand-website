@@ -155,7 +155,7 @@ export default {
 
     main {
         width: 100%;
-        padding: calc(var(--default-padding) * 10);
+        padding: calc(var(--default-padding) * 5) calc(var(--default-padding) * 10);
     }
 
     @media only screen and (max-width: 1023px) {

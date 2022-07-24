@@ -115,13 +115,17 @@
     "headline": "Share Buttons",
     "shorttext": "Based on a native progress bar, this component can be used with a label and an output of the percentage loaded."
   },
+  "CmdSiteFooter": {
+    "headline": "Site Footer",
+    "shorttext": "The footer for the entire site. It can be filled by slot-elements which are arranged horizontally by default."
+  },
   "CmdSiteHeader": {
     "headline": "Site Header",
     "shorttext": "The header for the entire site. It can be configured with the main navigation inside or be filled by slot-elements."
   },
   "CmdSlideButton": {
     "headline": "Slide Button",
-    "shorttext": "Button to slide content (.i.e. images, thumbnails, text) that is used in components like slideshow or thumbnail-scroller."
+    "shorttext": "Button to slide content (i.e. images, thumbnails, text) that is used in components like slideshow or thumbnail-scroller."
   },
   "CmdSlideshow": {
     "headline": "Slideshow",
@@ -146,6 +150,10 @@
   "CmdThumbnailScroller": {
     "headline": "Thumbnail scroller",
     "shorttext": "A horizontal image scroller for small images (thumbnails) that is also used inside if a group of images is enlarged with the fancybox."
+  },
+  "CmdToggleDarkMode": {
+    "headline": "Toggle Dark-Mode",
+    "shorttext": "Based on CmdFormElement using the toggle-switch, this component can be used to toggle between light- and darkmode. The default mode/color-scheme is loaded from the browser-/os-settings."
   },
   "CmdTooltip": {
     "headline": "Tooltip",

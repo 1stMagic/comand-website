@@ -93,7 +93,7 @@ function onViewResolve() {
             </transition>
         </aside>
         <template v-if="!isFrameMode()">
-            <a href="#" @click.prevent="router.go(-1)">
+            <a href="#" class="link-with-icon" @click.prevent="router.go(-1)">
                 <span class="icon-single-arrow-left"></span>
                 <span>Back to previous component</span>
             </a>
@@ -222,13 +222,7 @@ main {
 
     a {
         flex: none;
-        display: flex;
         align-items: center;
-
-        span[class*="icon"] {
-            font-size: 1.2rem;
-            text-decoration: none;
-        }
     }
 }
 </style>

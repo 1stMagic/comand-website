@@ -60,7 +60,7 @@ function changeWidth(width) {
         </div>
         <div v-if="!isFrameMode()" class="flex-container">
             <div v-if="code">
-                <CmdBox :useSlots="['body']" :collapsible="true" :collapsingBoxesOpen="true" :cmdHeadline="{headlineText: 'Code', headlineLevel: 4}">
+                <CmdBox :useSlots="['body']" :collapsible="true" :collapsingBoxesOpen="true" :cmdHeadline="{headlineText: 'Code', headlineLevel: 4}" :stretchVertically="false">
                     <template v-slot:body>
                         <ComponentCode :code="code"/>
                     </template>
