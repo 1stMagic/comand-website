@@ -14,6 +14,16 @@
             </template>
         </CmdSiteHeader>
         <router-view></router-view>
+        <CmdSiteFooter>
+            <CmdCompanyLogo
+                link="/"
+                altText="CoManD Logo"
+                :pathDefaultLogo="defaultLogo"
+                :pathDarkmodeLogo="darkmodeLogo"
+            />
+            <span>&copy; 2022 CoManD</span>
+            <span>All rights reserved</span>
+        </CmdSiteFooter>
     </div>
 </template>
 
@@ -22,6 +32,7 @@ import {isFrameMode} from "comand-component-library/src/utils/common"
 
 // import components
 import {CmdCompanyLogo} from "comand-component-library"
+import {CmdSiteFooter} from "comand-component-library"
 import {CmdSiteHeader} from "comand-component-library"
 
 // import graphics
@@ -32,6 +43,7 @@ import darkmodeLogo from "./help/component-library/assets/images/logo-darkmode.s
 export default {
     components: {
         CmdCompanyLogo,
+        CmdSiteFooter,
         CmdSiteHeader
     },
     data() {

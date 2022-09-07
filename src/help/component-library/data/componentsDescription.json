@@ -29,7 +29,7 @@
   },
   "CmdBreadcrumbs": {
     "headline": "Breadcrumbs",
-    "shorttext": "Hierachic navigation, that shows the current page in relation to upper levels. Mostly placed at the top of the content."
+    "shorttext": "Hierarchic navigation, that shows the current page in relation to upper levels. Mostly placed at the top of the content."
   },
   "CmdCompanyLogo": {
     "headline": "Company Logo",
@@ -49,7 +49,7 @@
   },
   "CmdFancyBox": {
     "headline": "Fancy Box",
-    "shorttext": "The Fancy Box is a PopUp-Box similar to a modal, that can be filled with different content (i.e. image slider, print preview)."
+    "shorttext": "The Fancy Box is a pop-up-box similar to a modal, that can be filled with different content (i.e. image slider, print preview)."
   },
   "CmdForm": {
     "headline": "Form",
@@ -64,12 +64,12 @@
     "shorttext": "List of selected filters (without functionality) that can be set by a form element or a fake select."
   },
   "CmdGoogleMaps": {
-    "headline": "Google Maps",
+    "headline": "Google Maps&trade;",
     "shorttext": "A Google Map in an iframe, that can be linked with an address."
   },
   "CmdImageGallery": {
     "headline": "Image Gallery",
-    "shorttext": "A list if images arranged in a grid. The images can be enlarge in a fancybox."
+    "shorttext": "A list of images arranged in a grid. The images can be enlarged in a fancybox."
   },
   "CmdImageZoom": {
     "headline": "Image Zoom",
@@ -85,15 +85,15 @@
   },
   "CmdLoginForm": {
     "headline": "Login Form",
-    "shorttext": "Shows a standard login form (with username- and password-field) and toggle form to prepare sending the password by email."
+    "shorttext": "Shows a standard login form (with username- and password-field) and the possibility to toggle the form to prepare sending the password by email."
   },
   "CmdMainNavigation": {
     "headline": "Main Navigation",
-    "shorttext": "This component should be us to contain the main navigation for a project. Is already wrapped in a nav-tag, that can contain up to three levels of links."
+    "shorttext": "This component should be used to contain the main navigation for a project. It is already wrapped in a nav-tag, that can contain up to three levels of links."
   },
   "CmdMultipleSwitch": {
     "headline": "Multiple Switch",
-    "shorttext": "TEXT FEHLT"
+    "shorttext": "The MultiSwitch is just a special iteration of CmdFormElement where checkboxes or radiobuttons could be displayed as a group of large switches/buttons."
   },
   "CmdMultistepFormProgressBar": {
     "headline": "Multistep Form Progress Bar",
@@ -105,7 +105,7 @@
   },
   "CmdPager": {
     "headline": "Pager",
-    "shorttext": "Buttons to switch pages, mostly used for list (.i.e. search results) that are displayed of several pages."
+    "shorttext": "Buttons to switch pages, mostly used for list (i.e. search results) that are displayed on several pages."
   },
   "CmdProgressBar": {
     "headline": "Progress Bar",
@@ -113,15 +113,15 @@
   },
   "CmdShareButtons": {
     "headline": "Share Buttons",
-    "shorttext": "Based on a native progress bar, this component can be used with a label and an output of the percentage loaded."
+    "shorttext": "The share buttons are small buttons (mostly below the content at bottom of a page) which are linked to social networks to share the link of the original page."
   },
   "CmdSiteFooter": {
     "headline": "Site Footer",
-    "shorttext": "The footer for the entire site. It can be filled by slot-elements which are arranged horizontally by default."
+    "shorttext": "The footer for the entire site. It can be filled with different content (which are arranged horizontally by default) using slots."
   },
   "CmdSiteHeader": {
     "headline": "Site Header",
-    "shorttext": "The header for the entire site. It can be configured with the main navigation inside or be filled by slot-elements."
+    "shorttext": "The header for the entire site. It can be configured with the main navigation inside or be filled with different content by using slots."
   },
   "CmdSlideButton": {
     "headline": "Slide Button",
@@ -141,15 +141,15 @@
   },
   "CmdTable": {
     "headline": "Table",
-    "shorttext": "Based on a the native table, this table can also be configured to highlight rows or columns and has a default overflow-behavior for wide content."
+    "shorttext": "Based on the native table, this table can also be configured to highlight rows or columns and has a default overflow-behavior for wide content."
   },
   "CmdTabs": {
     "headline": "Tabs",
-    "shorttext": "Tabs to switch different section of content, that toggle visibility in frame below."
+    "shorttext": "Tabs to switch different sections of content, that toggle visibility in a frame below."
   },
   "CmdThumbnailScroller": {
     "headline": "Thumbnail scroller",
-    "shorttext": "A horizontal image scroller for small images (thumbnails) that is also used inside if a group of images is enlarged with the fancybox."
+    "shorttext": "A horizontal image-scroller for small images (thumbnails) that is also used at the bottom of the screen if a group of images is enlarged with the fancybox."
   },
   "CmdToggleDarkMode": {
     "headline": "Toggle Dark-Mode",

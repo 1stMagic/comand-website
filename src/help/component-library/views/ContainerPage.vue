@@ -175,10 +175,6 @@ main {
                 }
 
                 &.active {
-                    background: var(--primary-color);
-                    transition: var(--default-transition);
-                    color: var(--pure-white);
-
                     a {
                         span, span[class*="icon"] {
                             color: var(--pure-white);
