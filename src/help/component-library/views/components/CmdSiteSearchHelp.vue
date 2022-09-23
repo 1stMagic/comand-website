@@ -1,24 +1,30 @@
 <script setup>
 // import function
 import {tabProps, tabHandlers} from "../../tabs"
+import {ref} from "vue"
 import {isFrameMode} from "comand-component-library/src/utils/common"
 
 // import components
-import {CmdBoxSiteSearch} from "comand-component-library"
+import {CmdSiteSearch} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
 import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
-import CmdCode from "../../data/CmdBoxSiteSearchHelp"
+import CmdCode from "../../data/CmdSiteSearchHelp"
 import listOfFilters from '../../assets/data/fake-select-filter-options.json'
-import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdBoxSiteSearchPropertyDescriptions.json"
+import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdSiteSearchPropertyDescriptions.json"
 
 // import composables
 import {useSequence} from "comand-component-library"
 
 const sequence = useSequence()
+
+const searchValue1 = ref("")
+const searchValue2 = ref("")
+const radius = ref(0)
+const searchFilters = ref([])
 
 const propertyStructures = {
     cmdHeadline: {
@@ -42,9 +48,9 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ExampleSectionWrapper componentName="CmdBoxSiteSearch" headlineText="Box Site Search" :sequence="sequence.nextSequenceValue()" :code="CmdCode" :isFirstComponent="true">
+            <ExampleSectionWrapper componentName="CmdSiteSearch" headlineText="Site Search" :sequence="sequence.nextSequenceValue()" :code="CmdCode" :isFirstComponent="true">
                     <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                        <CmdBoxSiteSearch
+                        <CmdSiteSearch
                             text-legend="Legend"
                             :results="420"
                             :listOfFilters="listOfFilters"
@@ -52,12 +58,16 @@ const propertyStructures = {
                                 headlineText: 'Search site',
                                 headlineLevel: 5
                             }"
+                            v-model:modelValueInput1="searchValue1"
+                            v-model:modelValueInput2="searchValue2"
+                            v-model:modelValueRadius="radius"
+                            v-model:modelValueSearchFilters="searchFilters"
                         />
                     </teleport>
             </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>
-            <ComponentProperties :properties="CmdBoxSiteSearch.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures" />
+            <ComponentProperties :properties="CmdSiteSearch.props" :propertyDescriptions="propertyDescriptions" :propertyStructures="propertyStructures" />
         </template>
     </CmdTabs>
 </template>

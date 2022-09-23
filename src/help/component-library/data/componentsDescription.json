@@ -19,10 +19,6 @@
       "innerComponents": ["CmdHeadline"]
     }
   },
-  "CmdBoxSiteSearch": {
-    "headline": "Box Site Search",
-    "shorttext": "Box with search field to search the content"
-  },
   "CmdBoxWrapper": {
     "headline": "Box Wrapper",
     "shorttext": "Box wrapper for different types of content arranged in a flex- or grid-container"
@@ -122,6 +118,10 @@
   "CmdSiteHeader": {
     "headline": "Site Header",
     "shorttext": "The header for the entire site. It can be configured with the main navigation inside or be filled with different content by using slots."
+  },
+  "CmdSiteSearch": {
+    "headline": "Site Search",
+    "shorttext": "Box with (global) search field to search the content"
   },
   "CmdSlideButton": {
     "headline": "Slide Button",

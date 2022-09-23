@@ -3,5 +3,8 @@
     "type": "href",
     "path": "./",
     "tooltip": "To homepage"
-  }
+  },
+  "pathDefaultLogo": "/media/images/logos/logo.svg",
+  "pathDarkmodeLogo": "/media/images/logos/logo-darkmode.svg",
+  "altText": "Company Logo"
 }

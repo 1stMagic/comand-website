@@ -44,6 +44,10 @@
         "iconClass": "icon-git"
     },
     {
+        "name": "github",
+        "iconClass": "icon-github"
+    },
+    {
         "name": "google-analytics",
         "iconClass": "icon-google-analytics"
     },
@@ -106,6 +110,10 @@
     {
         "name": "twitter-square",
         "iconClass": "icon-twitter-square"
+    },
+    {
+        "name": "vue",
+        "iconClass": "icon-vue"
     },
     {
         "name": "whatsapp",

@@ -8,10 +8,10 @@ html {
     --box-shadow: 0 0 2rem hsla(0, 0%, 20%, .3);
 }
 
-#page-wrapper {
-    background-color: #4158D0;
-    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-}
+/*#page-wrapper {*/
+/*    background-color: #4158D0;*/
+/*    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);*/
+/*}*/
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "Century Gothic", sans-serif;

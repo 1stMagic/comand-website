@@ -20,10 +20,6 @@ import listOfLinks from '../../assets/data/list-of-links-top-header-navigation.j
 import companyLogo from '../../assets/data/company-logo.json'
 import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdSiteHeaderPropertyDescriptions.json"
 
-// import graphics
-import defaultLogo from "../../../../company/assets/images/logo.svg"
-import darkmodeLogo from "../../../../company/assets/images/logo-darkmode.svg"
-
 // import composables
 import {useSequence} from "comand-component-library"
 
@@ -43,9 +39,19 @@ const propertyStructures = {
                 }
             ]
         }
-    ]
+    ],
+    companyLogo: {
+        link: {
+            type: "<string>",
+            path: "<string>",
+            tooltip: "<string>"
+        },
+        pathDefaultLogo: "<string>",
+        pathDarkmodeLogo: "<string>",
+        altText: "<string>"
+    }
 }
-
+// use ref and assign to const to make reactive
 const navigationEntries = ref(mainNavigation)
 </script>
 
@@ -60,7 +66,7 @@ const navigationEntries = ref(mainNavigation)
                 :code="CmdCode"
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                    <CmdSiteHeader :cmdMainNavigation="{navigationEntries}" :sticky="true">
+                    <CmdSiteHeader :cmdMainNavigation="navigationEntries" :sticky="true">
                         <template v-slot:top-header>
                             <CmdListOfLinks
                                 :links="listOfLinks"
@@ -71,12 +77,27 @@ const navigationEntries = ref(mainNavigation)
                         <template v-slot:logo>
                             <CmdCompanyLogo
                                 :link="companyLogo.link"
-                                altText="CoManD Logo"
-                                :pathDefaultLogo="defaultLogo"
-                                :pathDarkmodeLogo="darkmodeLogo"
+                                :altText="companyLogo.altText"
+                                :pathDefaultLogo="companyLogo.pathDefaultLogo"
+                                :pathDarkmodeLogo="companyLogo.pathDarkmodeLogo"
                             />
                         </template>
                     </CmdSiteHeader>
+                </teleport>
+            </ExampleSectionWrapper>
+            <hr />
+            <ExampleSectionWrapper
+                componentName="CmdSiteHeader"
+                headlineText="Site Header (navigation inline)"
+                :sequence="sequence.nextSequenceValue()"
+                :code="CmdCode">
+                <teleport to="#frame-component-target" :disabled="!isFrameMode()">
+                    <CmdSiteHeader
+                       :cmdMainNavigation="navigationEntries"
+                       :cmdCompanyLogo="companyLogo"
+                       :sticky="true"
+                       :navigation-inline="true"
+                    />
                 </teleport>
             </ExampleSectionWrapper>
         </template>

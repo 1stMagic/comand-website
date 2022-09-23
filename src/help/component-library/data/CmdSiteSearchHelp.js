@@ -1,5 +1,5 @@
 export default [
-`<CmdBoxSiteSearch
+`<CmdSiteSearch
     text-legend="Legend"
     :results="420"
     :listOfFilters="listOfFilters"

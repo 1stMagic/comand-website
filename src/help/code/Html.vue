@@ -1,16 +1,17 @@
 <template>
-    <main>
         <CmdWidthLimitationWrapper>
-     <h1>HTML</h1>
+            <CmdHeadline headlineLevel="1" headlineText="Code & Standards" />
+            <a id="anchor-html"></a>
+            <h2>HTML</h2>
             <p>
-                While the basic styles and classes for HTML-elements are provided by the <a href="">Frontend Framework</a>,
-                all aspects of modern and native HTML5-structure come together inside the components of the <a href="">Component Library</a>.
+                While the basic styles and classes for HTML-elements are provided by the Frontend Framework,
+                all aspects of modern and native HTML5-structure come together inside the components of the Component-Library.
             </p>
-            <h2>Philosophy</h2>
+            <h3>Philosophy</h3>
             <p>Because all starts with a valid HTML-structure, it is one of our most important aspects of coding, to keep the HTML clean and semantic correct.<br />
                 We try to code as responsive, seo-friendly and accessible as possible and do our best to be up-to-date to newest trends and features of still evolving HTML and browsers.
             </p>
-            <h2>Responsiveness, SEO and accessibility</h2>
+            <h3>Responsiveness, SEO and accessibility</h3>
             <p>To be as flexible and responsive for many devices as possible, the code is based on the following aspects:</p>
             <ul>
                 <li>Structure, styles and logic strictly separated</li>
@@ -24,15 +25,18 @@
                 <li>Many components allow content given by slot to customize your own HTML</li>
             </ul>
         </CmdWidthLimitationWrapper>
-    </main>
 </template>
 
 <script>
 // import components
+import {CmdHeadline} from "comand-component-library"
 import {CmdWidthLimitationWrapper} from "comand-component-library"
 
 export default {
     name: "Html",
-    components: {CmdWidthLimitationWrapper}
+    components: {
+        CmdHeadline,
+        CmdWidthLimitationWrapper
+    }
 }
 </script>

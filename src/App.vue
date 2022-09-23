@@ -1,60 +1,70 @@
 <template>
     <div id="page-wrapper">
-        <CmdSiteHeader v-if="!isFrameMode()" :cmd-main-navigation="{navigationEntries: mainNavigation}">
-            <template v-slot:logo>
-                <CmdCompanyLogo
-                    link="/"
-                    altText="CoManD Logo"
-                    :pathDefaultLogo="defaultLogo"
-                    :pathDarkmodeLogo="darkmodeLogo"
-                />
-            </template>
-            <template v-slot:header>
-                <input type="checkbox" v-model="styledTemplate" />
-            </template>
-        </CmdSiteHeader>
+        <CmdSiteHeader
+            v-if="!isFrameMode()"
+            :cmd-company-logo="companyLogo"
+            :cmd-main-navigation="{navigationEntries: mainNavigation}"
+            :navigation-inline="true"
+        />
         <router-view></router-view>
         <CmdSiteFooter>
-            <CmdCompanyLogo
-                link="/"
-                altText="CoManD Logo"
-                :pathDefaultLogo="defaultLogo"
-                :pathDarkmodeLogo="darkmodeLogo"
+            <div class="copyright">
+                <span>&copy; 2022 CoManD - All rights reserved</span>
+                <CmdCompanyLogo
+                    :link="companyLogo.link"
+                    altText="CoManD Logo"
+                    :pathDefaultLogo="companyLogo.pathDefaultLogo"
+                    :pathDarkmodeLogo="companyLogo.pathDarkmodeLogo"
+                />
+                <a href="mailto:mail@comand-cms.com">mail@comand-cms.com</a>
+            </div>
+            <!--
+            <CmdFormElement
+                element="input"
+                type="checkbox"
+                labelText="Toggle Template"
+                v-model="styledTemplate"
+                :toggleSwitch="true"
             />
-            <span>&copy; 2022 CoManD</span>
-            <span>All rights reserved</span>
+            -->
         </CmdSiteFooter>
     </div>
 </template>
 
 <script>
+// import functions
 import {isFrameMode} from "comand-component-library/src/utils/common"
 
 // import components
 import {CmdCompanyLogo} from "comand-component-library"
 import {CmdSiteFooter} from "comand-component-library"
+import {CmdFormElement} from "comand-component-library"
 import {CmdSiteHeader} from "comand-component-library"
-
-// import graphics
-import defaultLogo from "./help/component-library/assets/images/logo.svg"
-import darkmodeLogo from "./help/component-library/assets/images/logo-darkmode.svg"
-
 
 export default {
     components: {
         CmdCompanyLogo,
         CmdSiteFooter,
+        CmdFormElement,
         CmdSiteHeader
     },
     data() {
         return {
-            defaultLogo,
-            darkmodeLogo,
+            companyLogo: {
+                "link": {
+                    "type": "href",
+                    "path": "/",
+                    "tooltip": "To homepage"
+                },
+               "pathDefaultLogo": "/media/images/logos/logo.svg",
+                "pathDarkmodeLogo": "/media/images/logos/logo-darkmode.svg",
+                "altText": "Company Logo"
+            },
             styledTemplate: false,
             mainNavigation: [
                 {
                     "type": "router",
-                    "text": "Company",
+                    "text": "Home",
                     "route": {
                         name: "company"
                     }
@@ -80,31 +90,11 @@ export default {
                     ]
                 },
                 {
-                    "type": "href",
+                    "type": "router",
                     "text": "Code",
-                    "subentries": [
-                        {
-                            "type": "router",
-                            "text": "HTML",
-                            "route": {
-                                name: "html"
-                            }
-                        },
-                        {
-                            "type": "router",
-                            "text": "CSS",
-                            "route": {
-                                name: "css"
-                            }
-                        },
-                        {
-                            "type": "router",
-                            "text": "VUE",
-                            "route": {
-                                name: "vue"
-                            }
-                        }
-                    ]
+                    "route": {
+                        name: "code"
+                    }
                 },
                 {
                     "type": "router",
@@ -153,6 +143,27 @@ export default {
 
     > .cmd-site-header {
         z-index: 400;
+    }
+
+    .copyright {
+        display: flex;
+        flex-direction: column;
+        gap: var(--default-gap);
+        align-items: center;
+
+        img {
+            height: 5.2rem;
+        }
+    }
+
+    .cmd-site-header {
+        .router-link-exact-active {
+            background: var(--primary-color);
+
+            span {
+                color: var(--pure-white);
+            }
+        }
     }
 }
 </style>

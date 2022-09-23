@@ -15,9 +15,9 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdSiteFooterHelp"
-import addressData from '../../assets/data/address-data.json'
-import listOfLinks from '../../assets/data/list-of-links.json'
-import openingHours from '../../assets/data/opening-hours.json'
+import addressDataData from '../../assets/data/address-data.json'
+import listOfLinksData from '../../assets/data/list-of-links.json'
+import openingHoursData from '../../assets/data/opening-hours.json'
 import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdSiteFooterPropertyDescriptions.json"
 
 // import composables
@@ -25,9 +25,9 @@ import {useSequence} from "comand-component-library"
 
 const sequence = useSequence()
 
-const addressData = ref(addressData)
-const listOfLinks = ref(listOfLinks)
-const openingHours = ref(openingHours)
+const addressData = ref(addressDataData)
+const listOfLinks = ref(listOfLinksData)
+const openingHours = ref(openingHoursData)
 </script>
 
 <template>
@@ -37,8 +37,8 @@ const openingHours = ref(openingHours)
             <ExampleSectionWrapper
                 componentName="CmdSiteFooter"
                 headlineText="Site Footer"
-                :sequence="sequence.nextSequenceValue()"
                 :code="CmdCode"
+                :sequence="sequence.nextSequenceValue()"
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdSiteFooter>

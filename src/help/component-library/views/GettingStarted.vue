@@ -2,7 +2,7 @@
     <main>
         <CmdWidthLimitationWrapper>
             <h1>Getting Started</h1>
-            <h2>What is CoManD Component Library?</h2>
+            <h2>What is CoManD Component-Library?</h2>
             <p>The Component Library is a free package including dozens of configurable, responsive and accessible components of often used elements (i.e. boxes, form elements, navigations) in webprojects.
                 It is based on <a href="#">CoManD Frontend Framework</a>, which is a required dependency. The Component Library will not work without it.
                 Besides the HTML5 and CSS3 from the Frontend Framework, the Component Library itself uses SCSS and
@@ -28,7 +28,10 @@
                 <dt>Latest version:</dt>
                 <dd>{{ clVersion }}</dd>
             </dl>
-            <a href="https://github.com/1stMagic/comand-website" target="git"><span class="icon-export"></span><span>Link to GitHub</span></a>
+            <a class="button" href="https://github.com/1stMagic/comand-component-library" target="git">
+                <span class="icon-github"></span>
+                <span>Download on GitHub</span>
+            </a>
         </CmdWidthLimitationWrapper>
     </main>
 </template>

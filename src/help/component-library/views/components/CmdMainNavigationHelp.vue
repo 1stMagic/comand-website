@@ -62,7 +62,7 @@ const propertyStructures = {
 }
 
 // use ref and assign to const to make reactive
-const navigationEntries = ref(mainNavigation)
+const navigationEntries = ref(mainNavigation.navigationEntries)
 </script>
 
 <template>

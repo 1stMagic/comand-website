@@ -139,7 +139,7 @@ const fakeSelectColor = ref("")
                                 <h3>Headline</h3>
                                 <p>Some content inside a paragraph</p>
                             </div>
-                            <img src="media/images/thumbnail-scroller/thumbnail/logo-cmd-blue-landscape.jpg" alt="image"/>
+                            <img src="/media/images/thumbnail-scroller/thumbnail/logo-cmd-blue-landscape.jpg" alt="image"/>
                         </li>
                     </ul>
                 </CmdFakeSelect>

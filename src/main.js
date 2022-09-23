@@ -19,6 +19,7 @@ import App from './App.vue'
 /* import directives */
 // directive to format telephone- and fax-number
 import directiveTelephone from "comand-component-library/src/directives/telephone"
+
 // directive to set focus on specific form-elements
 import directiveFocus from "comand-component-library/src/directives/focus"
 
@@ -37,6 +38,11 @@ import 'comand-component-library/dist/comand-component-library.css'
 /* import css for your custom styles */
 import 'comand-component-library/src/assets/styles/template.css'
 /* end imports from comand-component-library ---------------------------------------------------------------------------------------- */
+
+/* begin imports from comand-website and cms ---------------------------------------------------------------------------------------- */
+/* import cms-iconfont */
+import './company/assets/css/iconfonts/cms-iconfont.css'
+/* end imports from comand-website and cms ---------------------------------------------------------------------------------------- */
 
 /* begin imports from prims-plugin (for styling syntax) ---------------------------------------------------------------------------------------- */
 import "prismjs/themes/prism-twilight.css"

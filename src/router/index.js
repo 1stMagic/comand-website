@@ -14,9 +14,6 @@ import ComponentLibraryComponentDocumentation from "../help/component-library/Co
 
 // begin 'code'-pages
 import Code from "../help/code/Code.vue"
-import Html from "../help/code/Html.vue"
-import Css from "../help/code/Css.vue"
-import Vue from "../help/code/Vue.vue"
 // end 'code'-pages
 
 import IconFonts from "../help/iconfonts/IconFonts.vue"
@@ -91,24 +88,7 @@ routes.push({
         {
             name: "code",
             path: "code",
-            component: Code,
-            children:   [
-                {
-                    name: "html",
-                    path: "html",
-                    component: Html
-                },
-                {
-                    name: "css",
-                    path: "css",
-                    component: Css
-                },
-                {
-                    name: "vue",
-                    path: "vue",
-                    component: Vue
-                }
-            ]
+            component: Code
         },
         {
             name: "iconfonts",

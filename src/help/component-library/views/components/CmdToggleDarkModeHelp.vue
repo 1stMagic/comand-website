@@ -32,15 +32,14 @@ const sequence = useSequence()
                 :code="CmdCode"
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
-                    <CmdToggleDarkMode />
+                    <CmdToggleDarkMode :showLabel="true" />
                 </teleport>
             </ExampleSectionWrapper>
             <ExampleSectionWrapper
                 componentName="CmdToggleDarkMode"
                 headlineText="Toggle Dark Mode (special styling)"
                 :sequence="sequence.nextSequenceValue()"
-                :code="CmdCode"
-                :isFirstComponent="true">
+                :code="CmdCode">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdToggleDarkMode :useStyledLayout="true" />
                 </teleport>
