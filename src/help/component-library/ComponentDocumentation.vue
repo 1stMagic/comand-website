@@ -119,6 +119,8 @@ export default {
         border-right: var(--default-border);
         box-shadow: .2rem 0 .4rem #999;
         max-width: 20rem;
+        position: sticky;
+        bottom: 0;
 
         nav {
             width: auto;

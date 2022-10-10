@@ -86,6 +86,13 @@ export default {
                             "route": {
                                 name: "cl-components"
                             }
+                        },
+                        {
+                            "type": "router",
+                            "text": "Directives and Utils",
+                            "route": {
+                                name: "cl-directives-and-utils"
+                            }
                         }
                     ]
                 },

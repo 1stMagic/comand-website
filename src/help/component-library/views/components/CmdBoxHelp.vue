@@ -14,7 +14,7 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 // import example-data
 import CmdCode from "../../data/CmdBoxHelp"
 import boxesProduct from "../../assets/data/box-product.json"
-import boxesUser from "../../assets/data/box-user.json"
+import boxesUser from "../../assets/data/box-user-fake-data.json"
 import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdBoxPropertyDescriptions.json"
 
 // import composables
@@ -118,10 +118,10 @@ function clickedOnProduct(event) {
                 />
             </ExampleSectionWrapper>
             <hr/>
-            <ExampleSectionWrapper componentName="CmdBox" headlineText="Box 'user'" :code="CmdCode" :data="boxesUser[2]" :sequence="sequence.nextSequenceValue()">
+            <ExampleSectionWrapper componentName="CmdBox" headlineText="Box 'user'" :code="CmdCode" :data="boxesUser[0]" :sequence="sequence.nextSequenceValue()">
                 <CmdBox
                     boxType="user"
-                    :user="boxesUser[2]"
+                    :user="boxesUser[0]"
                     :cmdHeadline="{ headlineLevel: 5}"
                 />
             </ExampleSectionWrapper>

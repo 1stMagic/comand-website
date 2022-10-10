@@ -9,6 +9,7 @@ import Help from "../help/Help.vue"
 // begin 'component-library'-pages
 import ComponentLibrary from "../help/component-library/ComponentLibrary.vue"
 import ComponentLibraryGettingStarted from "../help/component-library/views/GettingStarted.vue"
+import ComponentLibraryDirectivesAndUtils from "../help/component-library/views/DirectivesAndUtils.vue"
 import ComponentLibraryComponentDocumentation from "../help/component-library/ComponentDocumentation.vue"
 // end 'component-library'-pages
 
@@ -82,6 +83,11 @@ routes.push({
                         name: componentNames[0]
                     },
                     children: componentRoutes
+                },
+                {
+                    name: "cl-directives-and-utils",
+                    path: "directives-and-utils",
+                    component: ComponentLibraryDirectivesAndUtils
                 }
             ]
         },
