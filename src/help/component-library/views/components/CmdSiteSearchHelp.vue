@@ -2,24 +2,18 @@
 // import function
 import {tabProps, tabHandlers} from "../../tabs"
 import {ref} from "vue"
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "../../../../utils/common"
 
 // import components
 import {CmdSiteSearch} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdSiteSearchHelp"
 import listOfFilters from '../../assets/data/fake-select-filter-options.json'
 import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdSiteSearchPropertyDescriptions.json"
-
-// import composables
-import {useSequence} from "comand-component-library"
-
-const sequence = useSequence()
 
 const searchValue1 = ref("")
 const searchValue2 = ref("")
@@ -48,7 +42,13 @@ const propertyStructures = {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ExampleSectionWrapper componentName="CmdSiteSearch" headlineText="Site Search" :sequence="sequence.nextSequenceValue()" :code="CmdCode" :isFirstComponent="true">
+            <ExampleSectionWrapper
+                componentName="CmdSiteSearch"
+                headlineText="Site Search"
+                preHeadlineText="1"
+                :code="CmdCode"
+                :isFirstComponent="true"
+            >
                     <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                         <CmdSiteSearch
                             text-legend="Legend"

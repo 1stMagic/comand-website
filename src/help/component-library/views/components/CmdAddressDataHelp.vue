@@ -1,24 +1,18 @@
 <script setup>
 // import functions
 import {tabProps, tabHandlers} from "../../tabs"
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "../../../../utils/common"
 
 // import components
 import {CmdAddressData} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
-import CmdCode from "../../data/CmdAddressDataHelp"
+import CmdCode from "../../data/CmdAddressDataHelp.js"
 import addressData from '../../assets/data/address-data.json'
 import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdAddressDataPropertyDescriptions.json"
-
-// import composables
-import {useSequence} from "comand-component-library"
-
-const sequence = useSequence()
 
 const propertyStructures = {
     addressData: {
@@ -46,7 +40,7 @@ const propertyStructures = {
                 :code="CmdCode"
                 :isFirstComponent="true"
                 :data="addressData"
-                :sequence="sequence.nextSequenceValue()">
+                preHeadlineText="1">
                     <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                         <CmdAddressData
                             :addressData="addressData"
@@ -61,7 +55,7 @@ const propertyStructures = {
                 headlineText="List without labels"
                 :code="CmdCode"
                 :data="addressData"
-                :sequence="sequence.nextSequenceValue()">
+                preHeadlineText="2">
                     <CmdAddressData
                         :addressData="addressData"
                         :showLabels="false"

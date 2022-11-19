@@ -1,24 +1,18 @@
 <script setup>
 // import functions
 import {tabProps, tabHandlers} from "../../tabs"
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "../../../../utils/common"
 import {openFancyBox} from "comand-component-library"
 
 // import components
 import {CmdFancyBox} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdFancyBoxHelp"
 import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdFancyBoxPropertyDescriptions.json"
-
-// import composables
-import {useSequence} from "comand-component-library"
-
-const sequence = useSequence()
 
 const propertyStructures = {
     fancyboxOptions: {
@@ -39,11 +33,14 @@ const propertyStructures = {
     }
 }
 
-function showFancyBox(type, content, altText) {
+function showFancyBox(type, content, altText, ariaLabelText) {
+    const defaultOptions = {
+        ariaLabelText: ariaLabelText
+    }
     if (type === 'text') {
-        openFancyBox({content: content})
+        openFancyBox({...defaultOptions, content: content})
     } else if (type === 'image') {
-        openFancyBox({url: content, altText: altText})
+        openFancyBox({...defaultOptions, url: content, altText: altText})
     }
 }
 </script>
@@ -55,12 +52,17 @@ function showFancyBox(type, content, altText) {
             <ExampleSectionWrapper
                 componentName="CmdFancyBox"
                 headlineText="Fancybox with text"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="1"
                 :code="CmdCode"
-                :isFirstComponent="true">
+                :isFirstComponent="true"
+            >
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <div>
-                        <a href="#" @click.prevent="showFancyBox('text','Some text')">Open Fancybox with text</a><br/>
+                        <a href="#"
+                           @click.prevent="showFancyBox('text','Some text', null, 'Fancybox with content')"
+                        >
+                            Open Fancybox with text
+                        </a>
                         <CmdFancyBox
                             :allowEscapeKey="false"
                         >
@@ -73,10 +75,13 @@ function showFancyBox(type, content, altText) {
             <ExampleSectionWrapper
                 componentName="CmdFancyBox"
                 headlineText="Fancybox with image"
-                :sequence="sequence.nextSequenceValue()">
+                preHeadlineText="2"
+                :code="CmdCode"
+            >
                 <a href="#"
-                   @click.prevent="showFancyBox('image', '/media/images/content-images/logo-business-edition-landscape.jpg', 'Alternative text')"
-                   title="Open Fancybox with large image">
+                   @click.prevent="showFancyBox('image', '/media/images/content-images/landscape-large.jpg', 'Alternative text')"
+                   title="Open Fancybox with large image"
+                >
                     Open Fancybox with image
                 </a>
             </ExampleSectionWrapper>

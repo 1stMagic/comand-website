@@ -2,7 +2,7 @@
 // import functions
 import {ref} from "vue"
 import {tabProps, tabHandlers} from "../../tabs"
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "../../../../utils/common"
 
 // import components
 import {CmdSiteHeader} from "comand-component-library"
@@ -10,7 +10,6 @@ import {CmdCompanyLogo} from "comand-component-library"
 import {CmdListOfLinks} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
@@ -19,11 +18,6 @@ import mainNavigation from '../../assets/data/main-navigation.json'
 import listOfLinks from '../../assets/data/list-of-links-top-header-navigation.json'
 import companyLogo from '../../assets/data/company-logo.json'
 import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdSiteHeaderPropertyDescriptions.json"
-
-// import composables
-import {useSequence} from "comand-component-library"
-
-const sequence = useSequence()
 
 const propertyStructures = {
     mainNavigationEntries: [
@@ -61,8 +55,8 @@ const navigationEntries = ref(mainNavigation)
             <h2>Component</h2>
             <ExampleSectionWrapper
                 componentName="CmdSiteHeader"
-                headlineText="Site Header"
-                :sequence="sequence.nextSequenceValue()"
+                headlineText="Site Header (navigation at bottom)"
+                preHeadlineText="1"
                 :code="CmdCode"
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
@@ -89,7 +83,7 @@ const navigationEntries = ref(mainNavigation)
             <ExampleSectionWrapper
                 componentName="CmdSiteHeader"
                 headlineText="Site Header (navigation inline)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="2"
                 :code="CmdCode">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdSiteHeader

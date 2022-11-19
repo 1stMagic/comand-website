@@ -1,24 +1,18 @@
 <script setup>
 // import functions
 import {tabProps, tabHandlers} from "../../tabs"
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "../../../../utils/common"
 
 // import components
 import {CmdBreadcrumbs} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import breadcrumbs from '../../assets/data/breadcrumbs.json'
 import CmdCode from "../../data/CmdBreadcrumbsHelp"
 import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdBreadcrumbsPropertyDescriptions.json"
-
-// import composables
-import {useSequence} from "comand-component-library"
-
-const sequence = useSequence()
 
 const propertyStructures = {
     breadcrumbLinks: {
@@ -41,10 +35,11 @@ const propertyStructures = {
             <ExampleSectionWrapper
                 componentName="CmdBreadcrumbs"
                 headlineText="Breadcrumbs"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="1"
                 :code="CmdCode"
                 :data="breadcrumbs"
-                :isFirstComponent="true">
+                :isFirstComponent="true"
+            >
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdBreadcrumbs
                         :breadcrumbLinks="breadcrumbs"

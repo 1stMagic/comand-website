@@ -1,24 +1,17 @@
 <script setup>
 // import functions
 import {tabProps, tabHandlers} from "../../tabs"
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "../../../../utils/common"
 
 // import components
 import {CmdTabs} from "comand-component-library"
-import {CmdHeadline} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdTabsHelp"
 import tabs from "../../assets/data/tabs.json"
 import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdTabsPropertyDescriptions.json"
-
-// import composables
-import {useSequence} from "comand-component-library"
-
-const sequence = useSequence()
 
 const propertyStructures = {
     tabs: [
@@ -38,7 +31,7 @@ const propertyStructures = {
             <ExampleSectionWrapper
                 componentName="CmdTabs"
                 headlineText="Tabs (data given by property, tabs not stretched)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="1"
                 :code="CmdCode"
                 :data="tabs"
                 :isFirstComponent="true">
@@ -51,7 +44,7 @@ const propertyStructures = {
             <ExampleSectionWrapper
                 componentName="CmdTabs"
                 headlineText="Tabs (content given slot, tabs stretched)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="2"
                 :code="CmdCode">
                 <CmdTabs :stretchTabs="true" :tabs="[{name: 'Tab 1'}, {name: 'Tab 2'}, {name: 'Tab 3'}]" :useSlot="true">
                     <template v-slot:tab-content-0>

@@ -1,7 +1,7 @@
 <script setup>
 // import functions
 import {tabProps, tabHandlers} from "../../tabs"
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "../../../../utils/common"
 
 // import components
 import {CmdBankAccountData} from "comand-component-library"
@@ -15,11 +15,6 @@ import * as componentPropertiesFunctions from "../../components/ComponentPropert
 import CmdCode from "../../data/CmdBankAccountDataHelp"
 import bankAccountData from "../../assets/data/bank-account-data.json"
 import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdBankAccountDataPropertyDescriptions.json"
-
-// import composables
-import {useSequence} from "comand-component-library"
-
-const sequence = useSequence()
 
 const propertyStructures = {
     accountData: [
@@ -46,7 +41,7 @@ const propertyStructures = {
                 headlineText="Band Account Data"
                 :isFirstComponent="true"
                 :code="CmdCode"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="1"
                 :data="bankAccountData">
                     <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                         <CmdBankAccountData

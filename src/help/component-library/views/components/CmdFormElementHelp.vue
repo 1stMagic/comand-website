@@ -2,14 +2,12 @@
 // import functions
 import {ref} from "vue"
 import {tabProps, tabHandlers} from "../../tabs"
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "../../../../utils/common"
 
 // import components
 import {CmdFormElement} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
-import {CmdHeadline} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
@@ -17,11 +15,6 @@ import CmdCode from "../../data/CmdFormElementHelp"
 import selectOptions from '../../assets/data/select-options.json'
 import datalistOptions from '../../assets/data/datalist-options.json'
 import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdFormElementPropertyDescriptions.json"
-
-// import composables
-import {useSequence} from "comand-component-library"
-
-const sequence = useSequence()
 
 const propertyStructures = {
     datalistOptions: {
@@ -80,9 +73,12 @@ function setStatus(validationStatus, disabledStatus) {
             <h2>Component</h2>
             <ul class="list-status">
                 <li><a href="#" @click.prevent="setStatus('', false)" :class="{'active' : validationStatus === '' && disabledStatus === false}"
-                       id="status-default">Default</a></li>
-                <li class="error"><a href="#" @click.prevent="setStatus('error', false)"
-                                     :class="{'active' : validationStatus === 'error'}" id="status-error">Error</a></li>
+                       id="status-default">Default</a>
+                </li>
+                <li class="error">
+                    <a href="#" @click.prevent="setStatus('error', false)"
+                                     :class="{'active' : validationStatus === 'error'}" id="status-error">Error</a>
+                </li>
                 <li><a href="#" @click.prevent="setStatus('warning', false)"
                        :class="{'active' : validationStatus === 'warning'}" id="status-warning">Warning</a></li>
                 <li><a href="#" @click.prevent="setStatus('success', false)"
@@ -95,7 +91,7 @@ function setStatus(validationStatus, disabledStatus) {
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type text)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="1"
                 :code="CmdCode"
                 :output="inputTypeText"
                 :isFirstComponent="true">
@@ -119,7 +115,7 @@ function setStatus(validationStatus, disabledStatus) {
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type number)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="2"
                 :output="inputTypeNumber"
                 :code="CmdCode">
                 <CmdFormElement
@@ -140,7 +136,7 @@ function setStatus(validationStatus, disabledStatus) {
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type color)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="3"
                 :output="inputTypeColor"
                 :code="CmdCode">
                 <CmdFormElement
@@ -160,7 +156,7 @@ function setStatus(validationStatus, disabledStatus) {
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type date)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="4"
                 :output="inputTypeDate"
                 :code="CmdCode">
                 <CmdFormElement
@@ -180,7 +176,7 @@ function setStatus(validationStatus, disabledStatus) {
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type datetime-local)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="5"
                 :output="inputTypeDatetimeLocal"
                 :code="CmdCode">
                 <CmdFormElement
@@ -200,7 +196,7 @@ function setStatus(validationStatus, disabledStatus) {
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type password)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="6"
                 :output="inputTypePassword"
                 :code="CmdCode">
                 <CmdFormElement
@@ -222,7 +218,7 @@ function setStatus(validationStatus, disabledStatus) {
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type file)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="7"
                 :output="inputTypeFile"
                 :code="CmdCode">
                 <CmdFormElement
@@ -242,7 +238,7 @@ function setStatus(validationStatus, disabledStatus) {
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type range)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="8"
                 :output="inputTypeRange"
                 :code="CmdCode">
                 <CmdFormElement
@@ -260,12 +256,15 @@ function setStatus(validationStatus, disabledStatus) {
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type search)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="9"
                 :output="inputTypeSearch"
                 :code="CmdCode">
                 <CmdFormElement
                     element="input"
                     type="search"
+                    labelText="Search"
+                    :showLabel="false"
+                    placeholder="Search"
                     :status="validationStatus"
                     :disabled="disabledStatus"
                     :useCustomTooltip="false"
@@ -275,22 +274,8 @@ function setStatus(validationStatus, disabledStatus) {
             <hr/>
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
-                headlineText="Input (type submit)"
-                :sequence="sequence.nextSequenceValue()"
-                :code="CmdCode">
-                <CmdFormElement
-                    :nativeButton="{ text: 'Submit', icon: {iconClass: 'icon-edit', show: true}}"
-                    element="button"
-                    type="submit"
-                    :status="validationStatus"
-                    :useCustomTooltip="false"
-                />
-            </ExampleSectionWrapper>
-            <hr/>
-            <ExampleSectionWrapper
-                componentName="CmdFormElement"
                 headlineText="Input (type button)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="10"
                 :code="CmdCode">
                 <CmdFormElement
                     :nativeButton="{ icon: {iconClass: 'icon-edit', show: true, tooltip: 'I am a tooltip'}}"
@@ -305,7 +290,7 @@ function setStatus(validationStatus, disabledStatus) {
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type checkbox)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="11"
                 :code="CmdCode"
                 :output="checkbox">
                 <CmdFormElement
@@ -314,7 +299,6 @@ function setStatus(validationStatus, disabledStatus) {
                     type="checkbox"
                     :status="validationStatus"
                     :disabled="disabledStatus"
-                    tooltipText="This is a tooltip"
                     :useCustomTooltip="false"
                     v-model="checkbox"
                 />
@@ -323,7 +307,7 @@ function setStatus(validationStatus, disabledStatus) {
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type radio)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="12"
                 :code="CmdCode"
                 :output="radio">
                 <CmdFormElement
@@ -334,7 +318,6 @@ function setStatus(validationStatus, disabledStatus) {
                     id="example-radio1"
                     :status="validationStatus"
                     :disabled="disabledStatus"
-                    tooltipText="This is a tooltip"
                     :useCustomTooltip="false"
                     v-model="radio"
                     inputValue="radiobutton1"
@@ -347,7 +330,6 @@ function setStatus(validationStatus, disabledStatus) {
                     id="example-radio2"
                     :status="validationStatus"
                     :disabled="disabledStatus"
-                    tooltipText="This is a tooltip"
                     :useCustomTooltip="false"
                     v-model="radio"
                     inputValue="radiobutton2"
@@ -357,17 +339,16 @@ function setStatus(validationStatus, disabledStatus) {
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type checkbox (replaced))"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="13"
                 :code="CmdCode"
                 :output="replacedCheckbox">
                 <CmdFormElement
-                    labelText="Input (type checkbox)"
+                    labelText="Input (type checkbox (replaced))"
                     element="input"
                     type="checkbox"
                     :replace-input-type="true"
                     :status="validationStatus"
                     :disabled="disabledStatus"
-                    tooltipText="This is a tooltip"
                     :useCustomTooltip="false"
                     v-model="replacedCheckbox"
                 />
@@ -376,12 +357,12 @@ function setStatus(validationStatus, disabledStatus) {
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type radio (replaced))"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="14"
                 :code="CmdCode"
                 :output="replacedRadio">
                 <div class="flex-container no-flex">
                     <CmdFormElement
-                        labelText="Input #1 (type radio)"
+                        labelText="Input #1 (type radio (replaced))"
                         element="input"
                         type="radio"
                         :replace-input-type="true"
@@ -389,13 +370,12 @@ function setStatus(validationStatus, disabledStatus) {
                         id="example-replaced-radio1"
                         :status="validationStatus"
                         :disabled="disabledStatus"
-                        tooltipText="This is a tooltip"
                         :useCustomTooltip="false"
                         v-model="replacedRadio"
                         inputValue="radiobutton1"
                     />
                     <CmdFormElement
-                        labelText="Input #2 (type radio)"
+                        labelText="Input #2 (type radio (replaced))"
                         element="input"
                         type="radio"
                         name="replaced-radio-group"
@@ -403,7 +383,6 @@ function setStatus(validationStatus, disabledStatus) {
                         id="example-replaced-radio2"
                         :status="validationStatus"
                         :disabled="disabledStatus"
-                        tooltipText="This is a tooltip"
                         :useCustomTooltip="false"
                         v-model="replacedRadio"
                         inputValue="radiobutton2"
@@ -414,7 +393,7 @@ function setStatus(validationStatus, disabledStatus) {
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type checkbox (toggle-switch))"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="15"
                 :code="CmdCode"
                 :output="toggleSwitchCheckbox">
                 <CmdFormElement
@@ -426,7 +405,6 @@ function setStatus(validationStatus, disabledStatus) {
                     id="example-toggle-switch-checkbox"
                     :status="validationStatus"
                     :disabled="disabledStatus"
-                    tooltipText="This is a tooltip"
                     :useCustomTooltip="false"
                     v-model="toggleSwitchCheckbox"
                 />
@@ -435,7 +413,7 @@ function setStatus(validationStatus, disabledStatus) {
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type checkbox (toggle-switch with labels))"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="16"
                 :code="CmdCode"
                 :output="toggleSwitchWithLabelsCheckbox">
                 <CmdFormElement
@@ -449,7 +427,6 @@ function setStatus(validationStatus, disabledStatus) {
                     id="example-toggle-switch-with-labels-checkbox"
                     :status="validationStatus"
                     :disabled="disabledStatus"
-                    tooltipText="This is a tooltip"
                     :useCustomTooltip="false"
                     v-model="toggleSwitchWithLabelsCheckbox"
                 />
@@ -458,7 +435,7 @@ function setStatus(validationStatus, disabledStatus) {
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type checkbox (toggle-switch with colored labels))"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="17"
                 :code="CmdCode"
                 :output="toggleSwitchWithColoredLabelsCheckbox">
                 <CmdFormElement
@@ -473,7 +450,6 @@ function setStatus(validationStatus, disabledStatus) {
                     id="example-toggle-switch-with-colored-labels-checkbox"
                     :status="validationStatus"
                     :disabled="disabledStatus"
-                    tooltipText="This is a tooltip"
                     :useCustomTooltip="false"
                     v-model="toggleSwitchWithColoredLabelsCheckbox"
                 />
@@ -482,7 +458,7 @@ function setStatus(validationStatus, disabledStatus) {
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Input (type radio (toggle-switch))"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="18"
                 :code="CmdCode"
                 :output="toggleSwitchRadio">
                 <div class="flex-container no-flex">
@@ -495,7 +471,6 @@ function setStatus(validationStatus, disabledStatus) {
                         id="example-toggle-switch-radio1"
                         :status="validationStatus"
                         :disabled="disabledStatus"
-                        tooltipText="This is a tooltip"
                         :useCustomTooltip="false"
                         v-model="toggleSwitchRadio"
                         inputValue="1"
@@ -509,7 +484,6 @@ function setStatus(validationStatus, disabledStatus) {
                         id="example-toggle-switch-radio2"
                         :status="validationStatus"
                         :disabled="disabledStatus"
-                        tooltipText="This is a tooltip"
                         :useCustomTooltip="false"
                         v-model="toggleSwitchRadio"
                         inputValue="2"
@@ -520,7 +494,7 @@ function setStatus(validationStatus, disabledStatus) {
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Select"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="19"
                 :code="CmdCode"
                 :output="select">
                 <CmdFormElement
@@ -537,7 +511,7 @@ function setStatus(validationStatus, disabledStatus) {
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Datalist"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="20"
                 :code="CmdCode"
                 :output="datalist">
                 <CmdFormElement
@@ -549,14 +523,13 @@ function setStatus(validationStatus, disabledStatus) {
                     placeholder="Type in option"
                     :datalist="datalistOptions"
                     v-model="datalist"
-                    tooltipText="This is a tooltip"
                 />
             </ExampleSectionWrapper>
             <hr/>
             <ExampleSectionWrapper
                 componentName="CmdFormElement"
                 headlineText="Textarea"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="21"
                 :code="CmdCode"
                 :output="textarea">
                 <CmdFormElement
@@ -565,7 +538,6 @@ function setStatus(validationStatus, disabledStatus) {
                     :status="validationStatus"
                     :disabled="disabledStatus"
                     placeholder="Type in text"
-                    tooltipText="This is a tooltip"
                     v-model="textarea"
                 />
             </ExampleSectionWrapper>

@@ -20,12 +20,10 @@ export default [
     :cmdHeadline="{
       headlineText: 'Links', 
       headlineLevel: 5
-    }" />`,
-    `<CmdListOfLinks 
-    :links="listOfLinks" 
-    :styleAsBox="true" 
-    :cmdHeadline="{
-      headlineText: 'Links', 
-      headlineLevel: 5
-    }" />`
+    }"
+/>`,
+`<CmdListOfLinks 
+  :links="listOfLinksSectionAnchors" 
+  :sectionAnchors="true"
+/>`
 ]

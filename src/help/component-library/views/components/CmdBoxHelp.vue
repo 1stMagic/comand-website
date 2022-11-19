@@ -1,26 +1,20 @@
 <script setup>
 // import functions
 import {tabProps, tabHandlers} from "../../tabs"
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "../../../../utils/common"
 import {currentSequenceValue} from "comand-component-library/src/utils/globalSequence"
 
 // import components
 import {CmdBox} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdBoxHelp"
 import boxesProduct from "../../assets/data/box-product.json"
-import boxesUser from "../../assets/data/box-user-fake-data.json"
+import boxesUser from "../../assets/data/box-user.json"
 import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdBoxPropertyDescriptions.json"
-
-// import composables
-import {useSequence} from "comand-component-library"
-
-const sequence = useSequence()
 
 const propertyStructures = {
     product: {
@@ -64,7 +58,13 @@ function clickedOnProduct(event) {
     <CmdTabs v-show="!isFrameMode()" v-bind="tabProps" :active-tab="tabProps.activeTab" v-on="tabHandlers">
         <template v-slot:tab-content-0>
             <h2>Component</h2>
-            <ExampleSectionWrapper componentName="CmdBox" headlineText="Box 'content' (content given by property)" :sequence="sequence.nextSequenceValue()" :code="CmdCode" :isFirstComponent="true">
+            <ExampleSectionWrapper
+                componentName="CmdBox"
+                headlineText="Box 'content' (content given by property)"
+                preHeadlineText="1"
+                :code="CmdCode"
+                :isFirstComponent="true"
+            >
                     <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                         <CmdBox
                             :cmdHeadline="{
@@ -76,7 +76,12 @@ function clickedOnProduct(event) {
                     </teleport>
             </ExampleSectionWrapper>
             <hr/>
-                <ExampleSectionWrapper componentName="CmdBox" headlineText="Box 'content' (collapsible)" :code="CmdCode" :sequence="sequence.nextSequenceValue()">
+                <ExampleSectionWrapper
+                    componentName="CmdBox"
+                    headlineText="Box 'content' (collapsible)"
+                    :code="CmdCode"
+                    preHeadlineText="2"
+                >
                         <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                             <CmdBox
                                 :cmdHeadline="{
@@ -89,7 +94,12 @@ function clickedOnProduct(event) {
                         </teleport>
                 </ExampleSectionWrapper>
             <hr/>
-            <ExampleSectionWrapper componentName="CmdBox" headlineText="Box 'content' (content given by slot)" :code="CmdCode" :sequence="sequence.nextSequenceValue()">
+            <ExampleSectionWrapper
+                componentName="CmdBox"
+                headlineText="Box 'content' (content given by slot)"
+                :code="CmdCode"
+                preHeadlineText="3"
+            >
                 <CmdBox :useSlots="['header', 'body', 'footer']">
                     <template v-slot:header>
                         <h5>
@@ -109,7 +119,13 @@ function clickedOnProduct(event) {
                 </CmdBox>
             </ExampleSectionWrapper>
             <hr/>
-            <ExampleSectionWrapper componentName="CmdBox" headlineText="Box 'product'" :code="CmdCode" :data="boxesProduct[0]" :sequence="sequence.nextSequenceValue()">
+            <ExampleSectionWrapper
+                componentName="CmdBox"
+                headlineText="Box 'product'"
+                :code="CmdCode"
+                :data="boxesProduct[0]"
+                preHeadlineText="4"
+            >
                 <CmdBox
                     boxType="product"
                     :product="boxesProduct[0]"
@@ -118,7 +134,13 @@ function clickedOnProduct(event) {
                 />
             </ExampleSectionWrapper>
             <hr/>
-            <ExampleSectionWrapper componentName="CmdBox" headlineText="Box 'user'" :code="CmdCode" :data="boxesUser[0]" :sequence="sequence.nextSequenceValue()">
+            <ExampleSectionWrapper
+                componentName="CmdBox"
+                headlineText="Box 'user'"
+                :code="CmdCode"
+                :data="boxesUser[0]"
+                preHeadlineText="5"
+            >
                 <CmdBox
                     boxType="user"
                     :user="boxesUser[0]"

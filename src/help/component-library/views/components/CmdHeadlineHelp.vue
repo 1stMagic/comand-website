@@ -1,23 +1,17 @@
 <script setup>
 // import functions
 import {tabProps, tabHandlers} from "../../tabs"
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "../../../../utils/common"
 
 // import components
 import {CmdHeadline} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdHeadlineHelp"
 import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdHeadlinePropertyDescriptions.json"
-
-// import composables
-import {useSequence} from "comand-component-library"
-
-const sequence = useSequence()
 </script>
 
 <template>
@@ -26,30 +20,30 @@ const sequence = useSequence()
             <h2>Component</h2>
             <ExampleSectionWrapper
                 componentName="CmdHeadline"
-                headlineText="Headline level 1 (with icon and pre-headline)"
-                :sequence="sequence.nextSequenceValue()"
+                headlineText="Headline level 1 (without icon and pre-headline)"
+                preHeadlineText="1"
                 :code="CmdCode"
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdHeadline
                         headlineText="Headline text"
                         :headlineLevel="1"
-                        preHeadlineText="Pre-headline text"
-                        iconClass="icon-user-profile"
                     />
                 </teleport>
             </ExampleSectionWrapper>
             <hr/>
             <ExampleSectionWrapper
                 componentName="CmdHeadline"
-                headlineText="Headline level 1 (without icon and pre-headline)"
-                :sequence="sequence.nextSequenceValue()"
+                headlineText="Headline level 1 "
+                preHeadlineText="2"
                 :code="CmdCode"
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                     <CmdHeadline
-                        headlineText="Headline text"
+                        headlineText="Headline text (with icon and pre-headline)"
                         :headlineLevel="1"
+                        preHeadlineText="Pre-headline text"
+                        iconClass="icon-user-profile"
                     />
                 </teleport>
             </ExampleSectionWrapper>

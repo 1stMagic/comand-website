@@ -2,23 +2,17 @@
 import {ref} from "vue"
 // import functions
 import {tabProps, tabHandlers} from "../../tabs"
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "../../../../utils/common"
 
 // import components
 import {CmdSlideButton} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdSlideButtonHelp"
 import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdSlideButtonPropertyDescriptions.json"
-
-// import composables
-import {useSequence} from "comand-component-library"
-
-const sequence = useSequence()
 
 const propertyStructures = {
     slideButtons: {
@@ -60,7 +54,7 @@ function showNextItem() {
             <ExampleSectionWrapper
                 componentName="CmdSlideButton"
                 headlineText="Slide Button"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="1"
                 :code="CmdCode"
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">

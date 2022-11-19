@@ -29,13 +29,12 @@
             </nav>
         </div>
         <router-view></router-view>
-        <CmdBackToTopButton/>
     </div>
 </template>
 
 <script>
 // import functions
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "../../utils/common"
 
 // import components
 import {

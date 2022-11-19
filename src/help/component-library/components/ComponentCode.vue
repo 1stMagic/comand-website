@@ -1,6 +1,5 @@
 <template>
     <pre :class="classLanguage"><code :class="classLanguage" v-html="codeFormatted"></code></pre>
-
     <div class="flex-container no-flex">
         <a class="link-icon" href="#" @click.prevent="copyToClipboard">
             <span class="icon-duplicate-content"></span>

@@ -1,24 +1,18 @@
 <script setup>
 // import functions
 import {tabProps, tabHandlers} from "../../tabs"
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "../../../../utils/common"
 
 // import components
 import {CmdSystemMessage} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import {CmdHeadline} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdSystemMessageHelp"
 import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdSystemMessagePropertyDescriptions.json"
-
-// import composables
-import {useSequence} from "comand-component-library"
-
-const sequence = useSequence()
 
 const propertyStructures = {
     iconMessage: {
@@ -40,7 +34,7 @@ const propertyStructures = {
             <ExampleSectionWrapper
                 componentName="CmdSystemMessage"
                 headlineText="Error message (message given by property)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="1"
                 :code="CmdCode"
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
@@ -55,7 +49,7 @@ const propertyStructures = {
             <ExampleSectionWrapper
                 componentName="CmdSystemMessage"
                 headlineText="Warning message (message given by property and slot)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="2"
                 :code="CmdCode">
                 <CmdSystemMessage
                     validationStatus="warning"
@@ -70,7 +64,7 @@ const propertyStructures = {
             <ExampleSectionWrapper
                 componentName="CmdSystemMessage"
                 headlineText="Success message (message given by property and slot)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="3"
                 :code="CmdCode">
                 <CmdSystemMessage
                     validationStatus="success"
@@ -89,7 +83,7 @@ const propertyStructures = {
             <ExampleSectionWrapper
                 componentName="CmdSystemMessage"
                 headlineText="Info message (message given by property)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="4"
                 :code="CmdCode">
                 <CmdSystemMessage
                     validationStatus="info"

@@ -87,10 +87,6 @@
     "headline": "Main Navigation",
     "shorttext": "This component should be used to contain the main navigation for a project. It is already wrapped in a nav-tag, that can contain up to three levels of links."
   },
-  "CmdMultipleSwitch": {
-    "headline": "Multiple Switch",
-    "shorttext": "The MultiSwitch is just a special iteration of CmdFormElement where checkboxes or radiobuttons could be displayed as a group of large switches/buttons."
-  },
   "CmdMultistepFormProgressBar": {
     "headline": "Multistep Form Progress Bar",
     "shorttext": "A horizontal progress bar, mostly used for forms, that are separated over multiple pages."

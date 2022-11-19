@@ -2,7 +2,7 @@
 // import functions
 import {ref, computed} from "vue"
 import {tabProps, tabHandlers} from "../../tabs"
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "../../../../utils/common"
 
 // import components
 import {CmdBox} from "comand-component-library"
@@ -10,7 +10,6 @@ import {CmdBoxWrapper} from "comand-component-library"
 import {CmdFormElement} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
@@ -19,11 +18,6 @@ import boxProduct from '../../assets/data/box-product.json'
 import boxUser from '../../assets/data/box-user.json'
 import boxUserFakeData from '../../assets/data/box-user-fake-data.json'
 import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdAddressDataPropertyDescriptions.json"
-
-// import composables
-import {useSequence} from "comand-component-library"
-
-const sequence = useSequence()
 
 const propertyStructures = {
     addressData: {
@@ -54,33 +48,39 @@ const userData = computed(() => {
             <ExampleSectionWrapper
                 componentName="CmdBoxWrapper"
                 headlineText="Box Wrapper with Box 'content' using Flexbox"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="1"
                 :code="CmdCode"
-                :isFirstComponent="true">
-                    <CmdBoxWrapper :useFlexbox="true">
-                        <CmdBox v-for="index in 14" :key="index" textBody="Content" :cmd-headline="{headlineText: 'Headline ' + index, headlineLevel: 5}" />
-                    </CmdBoxWrapper>
+                :isFirstComponent="true"
+            >
+                <CmdBoxWrapper :useFlexbox="true">
+                    <CmdBox v-for="index in 14" :key="index" textBody="Content" :cmd-headline="{headlineText: 'Headline ' + index, headlineLevel: 5}" />
+                </CmdBoxWrapper>
             </ExampleSectionWrapper>
             <hr />
-            <ExampleSectionWrapper componentName="CmdBoxWrapper" headlineText="Box Wrapper with Box 'content (collapsible)' using the default grid" :sequence="sequence.nextSequenceValue()" :code="CmdCode">
-                    <CmdBoxWrapper :allowTogglingCollapsingBoxes="true" v-slot="slotprops">
-                        <CmdBox v-for="index in 7"
-                                :key="index"
-                                textBody="Content"
-                                :collapsible="true"
-                                :collapsingBoxesOpen="slotprops.collapsingBoxesOpen"
-                                :cmd-headline="{
-                                    headlineText: 'Headline ' + index,
-                                    headlineLevel: 4
-                                }"
-                        />
-                    </CmdBoxWrapper>
+            <ExampleSectionWrapper
+                componentName="CmdBoxWrapper"
+                headlineText="Box Wrapper with Box 'content (collapsible)' using the default grid"
+                preHeadlineText="2"
+                :code="CmdCode"
+            >
+                <CmdBoxWrapper :allowTogglingCollapsingBoxes="true" v-slot="slotprops">
+                    <CmdBox v-for="index in 7"
+                            :key="index"
+                            textBody="Content"
+                            :collapsible="true"
+                            :collapsingBoxesOpen="slotprops.collapsingBoxesOpen"
+                            :cmd-headline="{
+                                headlineText: 'Headline ' + index,
+                                headlineLevel: 4
+                            }"
+                    />
+                </CmdBoxWrapper>
             </ExampleSectionWrapper>
             <hr />
             <ExampleSectionWrapper
                 componentName="CmdBoxWrapper"
                 headlineText="Box Wrapper with single box open at once using the default grid"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="3"
                 :code="CmdCode">
                     <CmdBoxWrapper v-slot="slotprops">
                         <CmdBox v-for="index in 7"
@@ -97,33 +97,40 @@ const userData = computed(() => {
                     </CmdBoxWrapper>
             </ExampleSectionWrapper>
             <hr />
-            <ExampleSectionWrapper componentName="CmdBoxWrapper" headlineText="Box Wrapper with Box 'content' using a custom grid" :sequence="sequence.nextSequenceValue()" :code="CmdCode">
-                    <CmdBoxWrapper :boxesPerRow="[5, 2, 1]">
-                        <CmdBox v-for="index in 7" :key="index" textBody="Content" :cmd-headline="{headlineText: 'Headline ' + index, headlineLevel: 4}" />
-                    </CmdBoxWrapper>
+            <ExampleSectionWrapper
+                componentName="CmdBoxWrapper"
+                headlineText="Box Wrapper with Box 'content' using a custom grid"
+                preHeadlineText="4"
+                :code="CmdCode"
+            >
+                <CmdBoxWrapper :boxesPerRow="[5, 2, 1]">
+                    <CmdBox v-for="index in 7" :key="index" textBody="Content" :cmd-headline="{headlineText: 'Headline ' + index, headlineLevel: 4}" />
+                </CmdBoxWrapper>
             </ExampleSectionWrapper>
             <hr />
-            <ExampleSectionWrapper componentName="CmdBoxWrapper"
-                                   headlineText="Box Wrapper with Box 'product' using a custom grid"
-                                   :sequence="sequence.nextSequenceValue()"
-                                   :code="CmdCode"
-                                   :data="boxProduct">
-                    <CmdBoxWrapper :boxesPerRow="[5, 2, 1]">
-                        <CmdBox v-for="index in boxProduct.length" :key="index" boxType="product" :product="boxProduct[index - 1]" :cmdHeadline="{headlineLevel: 5}" />
-                    </CmdBoxWrapper>
+            <ExampleSectionWrapper
+                componentName="CmdBoxWrapper"
+                headlineText="Box Wrapper with Box 'product' using a custom grid"
+                preHeadlineText="5"
+                :code="CmdCode"
+                :data="boxProduct"
+            >
+                <CmdBoxWrapper :boxesPerRow="[5, 2, 1]">
+                    <CmdBox v-for="index in boxProduct.length" :key="index" boxType="product" :product="boxProduct[index - 1]" :cmdHeadline="{headlineLevel: 5}" />
+                </CmdBoxWrapper>
             </ExampleSectionWrapper>
             <hr />
             <ExampleSectionWrapper
                 componentName="CmdBoxWrapper"
                 headlineText="Box Wrapper with Box 'user' using a custom grid"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="6"
                 :code="CmdCode"
                 :data="userData"
             >
                 <CmdFormElement element="input" type="checkbox" :toggleSwitch="true" labelText="Show fake data for user-profiles" v-model="fakeData" />
-                    <CmdBoxWrapper :boxesPerRow="[5, 2, 1]">
-                        <CmdBox v-for="index in userData.length" :key="index" boxType="user" :user="userData[index - 1]" :cmdHeadline="{headlineLevel: 5}" />
-                    </CmdBoxWrapper>
+                <CmdBoxWrapper :boxesPerRow="[5, 2, 1]">
+                    <CmdBox v-for="index in userData.length" :key="index" boxType="user" :user="userData[index - 1]" :cmdHeadline="{headlineLevel: 5}" />
+                </CmdBoxWrapper>
             </ExampleSectionWrapper>
         </template>
         <template v-slot:tab-content-1>

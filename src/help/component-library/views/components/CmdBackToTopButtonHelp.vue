@@ -2,7 +2,7 @@
 // import functions
 import {ref, onMounted} from "vue"
 import {tabProps, tabHandlers} from "../../tabs"
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "../../../../utils/common"
 
 // import components
 import {CmdBackToTopButton} from "comand-component-library"
@@ -13,11 +13,6 @@ import ComponentProperties from "../../components/ComponentProperties.vue"
 // import example-data
 import CmdCode from "../../data/CmdBackToTopButtonHelp"
 import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdBackToTopButtonPropertyDescriptions.json"
-
-// import composables
-import {useSequence} from "comand-component-library"
-
-const sequence = useSequence()
 
 const propertyStructures = {
     iconBackToTop: {
@@ -48,7 +43,7 @@ onMounted(() => {
                 componentName="CmdBackToTopButton"
                 headlineText="Back-to-top-button"
                 :isFirstComponent="true"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="1"
                 :code="CmdCode">
                     <teleport to="#frame-component-target" :disabled="!isFrameMode()">
                         <CmdBackToTopButton id="view-component" ref="backToTop" />

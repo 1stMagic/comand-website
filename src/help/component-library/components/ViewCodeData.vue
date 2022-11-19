@@ -1,6 +1,6 @@
 <script setup>
 import {defineProps, ref, computed} from "vue"
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "../../../utils/common"
 import ComponentCode from "./ComponentCode.vue"
 import {CmdBox} from "comand-component-library"
 

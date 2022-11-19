@@ -3,7 +3,7 @@
         <a :id="getExampleId()"></a>
         <!-- begin cmd-headline -->
         <CmdHeadline
-            :preHeadlineText="getPreHeadlineText()"
+            :preHeadlineText="'Example #' + preHeadlineText"
             :headlineText="headlineText"
             :headlineLevel="3"
         />
@@ -52,8 +52,8 @@ export default {
             type: [Array, Object],
             required: false
         },
-        sequence: {
-            type: Number,
+        preHeadlineText: {
+            type: String,
             required: true
         },
         output: {
@@ -62,14 +62,14 @@ export default {
         }
     },
     methods: {
-        getExampleId() {
-            return "example" + this.sequence
+        sequence() {
+            return this.preHeadlineText
         },
-        getPreHeadlineText() {
-            return "Example #" + this.sequence
+        getExampleId() {
+            return "example" + this.sequence()
         },
         codeExample() {
-            return this.sequence - 1
+            return this.sequence() - 1
         }
     }
 }

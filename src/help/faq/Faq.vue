@@ -25,7 +25,7 @@
                             }"
                     :collapsible="true"
                     textBody="The Frontend Framework should run natively without an additional technology or compiler.
-                   It should work as a foundation of every project you build independent from further technologies you use."
+                   It should work as a foundation of every project you build independently from further technologies you use."
                 />
                 <CmdBox
                     :cmdHeadline="{
@@ -34,7 +34,7 @@
                             }"
                     :collapsible="true"
                     textBody="Most web sites are viewed on desktop first. The desktop version, especially for large platforms
-                must be planed very precise and the user interface and the entire look-and-feel should work together.
+                must be planed very precisely and the user interface and the entire look-and-feel should work together.
                 Planning complex interfaces first and reducing elements for mobil is often (not always) easier than to add
                 element and arrange them later for desktop-view. However in the end it does not matter, because the result is the same
                 on each device. But we recommend to go desktop first if you want to avoid style collisions in your project."
@@ -46,7 +46,7 @@
                             }"
                     :collapsible="true"
                     textBody="You cannot change them. Of course you could create your own custom stylesheet and add new breakpoints,
-                but then you have to overwrite all styling from the default breakpoints as well, which would be not very practicle.
+                but then you have to overwrite all styling from the default breakpoints as well, which would be not very practical.
                 Therefore we just put all the basic settings (for large screen resolutions) into framework.css. If you do not want
                 to use the styling for screen resolutions lower than 1024px in width, just do not import the breakpoints.css-file
                 and create your own styles for any screen resolution you want in a custom css-file."
@@ -68,8 +68,8 @@ to define your own custom breakpoints for the Frontend Framework as explained in
                             }"
                     :collapsible="true"
                     textBody="We believe that SCSS is just a transition technology. We also believe that native CSS is easier to handle and creates far better and performant code.
-                SCSS requires compling and has some other disadvantages, but it also has some advantages CSS does not have - i.e. Nesting selectors to avoid redundancy in coding.
-                Additionaly mixins can be useful as well, but we try to avoid those by smart CSS structure, if possible. The last advandatage that was important to us is the possibility
+                SCSS requires compiling and has some other disadvantages, but it also has some advantages CSS does not have - i.e. Nesting selectors to avoid redundancy in coding.
+                Additionally mixins can be useful as well, but we try to avoid those by smart CSS structure, if possible. The last advantage that was important to us is the possibility
                 to use variables in media queries i.e. to define breakpoints."
                 />
                 <CmdBox
@@ -84,12 +84,12 @@ variables can be uses in native CSS for a ong time already. Additionally we want
                 />
                 <CmdBox
                     :cmdHeadline="{
-                                headlineText: 'Can I uses SCSS-variables if I use the Component Library?',
+                                headlineText: 'Can I use SCSS-variables if I use the Component Library?',
                                 headlineLevel: 3
                             }"
                     :collapsible="true"
-                    textBody="Tho it is not recommended, because we just use CSS-variables (except for breakpoints), but of course you can.
-                Just add SCSS-variables in variables.scss or define you own file and use it in your project.
+                    textBody="Though it is not recommended, because we just use CSS-variables (except for breakpoints), but of course you can.
+                Just add SCSS-variables in variables.scss or define your own file and use it in your project.
                 Nevertheless it is highly recommended to use CSS-variables instead to stay consistent, especially referring to the different
                 behavior of SCSS- and CSS-variables relating to their scope."
                 />
@@ -109,7 +109,7 @@ which requires SCSS now into native CSS as far as all major browsers will suppor
                             }"
                     :collapsible="true"
                     textBody="Just have a look at the top of frontend.css in the Frontend Framework. There you will find all CSS-variables defined.
-If you want to overwrite them, just copy their names and put the in a custom.css (which should be imported last in your project) and define them new."
+If you want to overwrite them, just copy their names and paste them in a custom css-file (which should be imported last in your project)."
                 />
                 <CmdBox
                     :cmdHeadline="{
@@ -139,15 +139,15 @@ If you use 10px as default, 29px equals 2.9rem which is far easier to calculate 
                     textBody="HSL is far easier to handle, especially if you are not very familiar with handling colors in general
 or using Hex or RGB at all. In HSL you can change the color more intuitively. I.e. if you want to use blue-color but not fully saturated,
 you can just reduce the value for S(aturation). In Hex and RGB you have to get completely new values for all channels. 
-You want to raise the lightness of your color by exactly by 10%? Just raise the value for L(ightness) by 10. You cannot do those changes that easily with Hex or RGB."
+You want to raise the lightness of your color by exactly by 10 %? Just raise the value for L(ightness) by 10. You cannot do those changes that easily with Hex or RGB."
                 />
                 <CmdBox
                     :cmdHeadline="{
-                                headlineText: 'Can I still use Hex- or RGB-colors even tho CoManD-software uses HSL?',
+                                headlineText: 'Can I still use Hex- or RGB-colors even though CoManD-software uses HSL?',
                                 headlineLevel: 3
                             }"
                     :collapsible="true"
-                    textBody="You can, but it is not recommended to stay consistent. But of course you can define your own colors (or overwrite existing ones)
+                    textBody="You can, but it is not recommended, because it is not consistent. But of course you can define your own colors (or overwrite existing ones)
 in your custom css-file, but there is no advantage in doing it (compared to using HSL instead)."
                 />
                 <h2>VUE</h2>

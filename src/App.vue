@@ -28,25 +28,28 @@
             />
             -->
         </CmdSiteFooter>
+        <CmdBackToTopButton/>
     </div>
 </template>
 
 <script>
 // import functions
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "./utils/common"
 
 // import components
 import {CmdCompanyLogo} from "comand-component-library"
 import {CmdSiteFooter} from "comand-component-library"
 import {CmdFormElement} from "comand-component-library"
 import {CmdSiteHeader} from "comand-component-library"
+import {CmdBackToTopButton} from "comand-component-library"
 
 export default {
     components: {
         CmdCompanyLogo,
         CmdSiteFooter,
         CmdFormElement,
-        CmdSiteHeader
+        CmdSiteHeader,
+        CmdBackToTopButton
     },
     data() {
         return {
@@ -91,7 +94,8 @@ export default {
                             "type": "router",
                             "text": "Directives and Utils",
                             "route": {
-                                name: "cl-directives-and-utils"
+                                name: "cl-directives-and-utils",
+                                path: ""
                             }
                         }
                     ]
@@ -145,6 +149,10 @@ export default {
 </script>
 
 <style lang="scss">
+html {
+    scroll-padding-top: 2rem; /* height of header minus height of section-padding */
+}
+
 #page-wrapper {
     min-height: 100%;
 

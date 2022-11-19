@@ -2,7 +2,7 @@
 // import functions
 import {defineProps, defineAsyncComponent, computed, ref} from "vue"
 import {useRoute, useRouter} from "vue-router"
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "../../../utils/common"
 import {useScrollspy} from "comand-component-library/src/composables/scrollspy"
 
 // import components

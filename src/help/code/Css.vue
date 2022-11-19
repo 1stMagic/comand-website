@@ -40,7 +40,7 @@
                 <thead>
                 <tr>
                     <th>Resolution name</th>
-                    <th>Resolution in Pixels</th>
+                    <th>Resolution in pixels</th>
                     <th>Defined in Frontend Framework</th>
                     <th>Defined in Component Library</th>
                     <th>Additional information</th>
@@ -59,14 +59,14 @@
                     <td>601px-1023px</td>
                     <td>breakpoints.css</td>
                     <td>variables.scss</td>
-                    <td>scss-variables are use inside components only</td>
+                    <td>scss-variables are used inside components only</td>
                 </tr>
                 <tr>
                     <td>Small</td>
                     <td>0px-600px</td>
                     <td>breakpoints.css</td>
                     <td>variables.scss</td>
-                    <td>scss-variables are use inside components only</td>
+                    <td>scss-variables are used inside components only</td>
                 </tr>
                 </tbody>
             </table>

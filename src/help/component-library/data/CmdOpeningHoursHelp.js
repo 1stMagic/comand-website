@@ -1,10 +1,11 @@
 export default [
 `<CmdOpeningHours 
-    :openingHours="openingHoursData" 
-    :closed="true" 
-    headline="Opening hours"
-    textOpenClosed="Closed right now!"
+    :openingHours="openingHours"
+    :closed="true"
+    :cmdHeadline="{headlineText: 'Opening hours', headlineLevel: 5}"
+    textOpen="Open right now!"
+    textClosed="Closed right now!"
     textHolidaysClosed="Closed on holidays"
-    textMiscInfo="Miscellaneous information" 
+    textMiscInfo="Miscellaneous information"
 />`
 ]

@@ -1,24 +1,18 @@
 <script setup>
 // import functions
 import {tabProps, tabHandlers} from "../../tabs"
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "../../../../utils/common"
 
 // import components
 import {CmdTooltip} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import {CmdHeadline} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdTooltipHelp"
 import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdTooltipPropertyDescriptions.json"
-
-// import composables
-import {useSequence} from "comand-component-library"
-
-const sequence = useSequence()
 
 const propertyStructures = {
     iconClose: {
@@ -36,7 +30,7 @@ const propertyStructures = {
             <ExampleSectionWrapper
                 componentName="CmdTooltip"
                 headlineText="Tooltip (opened by hover)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="1"
                 :code="CmdCode"
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
@@ -53,7 +47,7 @@ const propertyStructures = {
             <ExampleSectionWrapper
                 componentName="CmdTooltip"
                 headlineText="Tooltip (opened (and closed) by click)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="2"
                 :code="CmdCode">
                 <p>
                     <a href="#" @click.prevent id="clickme" title="Native tooltip">Click me!</a>

@@ -1,24 +1,18 @@
 <script setup>
 // import functions
 import {tabProps, tabHandlers} from "../../tabs"
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "../../../../utils/common"
 
 // import components
 import {CmdProgressBar} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import {CmdHeadline} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdProgressBarHelp"
 import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdProgressBarPropertyDescriptions.json"
-
-// import composables
-import {useSequence} from "comand-component-library"
-
-const sequence = useSequence()
 </script>
 
 <template>
@@ -28,7 +22,7 @@ const sequence = useSequence()
             <ExampleSectionWrapper
                 componentName="CmdProgressBar"
                 headlineText="Progress Bar (with output)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="1"
                 :code="CmdCode"
                 :isFirstComponent="true">
                 <teleport to="#frame-component-target" :disabled="!isFrameMode()">
@@ -43,7 +37,7 @@ const sequence = useSequence()
             <ExampleSectionWrapper
                 componentName="CmdProgressBar"
                 headlineText="Progress Bar (without output)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="2"
                 :code="CmdCode">
                 <CmdProgressBar
                     labelText="Progress Bar without output:"

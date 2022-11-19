@@ -17,5 +17,11 @@ export default [
         />
     </template>
     <!-- end slot:logo -->
-</CmdSiteHeader>`
+</CmdSiteHeader>`,
+`<CmdSiteHeader
+    :cmdMainNavigation="navigationEntries"
+    :cmdCompanyLogo="companyLogo"
+    :sticky="true"
+    :navigation-inline="true"
+/>`
 ]

@@ -2,27 +2,21 @@
 // import functions
 import {ref} from "vue"
 import {tabProps, tabHandlers} from "../../tabs"
-import {isFrameMode} from "comand-component-library/src/utils/common"
+import {isFrameMode} from "../../../../utils/common"
 
 // import components
 import {CmdFakeSelect} from "comand-component-library"
 import {CmdTabs} from "comand-component-library"
 import ExampleSectionWrapper from "../../components/ExampleSectionWrapper.vue"
-import ViewCodeData from "../../components/ViewCodeData.vue"
 import ComponentProperties from "../../components/ComponentProperties.vue"
 
 // import example-data
 import CmdCode from "../../data/CmdFakeSelectHelp"
 import fakeSelectOptions from "../../assets/data/fake-select-options.json"
+import fakeSelectOptionsWithIcons from '../../assets/data/fake-select-options-with-icons.json'
 import fakeSelectColors from '../../assets/data/fake-select-colors.json'
 import fakeSelectCountries from '../../assets/data/fake-select-countries.json'
-import fakeSelectOptionsWithIcons from '../../assets/data/fake-select-options-with-icons.json'
 import propertyDescriptions from "comand-component-library/src/documentation/generated/CmdFakeSelectPropertyDescriptions.json"
-
-// import composables
-import {useSequence} from "comand-component-library"
-
-const sequence = useSequence()
 
 const propertyStructures = {
     dropdownIcon: {
@@ -53,7 +47,7 @@ const fakeSelectColor = ref("")
             <ExampleSectionWrapper
                 componentName="CmdFakeSelect"
                 headlineText="Selectbox 'default'"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="1"
                 :code="CmdCode"
                 :data="fakeSelectOptions"
                 :isFirstComponent="true">
@@ -79,10 +73,10 @@ const fakeSelectColor = ref("")
             <ExampleSectionWrapper
                 componentName="CmdFakeSelect"
                 headlineText="Selectbox 'default' (with icons)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="2"
                 :code="CmdCode"
-                :data="fakeSelectOptions"
-                :isFirstComponent="true">
+                :data="fakeSelectOptionsWithIcons"
+            >
                 <CmdFakeSelect
                     labelText="Selectbox with icons:"
                     :status="formElementStatus"
@@ -101,7 +95,8 @@ const fakeSelectColor = ref("")
             <ExampleSectionWrapper
                 componentName="CmdFakeSelect"
                 headlineText="Selectbox 'checkboxOptions' (shows checkboxes)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="3"
+                :data="fakeSelectOptions"
                 :code="CmdCode">
                 <CmdFakeSelect
                     labelText="Selectbox with checkboxes:"
@@ -125,7 +120,7 @@ const fakeSelectColor = ref("")
             <ExampleSectionWrapper
                 componentName="CmdFakeSelect"
                 headlineText="Selectbox 'content' (content given by slot)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="4"
                 :code="CmdCode">
                 <CmdFakeSelect
                     labelText="Selectbox with slot-content:"
@@ -148,7 +143,8 @@ const fakeSelectColor = ref("")
             <ExampleSectionWrapper
                 componentName="CmdFakeSelect"
                 headlineText="Selectbox 'country' (shows country flags)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="5"
+                :data="fakeSelectCountries"
                 :code="CmdCode">
                 <CmdFakeSelect
                     labelText="Selectbox with country flags:"
@@ -169,7 +165,8 @@ const fakeSelectColor = ref("")
             <ExampleSectionWrapper
                 componentName="CmdFakeSelect"
                 headlineText="Selectbox 'colors' (show squares with colors)"
-                :sequence="sequence.nextSequenceValue()"
+                preHeadlineText="6"
+                :data="fakeSelectColors"
                 :code="CmdCode">
                 <CmdFakeSelect
                     labelText="Selectbox with colors:"
